@@ -437,8 +437,6 @@ public class TombiCharacterController : SerializableMonoBehaviour
         //Make sure that the script has been initialized properly.
         if (hasInitialized)
         {
-
-
             if (movementSettings.lockZMovement)
             {
                 CheckForGrabbableObjects();
@@ -543,7 +541,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
                 }
             }
 
-            if (!stateController.isBlocking && !stateController.isDead && !climbController.isWallSnapping && !climbController.hasWallSnapped)
+            if (!stateController.isBlocking && !stateController.isDead && !climbController.isWallSnapping && !climbController.hasWallSnapped && !climbController.hasLedgeSnapped && !climbController.isLedgeSnapping && !climbController.isLedgeClimbing)
             {
                 CameraRelativeMovement();
             }
@@ -557,7 +555,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
 
             if (climbController.canLedgeClimb && !climbController.isLedgeClimbing)
             {
-                animator.SetTrigger("LedgeSnapTrg");
+                //animator.SetTrigger("LedgeSnapTrg");
 
                 this.GetComponent<IKHandler>().isSwinging = true;
                 this.GetComponent<IKHandler>().HandPositionOnSwingL = new Vector3(ledgeSnappedObj.transform.position.x + 0.01f * lastInputHorizontal, ledgeSnappedObj.transform.position.y, transform.position.z + 0.2f * lastInputHorizontal);
@@ -606,10 +604,10 @@ public class TombiCharacterController : SerializableMonoBehaviour
             }
             else
             {
-                HandlePlayerGravity();
-
-                if (!climbController.hasWallSnapped)
+                if (!climbController.hasWallSnapped && !climbController.isLedgeSnapping && !climbController.hasLedgeSnapped)
                 {
+                    HandlePlayerGravity();
+
                     CheckForGrounded(0.5f);
                 }
             }
@@ -921,7 +919,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
 
             if (currentSlope >= 20f && !Physics.Raycast(this.transform.position, this.transform.forward, 0.3f, physicsSettings.collidingMask) && stateController.isGrounded)// && !stateController.isGrounded)
             {
-                Vector3 hVel = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+                Vector3 hVel = rb.velocity; // new Vector3(rb.velocity.x, 0, rb.velocity.z);
 
                 if (hVel.magnitude > 2f)
                 {
@@ -938,15 +936,26 @@ public class TombiCharacterController : SerializableMonoBehaviour
 
                         if (isSliding)
                         {
+                            rb.useGravity = false;
                             float slideSpeed = currentSlope;
                             this.transform.position = hit.point;
 
-                            if(hVel.magnitude < 3f)
+                            if (currentSlope < 45)
                             {
-                                rb.AddForce(-n * 15f * Time.deltaTime, ForceMode.Impulse);
+                                if (hVel.magnitude < 3f)
+                                {
+                                    //rb.AddForce(-n * 15f * Time.deltaTime, ForceMode.Impulse);
 
-                                //Add slope slide force
-                                rb.AddForce(Vector3.down * (currentSlope * Time.deltaTime * 1.2f), ForceMode.VelocityChange);
+                                    //Add slope slide force
+                                    rb.AddForce(Vector3.down * (currentSlope * Time.deltaTime * 1.2f), ForceMode.VelocityChange);
+                                }
+                            }
+
+                            else
+                            {
+                                rb.velocity = rb.velocity * 0.2f;
+
+                                Debug.Log(currentSlope);
                             }
                         }
                     }
@@ -1010,9 +1019,14 @@ public class TombiCharacterController : SerializableMonoBehaviour
 
     public void LedgeGrab(GameObject ledgeSnapped)
     {
-        animator.SetTrigger("LedgeSnapTrg");
+        //if ((!animator.GetCurrentAnimatorStateInfo(0).IsName("Fall-Ledge-Grab") || 
+        //            !animator.GetCurrentAnimatorStateInfo(0).IsName("Ledge_Snap") || 
+        //            !animator.GetCurrentAnimatorStateInfo(0).IsName("Ledge_Hold")) && !climbController.isLedgeClimbing)
+        //{
+        //}
+        ResetIdle();
 
-        if(!climbController.canLedgeClimb)
+        if (!climbController.canLedgeClimb)
         {
             ledgeSnappedObj = ledgeSnapped;
             climbController.canLedgeClimb = true;
@@ -1042,18 +1056,22 @@ public class TombiCharacterController : SerializableMonoBehaviour
                         }
                     }
                     transform.rotation = Quaternion.Euler(new Vector3(0, this.transform.rotation.eulerAngles.y, this.transform.rotation.eulerAngles.z));
+
+                    //RotateTowardsMovementDir(lastInputVec, true);
+
                     rb.isKinematic = true;
                     climbController.isLedgeSnapping = true;
-                    
-                    if(!climbController.hasLedgeSnapped && !climbController.canWallSnap)
+                    stateController.isGrounded = false;
+                    stateController.isFalling = false;
+
+                    if (!climbController.hasLedgeSnapped && !climbController.canWallSnap)
                     {
+                        climbController.hasLedgeSnapped = true;
                         audioManager.Play("Snap");
+                        animator.SetTrigger("LedgeSnapTrg");
+                        animator.SetBool("HasLedgeSnapped", true);
 
                     }
-                    climbController.hasLedgeSnapped = true;
-                    animator.SetTrigger("LedgeSnapTrg");
-
-                    stateController.isFalling = false;
                 }
             }
         }
@@ -1062,6 +1080,9 @@ public class TombiCharacterController : SerializableMonoBehaviour
     public void LedgeGrabReset()
     {
         climbController.canLedgeClimb = false;
+        animator.SetBool("HasLedgeSnapped", false);
+        animator.ResetTrigger("LedgeSnapTrg");
+
     }
 
     public void WallSnap()
@@ -1259,7 +1280,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
                 climbController.canLedgeClimb = false;
                 climbController.canLedgeSnap = false;
                 climbController.isLedgeSnapping = false;
-                physicsSettings.groundGravity = -9.8f;
+                //physicsSettings.groundGravity = -9.8f;
                 rb.isKinematic = false;
 
                 climbController.ledgeClimbProgress = 0f;
@@ -1650,7 +1671,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
         {
             if (inputVec != Vector3.zero)
             {
-                RotateTowardsMovementDir(inputVec, false);
+                RotateTowardsMovementDir(inputVec, true);
             }
             else
             {

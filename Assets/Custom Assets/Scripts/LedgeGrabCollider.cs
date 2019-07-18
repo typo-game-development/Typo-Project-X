@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class LedgeGrabCollider : MonoBehaviour
 {
+    TombiCharacterController charScript;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        charScript = FindObjectOfType<TombiCharacterController>();
     }
 
     // Update is called once per frame
@@ -20,8 +22,7 @@ public class LedgeGrabCollider : MonoBehaviour
     {
         if (other.gameObject.layer == 12)
         {
-           
-            FindObjectOfType<TombiCharacterController>().LedgeGrab(other.gameObject);
+            charScript.LedgeGrab(other.gameObject);
         }
     }
 
@@ -29,7 +30,7 @@ public class LedgeGrabCollider : MonoBehaviour
     {
         if (other.gameObject.layer == 12)
         {
-            FindObjectOfType<TombiCharacterController>().LedgeGrabReset();
+            charScript.LedgeGrabReset();
         }
     }
 }
