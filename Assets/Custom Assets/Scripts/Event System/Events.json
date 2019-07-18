@@ -1,0 +1,1174 @@
+{
+    "Events": [
+        {
+            "eventType": 0,
+            "name": "Grandpa's Bracelet",
+            "description": "Find the bracelet stolen by the Koma Pigs.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 0
+        },
+        {
+            "eventType": 0,
+            "name": "Clear the Fog",
+            "description": "Blow away the thick fog.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "The 100 Year|Old Wise Man",
+            "description": "Meet the 100 Year Old Wise Man.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "Inside the Kokka Eggs",
+            "description": "Collect the chicks inside the eggs.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "Tale of the Evil Pigs",
+            "description": "Learn about what happened when the Evil Pigs came to town.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 0
+        },
+        {
+            "eventType": 0,
+            "name": "Beginner's|Dwarf Language",
+            "description": "Learn how to speak dwarf language.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 0,
+            "name": "Save the Dwarves",
+            "description": "Find the missing dwarves in the forest.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 5000
+        },
+        {
+            "eventType": 0,
+            "name": "A Lost Child",
+            "description": "Look for the child that is lost in the forest.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 0,
+            "name": "Dwarf Elder",
+            "description": "Meet the Dwarf Elder.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 0,
+            "name": "The Evil Pig Bag",
+            "description": "\tThe bag that has the power to seal the Evil Pigs.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 500
+        },
+        {
+            "eventType": 0,
+            "name": "The World's Greatest Smile!",
+            "description": "Can you make a convincing smile?",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "The World's Greatest Pout?",
+            "description": "Show him how to cry.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "To Phoenix Mountain...",
+            "description": "Head to Phoenix Mountain.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "Where's the Baby Mouse?",
+            "description": "Find the lost baby mouse.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "Road to Baccus Lake",
+            "description": "Head through the Haunted Mansion to Baccus Lake.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "A Drink for Grownups",
+            "description": "Brave the Haunted Mansion to fix the pump.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 0
+        },
+        {
+            "eventType": 0,
+            "name": "The 1,000 Year Old Man?",
+            "description": "Free the 1,000 Year Old Man from captivity.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "Painting of a Big Key?",
+            "description": "Find all the pieces of the picture to get an item.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 0,
+            "name": "A Large Key Hole!",
+            "description": "Find the large key that fits the door.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 0,
+            "name": "A Small Key Hole!",
+            "description": "Find the small key that fits the door.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 0,
+            "name": "Break the Magic Egg!",
+            "description": "Break the spell and listen to the 1 000 year old man's story.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 0,
+            "name": "The Mouse Pig Bag",
+            "description": "Find the Evil Pig Bag to restore Baccus Village.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "The Haunted Pig Bag",
+            "description": "Find the Evil Pig Bag to break the spell on the Haunted Mansion.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "A Precious Treasure Chest?",
+            "description": "Wonder what's inside the guarded treasure chest.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 0
+        },
+        {
+            "eventType": 0,
+            "name": "A Stormy Pig Bag",
+            "description": "\tFind the Pig Bag for the Stormy Pig.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "Phoenix Mountain",
+            "description": "Seal the Evil Pig's powers in the bag.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 20000
+        },
+        {
+            "eventType": 0,
+            "name": "The Fire Pig Bag",
+            "description": "Find the Evil Pig Pag for the Fire Evil Pig.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 0,
+            "name": "Smile!",
+            "description": "A locked door with a large grin.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 0
+        },
+        {
+            "eventType": 0,
+            "name": "Lava Caves",
+            "description": "\tSeal the Evil Pig's powers in the bag.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "The Haunted Mansion",
+            "description": "Seal the powers of the Evil Pig in the bag.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 20000
+        },
+        {
+            "eventType": 0,
+            "name": "The Phoenix's Favorite",
+            "description": "Collect five Bunk Flowers for the Phoenix.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 0,
+            "name": "The Master of the Skies",
+            "description": "Meet the Phoenix at Stormy Mountain.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 5000
+        },
+        {
+            "eventType": 0,
+            "name": "Find Charles!",
+            "description": "Find Charles and return the miner's hat",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "A Refreshing Drink",
+            "description": "Quench Charles' thirst to learn a new ability.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 0,
+            "name": "I Can't Swim...",
+            "description": "Need to learn how to swim.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "I Need a Bomb",
+            "description": "A bomb that looks like a coconut?",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "Break the Rusty Door!",
+            "description": "Find a way to open the rusted door.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "We Need Power...",
+            "description": "Fix the clock tower.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 0,
+            "name": "The Civilization Machine",
+            "description": "The revived machine.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 0
+        },
+        {
+            "eventType": 0,
+            "name": "Baccus Village",
+            "description": "Seal the powers of the Evil Pig in the bag.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 20000
+        },
+        {
+            "eventType": 0,
+            "name": "The Jungle Pig Bag",
+            "description": "Find the Evil Pig Bag for the Jungle Pig.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "The Deep Jungle Pig",
+            "description": "Seal the powers of the Evil Pig in the bag.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 20000
+        },
+        {
+            "eventType": 0,
+            "name": "What's Under the Forest?",
+            "description": "The underground world comes back to life.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 0,
+            "name": "The 10,000 Year Old Man",
+            "description": "Visit the 10,000 Year Old Man.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "The Mermaid's Necklace",
+            "description": "A beautiful necklace that belongs to the Mermaid.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "What's Underwater?",
+            "description": "Learn to dive underwater.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 0,
+            "name": "The 10 Math Beads",
+            "description": "Find the 10,000 Year Old Man's Math Beads.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 0,
+            "name": "The Underwater Pig Bag",
+            "description": "Find the Evil Pig Bag for the Underwater Pig.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "Trick Village",
+            "description": "Seal the powers of the Evil Pig in the bag.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 20000
+        },
+        {
+            "eventType": 0,
+            "name": "The Thief's Door",
+            "description": "What tool should I use to open this door?",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "Unbreakable Wire",
+            "description": "Find the unbreakable wire at the Haunted Mansion.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 0,
+            "name": "Source of Evil Magic",
+            "description": "The Million Year Old Man knows where it comes from.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "Dig Like a Mole",
+            "description": "A digger trying to dig a new path.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 0,
+            "name": "The 100 Flower Forest",
+            "description": "Seal the powers of the Evil Pig in the bag.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 20000
+        },
+        {
+            "eventType": 0,
+            "name": "Million Year Old Wish",
+            "description": "The Million Year Old Man's wish is to seal all the Evil Pigs...",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 5000
+        },
+        {
+            "eventType": 0,
+            "name": "The 8th Evil Pig Bag?",
+            "description": "Seal the powers of the Master Evil Pig.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 500
+        },
+        {
+            "eventType": 0,
+            "name": "Seven Friends",
+            "description": "Find seven friends to open the last gate.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 10000
+        },
+        {
+            "eventType": 0,
+            "name": "A Real Evil Pig",
+            "description": "Seal the powers of the final Evil Pig!",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 50000
+        },
+        {
+            "eventType": 1,
+            "name": "Take Me Home",
+            "description": "Bring the frog home.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "A Hungry Monkey",
+            "description": "Find some food for the monkey.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "Motocross Course",
+            "description": "The bumpy road beyond the fence.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 0
+        },
+        {
+            "eventType": 1,
+            "name": "Who are you?",
+            "description": "Who is this mysterious person?",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 5000
+        },
+        {
+            "eventType": 1,
+            "name": "The AP Box",
+            "description": "Collect AP points for something special.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 1,
+            "name": "I Need a Tear Bottle",
+            "description": "Get the Tear Bottle from the Yellow Bonsugee.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "Where'd the Lights Go?",
+            "description": "Re-light the lantern.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 1,
+            "name": "Stop the Fight!",
+            "description": "Break up the fight among the dwarves.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 2000,
+            "clearAPGain": 5000
+        },
+        {
+            "eventType": 1,
+            "name": "The Great Escape",
+            "description": "The thief is trying to escape.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 2000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "Look and See?!",
+            "description": "Enjoy the view.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 1,
+            "name": "Ready, Set, Go!",
+            "description": "Race the thief up the hill for his treasure.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "Monster Hunt",
+            "description": "Fight the monster that lives in the Mushroom Forest.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 0
+        },
+        {
+            "eventType": 1,
+            "name": "The Mysterious Mushroom",
+            "description": "A mushroom that can make you laugh or cry.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 1,
+            "name": "Leaf Slider",
+            "description": "A dangerous slide.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 1,
+            "name": "Red + Blue = ?",
+            "description": "Put the two together for something you've never seen before.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "A Safe Mushroom?",
+            "description": "A mushroom that returns you to normal.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 1,
+            "name": "Treasures from the Mansion?",
+            "description": "Find the rumored treasures.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "A Familiar Looking Mansion",
+            "description": "I've seen this mansion before...but where?",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 500
+        },
+        {
+            "eventType": 1,
+            "name": "Charles' Pants",
+            "description": "Find and return Charles' pants.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 0
+        },
+        {
+            "eventType": 1,
+            "name": "The Red Fortune Teller",
+            "description": "Meet the Red Fortune Teller.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 1,
+            "name": "The Broken Fountain",
+            "description": "Revive the statues.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 5000
+        },
+        {
+            "eventType": 1,
+            "name": "Can't Stop Crying",
+            "description": "Can't stop the tears from flowing.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "Death Fruit Juice",
+            "description": "Crush the fruit that's killing the forest plants.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "Flower Seeds",
+            "description": "Where should I plant the seeds?",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 5000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "Plant a Flower Garden",
+            "description": "Plant flower seeds to grow a beautiful flower garden.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 5000
+        },
+        {
+            "eventType": 1,
+            "name": "Where did I come from?",
+            "description": "How could the path take me here?",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "Healing Herbs for Baron",
+            "description": "Find the Healing Herbs to heal Baron's wounds...",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 1,
+            "name": "Cry Baby",
+            "description": "A locked Door with a sad face.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 1,
+            "name": "Red Hidden|Powers",
+            "description": "Find the Jewel of Fire to unleash the hidden powers from within.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 10000
+        },
+        {
+            "eventType": 1,
+            "name": "Hide and Go Seek",
+            "description": "Play hide and go seek with Yan.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 10000
+        },
+        {
+            "eventType": 1,
+            "name": "I'm So Hungry",
+            "description": "Find something for this person to eat.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 2000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "When the Wind Dies Down...",
+            "description": "The wind is too strong to open the door.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 1,
+            "name": "Leaf Butterflies",
+            "description": "Collect as many Leaf Butterfies as you can.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 10000
+        },
+        {
+            "eventType": 1,
+            "name": "Food for Fuel?",
+            "description": "Bring back a bucket of wine for the GoGoCar.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "The Mermaid's Singing Rock",
+            "description": "The Motocross Goal!",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "I Want a Bronze Medal",
+            "description": "",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 1,
+            "name": "I Want a Silver Medal",
+            "description": "An honorable medal for exceeding the existing second winner's record.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "What's a Funga?",
+            "description": "Bring him a Funga.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "The Cute Witch",
+            "description": "Visit Mizuno in the Village of All Beginnings.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "Let's Ride the Raft!",
+            "description": "Need a ride...",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 0
+        },
+        {
+            "eventType": 1,
+            "name": "What is this?",
+            "description": "Something was hidden from view.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 2000,
+            "clearAPGain": 5000
+        },
+        {
+            "eventType": 1,
+            "name": "Tree of Knowledge Knows",
+            "description": "Go to the Wise Old Tree.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 1,
+            "name": "Delicious|Knowledge Fruit",
+            "description": "Find the fruit from the Tree of Knowledge for the dwarf healer.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 1,
+            "name": "Seaweed for Your Health",
+            "description": "Find the seaweed to keep the Dwarf Village healthy.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 1,
+            "name": "A Man's Best Friend",
+            "description": "Help the injured puppy.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 2000,
+            "clearAPGain": 5000
+        },
+        {
+            "eventType": 1,
+            "name": "Baron's Strength",
+            "description": "This dog must possess some special, hidden power...",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 5000
+        },
+        {
+            "eventType": 1,
+            "name": "Tears from a Flower",
+            "description": "Will the tears revive the fountain?",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 5000
+        },
+        {
+            "eventType": 1,
+            "name": "What the Witch Lost...",
+            "description": "Find and return the Crystal Balls and Mirror to the witch.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "Lost and Found",
+            "description": "Find the remaining crystal balls and return them to their owner.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "A Magic Mirror?",
+            "description": "Who's mirror is this?",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 1,
+            "name": "Let's Make Candy!",
+            "description": "Make magic candy by combining the six items!",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "The Famous Digger",
+            "description": "Visit the Famous Digger after he's finished digging his hole.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "Power Up for Tools!?",
+            "description": "Tool receives a power up!?",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "Take Two of These",
+            "description": "The cute witch needs something for her cold.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "Underground|Treasure",
+            "description": "Find the underground treasure.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "Some Cheese Please",
+            "description": "Gather ten slices of cheese and return them to the collector.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 10000
+        },
+        {
+            "eventType": 1,
+            "name": "Blue Hidden Powers",
+            "description": "Find the Jewel of Water to unleash other hidden powers.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 0,
+            "clearAPGain": 10000
+        },
+        {
+            "eventType": 1,
+            "name": "5 Golden Items",
+            "description": "Collect the five rare items.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 10000
+        },
+        {
+            "eventType": 1,
+            "name": "Mighty Fish Food",
+            "description": "Catch a Mighty Fish?",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "The Blue Fortune Teller",
+            "description": "To know the best of yourself, seek fortune tellers!",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 1,
+            "name": "The Pump Rocks",
+            "description": "Jump on all of the Pump Rocks to feed the Tree of Knowledge.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 10000
+        },
+        {
+            "eventType": 1,
+            "name": "Green Hidden Powers",
+            "description": "Find the Jewel of Wind to unleash your remaining hidden powers.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 10000
+        },
+        {
+            "eventType": 1,
+            "name": "Something's Cookin'?",
+            "description": "A sweet smell is coming from the burning leaves.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 2000,
+            "clearAPGain": 10000
+        },
+        {
+            "eventType": 1,
+            "name": "Biting Plant Flower",
+            "description": "Beautiful flowers bloom from dangerous plants.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 10000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "Take Out",
+            "description": "Bring Yan his lunch.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "The Troubled Thief",
+            "description": "Find what the thief lost and return it to him.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 1,
+            "name": "What the Thief Forgot",
+            "description": "Return what the thief left behind.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 2000
+        },
+        {
+            "eventType": 1,
+            "name": "The Boss' Treasure",
+            "description": "He says you have his treasure.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 5000
+        },
+        {
+            "eventType": 1,
+            "name": "I Want a Gold Medal",
+            "description": "A marvelous medal for exceeding the existing champion's record.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 5000
+        },
+        {
+            "eventType": 1,
+            "name": "Where The Barrel Rolls...",
+            "description": "The barrel sank all the way to the bottom.",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 500,
+            "clearAPGain": 5000
+        },
+        {
+            "eventType": 1,
+            "name": "Peach Flower Gas",
+            "description": "A Baby Koma Pig?",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 2000,
+            "clearAPGain": 1000
+        },
+        {
+            "eventType": 1,
+            "name": "Flower Tower",
+            "description": "What's inside the Flower Tower?",
+            "cleared": false,
+            "occurred": false,
+            "occurrAPGain": 1000,
+            "clearAPGain": 10000
+        }
+    ]
+}

@@ -1,0 +1,240 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2814704406411740715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2814704406411740713}
+  - component: {fileID: 2814704406411740714}
+  m_Layer: 0
+  m_Name: Camera Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2814704406411740713
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2814704406411740715}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -48.859406, y: -23.18671, z: 66.55218}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2814704406411740714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2814704406411740715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa19543ac129c64439631995c8217e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Camera: {fileID: 0}
+  DesiredDistance: 6
+  MinZoomDistance: 6
+  MaxZoomDistance: 6
+  InitialHorizontalRotation: 0
+  InitialVerticalRotation: 4
+  Target:
+    Target: {fileID: 0}
+  Rotation:
+    Enabled: 1
+    Limits:
+      EnableVerticalLimits: 1
+      VerticalUp: 90
+      VerticalDown: -90
+      EnableHorizontalLimits: 0
+      HorizontalLeft: 90
+      HorizontalRight: -90
+    Isometric:
+      RightRotation: 15
+      LeftRotation: 15
+      UpRotation: 15
+      DownRotation: 15
+    HorizontalDegreesEvent:
+      Enabled: 0
+      DegreesTrigger: 90
+      ResetTotalAfterEachEvent: 0
+    VerticalDegreesEvent:
+      Enabled: 0
+      DegreesTrigger: 90
+      ResetTotalAfterEachEvent: 0
+    AutoRotation:
+      Enabled: 1
+      DisableExternalRotationWhileAutoRotating: 1
+      AllowOverrides: 1
+      SmartFollow:
+        SmartFollowOrientationTransform: {fileID: 0}
+        Enabled: 1
+        AutoActivate: 1
+        OnlyUpdateWhileMoving: 0
+        OnlyUpdateWhileMovingTolerance: 0.01
+        DontUpdateIfMouseLocked: 1
+        OrientateDegreesPerSecond: 80
+        OrientateDegreesSpeedUpAngle: 45
+        OrientateDegreesSpeedUpRate: 0.5
+        DistanceActivation: 0.2
+    _isoRightRotated: 0
+    _isoLeftRotated: 0
+    _isoUpRotated: 0
+    _isoDownRotated: 0
+    _autoRotateTimeRemaining: 0
+    waitingForIsoRotation: 0
+  Zoom:
+    MinimumDistance: 0
+    SnapIn: 0
+    SnapOut: 0
+    UniformSpeed: 0
+    ZoomInSpeed: 0.5
+    ZoomOutSpeed: 0.5
+    EnableAddPercentageOnScroll: 1
+    PercentageToAdd: 0.15
+  ViewCollision:
+    Enabled: 0
+    LineOfSightLayers:
+      serializedVersion: 2
+      m_Bits: 43831
+    IgnoreTheseGameObjects: []
+    SamplingPoints:
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0.5, z: 0}
+    - {x: 0, y: -0.5, z: 0}
+    - {x: 0.5, y: 0, z: 0}
+    - {x: -0.5, y: 0, z: 0}
+    ThicknessChecking:
+      Enabled: 0
+      ThicknessThreshhold: 0.4
+      NumberOfChecks: 1
+      NumberOfAngles: 8
+  Input:
+    EnableHorziontal: 1
+    EnableVertical: 1
+    EnableZoomIn: 1
+    EnableZoomOut: 1
+    Sensitivity:
+      Horizontal: 6
+      Vertical: 6
+      ZoomIn: 6
+      ZoomOut: 6
+    Invert:
+      Horizontal: 0
+      Vertical: 1
+      ZoomIn: 0
+      ZoomOut: 0
+    Smoothing:
+      Enabled: 0
+      Horizontal:
+        Enabled: 0
+        Consider0AsValidInput: 1
+        DurationIn: 0.15
+        DurationOut: 0.15
+        Limitation: 40
+      Vertical:
+        Enabled: 0
+        Consider0AsValidInput: 1
+        DurationIn: 0.15
+        DurationOut: 0.15
+        Limitation: 40
+      ZoomIn:
+        Enabled: 0
+        Consider0AsValidInput: 1
+        DurationIn: 0.15
+        DurationOut: 0.15
+        Limitation: 40
+      ZoomOut:
+        Enabled: 0
+        Consider0AsValidInput: 1
+        DurationIn: 0.15
+        DurationOut: 0.15
+        Limitation: 40
+  EasyUnityInput:
+    Enabled: 0
+    AppendOver: 0
+    Use0NotNullWhileMouseInputDown: 1
+    HorizontalInputName: Mouse X
+    VerticalInputName: Mouse Y
+    ZoomInInputName: Mouse ScrollWheel
+    ZoomOutInputName: Mouse ScrollWheel
+    EnableHorizontal: 1
+    EnableVertical: 1
+    EnableZoomIn: 1
+    EnableZoomOut: 1
+    MouseInputButtonName: Fire1
+    EnableRotationOnlyWhenMousePressed: 1
+    EnableRotationOnlyWhenCursorLocked: 1
+    DisableInputWhenOver:
+      EventSystemWhenPointerOverGuiElement: 1
+      ExclusionsFromEventSystem: []
+      WhenPointerOverRects: []
+      WhenPointerOverRectTransform: []
+  Cursor:
+    Enabled: 1
+    LockMode: 1
+    LockButtonInputName: Fire1
+    LockCursorButton: 1
+    HoldToReleaseInputName: Fire2
+    HoldToReleaseLock: 1
+    VisibleWhenLocked: 0
+    VisibleWhenUnlocked: 1
+    DisableLockingWhenOver:
+      EventSystemWhenPointerOverGuiElement: 1
+      ExclusionsFromEventSystem: []
+      WhenPointerOverRects: []
+      WhenPointerOverRectTransform: []
+  Headbob:
+    Enabled: 0
+    Forced: 0
+    EnableRangedActivation: 0
+    ActivationRange: 0
+    MagnitudeCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 4
+    DurationOfCurve: 0.5
+    ScaleOfCurve: 0.5
+    ReadjustToNormalTime: 0.5
+  ScreenShake:
+    Enabled: 0
+    Mode: 0
+    HorizontalIntensity: 0.3
+    VerticalIntensity: 0.3
+    UseSpecificSeed: 1
+    Seed: 0
+    RandomizeTime: 0.035
+  iniRot: {x: 0, y: 0, z: 0}
+  canUpdateCameraPosition: 1
+  smoothCameraPosition: 1

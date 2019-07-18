@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: DwarfForestGrass
+  m_Shader: {fileID: 4800000, guid: f7835d26e94875f47848e4600cd0ab70, type: 3}
+  m_ShaderKeywords: GEOM_TYPE_LEAF _ALPHATEST_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: e3a9522ecae56444b9d4e7a0eb9d6e78, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: 7fafd67cb33d43941b25fbeedeeb2d16, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AmbientOcclusion: 0
+    - _BendingInfluence: 0.214
+    - _BendingTint: -0.05
+    - _BumpScale: 1
+    - _ColorVariation: 0
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _FlatLighting: 0
+    - _GlobalWindMotion: 1
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _HeightGradient: 0.3
+    - _HeightStartGradient: 0.1
+    - _HeightmapInfluence: 0
+    - _LeafFlutter: 0.495
+    - _MaxHeight: -0.04
+    - _MaxWindStrength: 0.126967
+    - _Metallic: 0
+    - _MinHeight: -1
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _PigmentMapHeight: 0
+    - _PigmentMapInfluence: 0
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _TransmissionAmount: 0
+    - _TransmissionSize: 0
+    - _UVSec: 0
+    - _VS_TOUCHBEND: 0
+    - _WindAmplitudeMultiplier: 1
+    - _WindFoliageAmplitude: 0
+    - _WindFoliageSpeed: 0
+    - _WindSwinging: 0
+    - _WindTint: 0.1
+    - _WindTrunkAmplitude: 0
+    - _WindTrunkSpeed: 0
+    - _ZWrite: 1
+    - __dirty: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorBottom: {r: 0.5566038, g: 0.22548322, b: 0.028880388, a: 1}
+    - _ColorTop: {r: 0.5283019, g: 0.25482798, b: 0, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FlowerInsideColor01: {r: 1, g: 0.7789562, b: 0.12735847, a: 0}
+    - _FlowerInsideColor02: {r: 1, g: 0.9507267, b: 0.6084906, a: 0}
+    - _FlowerMainColor01: {r: 1, g: 0.9637498, b: 0.759434, a: 0}
+    - _FlowerMainColor02: {r: 1, g: 0.70334506, b: 0.15566036, a: 0}
+    - _GrassColor: {r: 0.5264154, g: 0.7264151, b: 0.21586856, a: 0}
+    - _HeightColor: {r: 0.44640553, g: 0.6981132, b: 0.13501236, a: 0}
