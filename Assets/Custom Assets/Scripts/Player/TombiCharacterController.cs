@@ -2290,6 +2290,8 @@ public class TombiCharacterController : SerializableMonoBehaviour
     {
 
     }
+
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         RaycastHit hit1;
@@ -2433,6 +2435,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
         }
     }
 
+
     private void DrawGizmosDetectionRays()
     {
         foreach (Vector3 r in climbController.climbDetectionRays)
@@ -2469,6 +2472,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
             }
         }
     }
+#endif
     #region MiscMethods
 
     void AttackKick(int kickSide)

@@ -23,6 +23,10 @@ EditorBuildSettings:
       Dwarf Forest.unity
     guid: 3ae777ab669e4ca46a5b2cb16ce17b7c
   - enabled: 1
+    path: Assets/Scenes/Tomba!/New Scenes/Levels/SIDE SCROLLING/10 Masakari Jungle/10
+      Masakari Jungle.unity
+    guid: 84225fd9247499543a00107fb41041d7
+  - enabled: 1
     path: Assets/Scenes/Tomba!/New Scenes/Levels/ISOMETRICS/01 ISO_The Village of
       Dwarves/01 ISO_The Village Of Dwarves.unity
     guid: b946d28ee44065142912a79009071bcc

@@ -141,7 +141,7 @@ public class LedgeController : MonoBehaviour
         rb.useGravity = false;
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
 
-        CustomAssets.Utilities.Design.IconDrawer.DrawDotBigIcon(col.gameObject, 3);
+        //CustomAssets.Utilities.Design.IconDrawer.DrawDotBigIcon(col.gameObject, 3);
 
         System.Array.Resize(ref colliders, colliders.Length + 1);
 

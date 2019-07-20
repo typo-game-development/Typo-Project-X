@@ -249,7 +249,7 @@ public class SceneController : MonoBehaviour
 
         if(sceneIndex == 1)
         {
-            scene = 4;
+            scene = 5;
         }
     }
 }

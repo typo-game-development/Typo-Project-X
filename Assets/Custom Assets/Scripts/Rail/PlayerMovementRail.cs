@@ -4,7 +4,10 @@ using UnityEngine;
 using UnityEditor;
 
 [System.Serializable]
-[ExecuteInEditMode]
+
+#if UNITY_EDITOR
+    [ExecuteInEditMode]
+#endif
 public class PlayerMovementRail : SerializableMonoBehaviour
 {
     public override string FileExtension { get => ".smmr"; protected set => base.FileExtension = value; }
@@ -52,68 +55,77 @@ public class PlayerMovementRail : SerializableMonoBehaviour
 
     // Start is called before the first frame update
     void Awake()
-    {       
-        if(EditorApplication.isPlayingOrWillChangePlaymode)
+    {
+#if UNITY_EDITOR
+        if(UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode)
         {
-            if (camObj == null)
-            {
-                camObj = Camera.main.gameObject;
-            }
-            if (target == null)
-            {
-                TombiCharacterController charScript = FindObjectOfType<TombiCharacterController>();
-
-                if(charScript != null && charScript.gameObject != null)
-                {
-                    target = charScript.gameObject;
-
-                }
-            }
-
-            if(camScript == null)
-            {
-                camScript = FindObjectOfType<AdvancedUtilities.Cameras.BasicCameraController>();
-            }
-
-            if (target != null)
-            {
-                charScript = target.GetComponent<TombiCharacterController>();
-
-                if (moveTargetOnPoint)
-                {
-                    RaycastHit hit;
-
-                    if (Physics.Raycast(pointToMoveTarget.transform.position, -pointToMoveTarget.transform.up, out hit, 100f))
-                    {
-                        target.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                        target.GetComponent<Rigidbody>().isKinematic = true;
-
-                        target.transform.position = hit.point;
-                        target.GetComponent<Rigidbody>().isKinematic = false;
-
-                    }
-                    else
-                    {
-                        Debug.LogWarning("Impossible to move player on rail point!");
-                        return;
-                    }
-                    Vector3 tempRail = (pointToMoveTarget.transform.position - pointToMoveTarget.GetComponent<PlayerMovementRailPoint>().nextPoint.transform.position);
-                    UpdatePlayerRail(tempRail, pointToMoveTarget.transform.position, pointToMoveTarget.GetComponent<PlayerMovementRailPoint>().nextPoint.transform.position);
-                    charScript.RotateTowardsMovementDir(tempRail * -1, true);
-                    return;
-                }
-            }
-            else
-            {
-                Debug.Log("No target assigned to railcontroller!");
-            }
-
+            Initialize();
         }
         else
         {
             otherRails = new List<PlayerMovementRail>(FindObjectsOfType<PlayerMovementRail>());
             otherRails.Remove(this);
 
+        }
+#else
+        Initialize();
+#endif
+    }
+
+
+    public void Initialize()
+    {
+        if (camObj == null)
+        {
+            camObj = Camera.main.gameObject;
+        }
+        if (target == null)
+        {
+            TombiCharacterController charScript = FindObjectOfType<TombiCharacterController>();
+
+            if (charScript != null && charScript.gameObject != null)
+            {
+                target = charScript.gameObject;
+
+            }
+        }
+
+        if (camScript == null)
+        {
+            camScript = FindObjectOfType<AdvancedUtilities.Cameras.BasicCameraController>();
+        }
+
+        if (target != null)
+        {
+            charScript = target.GetComponent<TombiCharacterController>();
+
+            if (moveTargetOnPoint)
+            {
+                RaycastHit hit;
+
+                if (Physics.Raycast(pointToMoveTarget.transform.position, -pointToMoveTarget.transform.up, out hit, 100f))
+                {
+                    target.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    target.GetComponent<Rigidbody>().isKinematic = true;
+
+                    target.transform.position = hit.point;
+                    target.GetComponent<Rigidbody>().isKinematic = false;
+
+                }
+                else
+                {
+                    Debug.LogWarning("Impossible to move player on rail point!");
+                    return;
+                }
+                Vector3 tempRail = (pointToMoveTarget.transform.position - pointToMoveTarget.GetComponent<PlayerMovementRailPoint>().nextPoint.transform.position);
+                UpdatePlayerRail(tempRail, pointToMoveTarget.transform.position, pointToMoveTarget.GetComponent<PlayerMovementRailPoint>().nextPoint.transform.position);
+                charScript.RotateTowardsMovementDir(tempRail * -1, true);
+                return;
+            }
+        }
+        else
+        {
+            Debug.Log("No target assigned to railcontroller!");
         }
     }
 
@@ -138,7 +150,8 @@ public class PlayerMovementRail : SerializableMonoBehaviour
         GameObject newObj = Instantiate(obj, this.gameObject.transform);
 
         newObj.name = "RailPoint" + points.Length.ToString();
-        CustomAssets.Utilities.Design.IconDrawer.DrawDotBigIcon(newObj, 1);
+
+        //CustomAssets.Utilities.Design.IconDrawer.DrawDotBigIcon(newObj, 1);
 
         PlayerMovementRailPoint p = newObj.GetComponent<PlayerMovementRailPoint>();
 
@@ -182,7 +195,7 @@ public class PlayerMovementRail : SerializableMonoBehaviour
 
         newObj.name = "RailPoint";
 
-        CustomAssets.Utilities.Design.IconDrawer.DrawDotBigIcon(newObj, 1);
+        //CustomAssets.Utilities.Design.IconDrawer.DrawDotBigIcon(newObj, 1);
 
         PlayerMovementRailPoint p = newObj.GetComponent<PlayerMovementRailPoint>();
         PlayerMovementRailPoint prevP = this.points[this.points.Length - 2].GetComponent<PlayerMovementRailPoint>();
@@ -368,12 +381,12 @@ float DistanceLineSegmentPoint( Vector3 a, Vector3 b, Vector3 p )
         ClearAllRotationActiveFlags(point);
         point.activeForRotation = true;
     }
-
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         int c = 0;
 
-        if(points != null && points.Length > 0)
+        if (points != null && points.Length > 0)
         {
             foreach (GameObject p in points)
             {
@@ -398,7 +411,7 @@ float DistanceLineSegmentPoint( Vector3 a, Vector3 b, Vector3 p )
                         Handles.Label(new Vector3(p.transform.position.x, p.transform.position.y + 1f, p.transform.position.z), "Start");
                     }
 
-                    if(point.nextPoint != null)
+                    if (point.nextPoint != null)
                     {
                         Handles.Label((point.transform.position + point.nextPoint.transform.position) / 2, this.name);
                     }
@@ -450,7 +463,7 @@ float DistanceLineSegmentPoint( Vector3 a, Vector3 b, Vector3 p )
                         Gizmos.DrawWireCube(target.transform.position, new Vector3(0.5f, 0.5f, 0.5f));
                     }
 
-                    if(!loop)
+                    if (!loop)
                     {
                         if (c == points.Length - 1)
                         {
@@ -462,8 +475,9 @@ float DistanceLineSegmentPoint( Vector3 a, Vector3 b, Vector3 p )
                 }
             }
         }
-
     }
+#endif
+
 
     [HideInInspector]
     public bool isRotatingCamera = false;

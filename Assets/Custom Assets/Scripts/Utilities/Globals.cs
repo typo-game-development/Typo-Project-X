@@ -1,36 +1,28 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System.Reflection;
 
- using UnityEngine;
- using System.Collections;
- using UnityEditor;
- using System.Linq;
- using System;
- using System.Reflection;
- 
 public class Globals
 {
-    public static object GetParent(SerializedProperty prop)
-    {
-        var path = prop.propertyPath.Replace(".Array.data[", "[");
-        object obj = prop.serializedObject.targetObject;
-        var elements = path.Split('.');
-        foreach (var element in elements.Take(elements.Length - 1))
-        {
-            if (element.Contains("["))
-            {
-                var elementName = element.Substring(0, element.IndexOf("["));
-                var index = Convert.ToInt32(element.Substring(element.IndexOf("[")).Replace("[", "").Replace("]", ""));
-                obj = GetValue(obj, elementName, index);
-            }
-            else
-            {
-                obj = GetValue(obj, element);
-            }
-        }
-        return obj;
-    }
+    //public static object GetParent(SerializedProperty prop)
+    //{
+    //    var path = prop.propertyPath.Replace(".Array.data[", "[");
+    //    object obj = prop.serializedObject.targetObject;
+    //    var elements = path.Split('.');
+    //    foreach (var element in elements.Take(elements.Length - 1))
+    //    {
+    //        if (element.Contains("["))
+    //        {
+    //            var elementName = element.Substring(0, element.IndexOf("["));
+    //            var index = Convert.ToInt32(element.Substring(element.IndexOf("[")).Replace("[", "").Replace("]", ""));
+    //            obj = GetValue(obj, elementName, index);
+    //        }
+    //        else
+    //        {
+    //            obj = GetValue(obj, element);
+    //        }
+    //    }
+    //    return obj;
+    //}
 
     public static object GetValue(object source, string name)
     {

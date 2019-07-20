@@ -14,8 +14,7 @@ Material:
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap:
-    RenderType: TransparentCutout
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -92,15 +91,16 @@ Material:
     - WindSpeed: 0.3
     - _AO: 0
     - _AmbientOcclusion: 0.615
-    - _BendingInfluence: 0
+    - _BendingInfluence: 1
     - _BendingRadius: 1.5
     - _BendingStiffness: 0.2
     - _BendingStrength: 20
+    - _BendingTint: -0.05
     - _BlendSpeed: 0.028
     - _BumpScale: 1
     - _ColorVariation: 0
     - _Colorvariation: 0
-    - _Cutoff: 0.489
+    - _Cutoff: 0.888
     - _Debug: 0
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -112,7 +112,7 @@ Material:
     - _GlossyReflections: 1
     - _Height: 0
     - _HeightmapInfluence: 0
-    - _LeafFlutter: 0.25
+    - _LeafFlutter: 0.103
     - _MaskClipValue: 0.5
     - _MaxHeight: 0
     - _MaxWindStrength: 0.53
@@ -140,6 +140,7 @@ Material:
     - _Transmissionsize: 0
     - _UVSec: 0
     - _Uselightcolor: 0
+    - _VS_TOUCHBEND: 0
     - _WindAmplitudeMultiplier: 3
     - _WindSpeed: 0.5
     - _WindStiffness: 1

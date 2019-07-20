@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e58e0e57118c974c8316fe05a9e715a, type: 3}
   m_Name: Bright
   m_EditorClassIdentifier: 
-  Albedo: {r: 0, g: 0.6832957, b: 1, a: 1}
+  Albedo: {r: 0, g: 0.7486813, b: 1, a: 1}
   Extinction: 6.4
   Emissive: {r: 0, g: 0, b: 0, a: 1}
-  AmbientLight: {r: 0.810846, g: 1.4595228, b: 1.7207954, a: 1}
+  AmbientLight: {r: 0, g: 1.1551638, b: 1.7650899, a: 1}
   HeightGradient:
     Start: 0
     End: 100

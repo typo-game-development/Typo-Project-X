@@ -116,7 +116,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _PigmentMapHeight: 1
-    - _PigmentMapInfluence: 0.71
+    - _PigmentMapInfluence: 0
     - _PointLightPunchTrough: 1
     - _PointLightTranslucency: 3
     - _SSSColorPower: 3.7

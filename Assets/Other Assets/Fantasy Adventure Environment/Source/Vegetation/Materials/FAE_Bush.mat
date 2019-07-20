@@ -70,6 +70,7 @@ Material:
     m_Floats:
     - _AmbientOcclusion: 1
     - _BendingInfluence: 0.467
+    - _BendingTint: -0.05
     - _BumpScale: 1
     - _ColorVariation: 0
     - _Cutoff: 0.293
@@ -101,6 +102,7 @@ Material:
     - _TransmissionAmount: 0
     - _TransmissionSize: 11.1
     - _UVSec: 0
+    - _VS_TOUCHBEND: 0
     - _WindAmplitudeMultiplier: 9.98
     - _WindSwinging: 0.195
     - _WindTint: 0.1
