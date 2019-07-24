@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class TorquePIDController : MonoBehaviour
@@ -34,7 +32,6 @@ public class TorquePIDController : MonoBehaviour
     {
         if (target != null)
         {
-            angularVel = rigidBody.angularVelocity * -1;
             angularVelocityError = rigidBody.angularVelocity * -1;
             Debug.DrawRay(transform.position, rigidBody.angularVelocity * 10, Color.black);
 
@@ -54,14 +51,5 @@ public class TorquePIDController : MonoBehaviour
 
             rigidBody.AddTorque(headingCorrection);
         }
-
-    }
-    public Vector3 angularVel;
-    public bool canMove = false;
-    IEnumerator StopMovement(float time)
-    {
-        canMove = false;
-        yield return new WaitForSeconds(Time.deltaTime * time);
-        canMove = true;
     }
 }

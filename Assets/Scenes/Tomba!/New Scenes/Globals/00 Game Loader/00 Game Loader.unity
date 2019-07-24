@@ -199,6 +199,7 @@ MonoBehaviour:
   swingForceMultiplier: 400
   swingForceMultiplierAuto: 500
   hinge: {fileID: 0}
+  signedAngularVelZ: 0
   angularVelZ: 0
   maxAngularVelZ: 0
   hingeMotorActiveThreshold: 7
@@ -216,6 +217,7 @@ MonoBehaviour:
   oldSwingForceMultiplier: 0
   enableSwinger: 0
   countSpinsBeforeAutoSpin: 0
+  ignoreInput: 0
   lastPlayerInput: 0
   angle1: 0
   jumpWhileSpinning: 0
@@ -1173,9 +1175,10 @@ MonoBehaviour:
   swinger: {fileID: 0}
   angle: 0
   forceMode: 1
-  swingForceMultiplier: 400
+  swingForceMultiplier: 8000
   swingForceMultiplierAuto: 500
   hinge: {fileID: 0}
+  signedAngularVelZ: 0
   angularVelZ: 0
   maxAngularVelZ: 0
   hingeMotorActiveThreshold: 7
@@ -1193,6 +1196,7 @@ MonoBehaviour:
   oldSwingForceMultiplier: 0
   enableSwinger: 0
   countSpinsBeforeAutoSpin: 0
+  ignoreInput: 0
   lastPlayerInput: 0
   angle1: 0
   jumpWhileSpinning: 0
@@ -1388,9 +1392,7 @@ GameObject:
   - component: {fileID: 1612154680}
   - component: {fileID: 1612154683}
   - component: {fileID: 1612154682}
-  - component: {fileID: 1612154681}
   - component: {fileID: 1612154684}
-  - component: {fileID: 1612154685}
   m_Layer: 14
   m_Name: Ledge Collider
   m_TagString: Player
@@ -1412,46 +1414,6 @@ Transform:
   m_Father: {fileID: 1003352473}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1612154681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1612154679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e89a816d2de176d4e8a5f2506c234802, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swinger: {fileID: 0}
-  angle: 0
-  forceMode: 1
-  swingForceMultiplier: 400
-  swingForceMultiplierAuto: 500
-  hinge: {fileID: 0}
-  angularVelZ: 0
-  maxAngularVelZ: 0
-  hingeMotorActiveThreshold: 7
-  hingeMotorActiveForSpin: 0
-  angle3: 0
-  angle4: 0
-  collone: {fileID: 0}
-  canFreeJumpOff: 0
-  mustJump: 0
-  angle2: 0
-  rotatedRight: 0
-  rotatedLeft: 0
-  angle5: 0
-  oldAngle5: 0
-  oldSwingForceMultiplier: 0
-  enableSwinger: 0
-  countSpinsBeforeAutoSpin: 0
-  lastPlayerInput: 0
-  angle1: 0
-  jumpWhileSpinning: 0
-  rigidbodyMass: 4
-  rigidbodyAngularDrag: 10
 --- !u!54 &1612154682
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1493,19 +1455,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34e17093fe44394697649bbdd4b93cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &1612154685
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1612154679}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.54499483, z: 0.591189}
-  m_Center: {x: 6.6850466e-16, y: 0.3347724, z: 0.1720418}
 --- !u!1 &1619569170
 GameObject:
   m_ObjectHideFlags: 0

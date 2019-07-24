@@ -43,6 +43,7 @@ public class SwingAttachCollider : MonoBehaviour
         currentActiveRail = FindObjectOfType<PlayerMovementRail>();
         oldSwingForceMultiplier = swingForceMultiplier;
     }
+    public float signedAngularVelZ = 0f;
     public float angularVelZ = 0f;
     public float maxAngularVelZ = 0f;
     public float hingeMotorActiveThreshold = 6.45f;
@@ -51,8 +52,10 @@ public class SwingAttachCollider : MonoBehaviour
     public float angle4 = 0f;
     public SubCollider collone = null;
     public bool canFreeJumpOff = false;
+
+    public float lastFrameAngularVelZ = 0f;
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(swingObjColl != null && swingObjColl.gameObject != null)
         {
@@ -64,7 +67,7 @@ public class SwingAttachCollider : MonoBehaviour
         {
             if (collone.active && mustJump)
             {
-                if (lastPlayerInput == eInput.LEFT)
+                if (lastPlayerInputBeforeAttach == eInput.LEFT)
                 {
                     if (rotatedRight)
                     {
@@ -77,7 +80,7 @@ public class SwingAttachCollider : MonoBehaviour
 
                     }
                 }
-                else if (lastPlayerInput == eInput.RIGHT)
+                else if (lastPlayerInputBeforeAttach == eInput.RIGHT)
                 {
                     if (rotatedRight)
                     {
@@ -95,7 +98,7 @@ public class SwingAttachCollider : MonoBehaviour
 
         if (canFreeJumpOff && mustJump)
         {
-            if (lastPlayerInput == eInput.LEFT)
+            if (lastPlayerInputBeforeAttach == eInput.LEFT)
             {
                 if (rotatedRight)
                 {
@@ -108,7 +111,7 @@ public class SwingAttachCollider : MonoBehaviour
 
                 }
             }
-            else if (lastPlayerInput == eInput.RIGHT)
+            else if (lastPlayerInputBeforeAttach == eInput.RIGHT)
             {
                 if (rotatedRight)
                 {
@@ -143,14 +146,71 @@ public class SwingAttachCollider : MonoBehaviour
 
             if (swinger != null)
             {
+                if (hinge != null)
+                {
+                    if ((hinge.angle == hinge.limits.min + 10) || (hinge.angle == hinge.limits.max - 10))
+                    {
+                        // Do Something
+                        ignoreInput = true;
+                    }
+                    else
+                    {
+                        ignoreInput = false;
+                    }
+                    angle1 = DegAgleBetweenVectors3(hinge.transform.forward, -charScript.gameObject.transform.up);
+                    //{
+                    //    if (angle1 < 100 && Mathf.Abs(lastFrameAngularVelZ) < Mathf.Abs(charScript.rb.angularVelocity.z))
+                    //    {
+                    //        if (!ignoreInput)
+                    //        {
+                    //            charScript.rb.angularVelocity *= -1;
+                    //            ignoreInput = true;
+                    //        }
+                    //        //if ((lastPlayerInput == eInput.RIGHT && Input.GetButton("PS4_DPAD_RIGHT")) || (lastPlayerInput == eInput.LEFT && Input.GetButton("PS4_DPAD_LEFT")))
+                    //        //{
+                    //        //    charScript.rb.angularDrag = 100000;
+                    //        //    ignoreInput = true;
+                    //        //    Debug.Log("Dumping");
+
+                    //        //}
+                    //        //else
+                    //        //{
+                    //        //    charScript.rb.angularDrag = 10;
+                    //        //    //ignoreInput = false;
+                    //        //    Debug.Log("Reset Dumping");
+
+                    //        //}
+                    //    }
+                    //    else if (angle1 > 100)
+                    //    {
+                    //        charScript.rb.angularDrag = 10;
+                    //        ignoreInput = false;
+
+                    //    }
+                    //    else
+                    //    {
+                    //        ignoreInput = false;
+                    //        charScript.rb.angularDrag = 10;
+                    //    }
+
+                    //    if(ignoreInput)
+                    //    {
+                    //        charScript.rb.angularDrag += 5;
+
+                    //    }
+                    //    lastFrameAngularVelZ = charScript.rb.angularVelocity.z;
+
+                    //}
+                }
+
                 float spinSign = 1f;
                 Debug.DrawRay(rigidBody.transform.position, rigidBody.velocity, Color.red);
-
+                signedAngularVelZ = charScript.GetComponent<Rigidbody>().angularVelocity.z;
                 angularVelZ = UnityEngine.Mathf.Abs(charScript.GetComponent<Rigidbody>().angularVelocity.z);
                 angle4 = DegAgleBetweenVectors3(-hinge.transform.forward, -charScript.gameObject.transform.up);
                 angle3 = DegAgleBetweenVectors3(hinge.transform.forward, -charScript.gameObject.transform.up);
 
-                if (lastPlayerInput == eInput.RIGHT)
+                if (lastPlayerInputBeforeAttach == eInput.RIGHT)
                 {
                     angle2 = DegAgleBetweenVectors3(-hinge.transform.right, -charScript.gameObject.transform.up);
                     spinSign = -1f;
@@ -163,7 +223,7 @@ public class SwingAttachCollider : MonoBehaviour
                     }
 
                 }
-                else if (lastPlayerInput == eInput.LEFT)
+                else if (lastPlayerInputBeforeAttach == eInput.LEFT)
                 {
                     angle2 = DegAgleBetweenVectors3(hinge.transform.right, -charScript.gameObject.transform.up);
                     spinSign = 1f;
@@ -181,51 +241,59 @@ public class SwingAttachCollider : MonoBehaviour
 
                 if (!hingeMotorActiveForSpin)
                 {
+                    charScript.rb.angularDrag = 10;
+
                     if (maxAngularVelZ < angularVelZ)
                     {
                         maxAngularVelZ = angularVelZ;
                     }
 
-                    if (maxAngularVelZ >= hingeMotorActiveThreshold)
+                    if(maxAngularVelZ > 11.6)
                     {
-                        if (angle2 < 10f)
-                        {
-
-                            float angleDiff = angle4 - angle3;
-
-                            if (angleDiff > 0)
-                            {
-                                if (angleDiff >= 12f)
-                                {
-                                    if (Input.GetButton("Horizontal"))
-                                    {
-                                        if (!hingeMotorActiveForSpin)
-                                        {
-                                            //var motor = hinge.motor;
-                                            //motor.targetVelocity = spinSign * 700f;
-
-                                            //hinge.motor = motor;
-                                            //hingeMotorActiveForSpin = true;
-                                            //hinge.useMotor = true;
-                                            //rigidBody.useGravity = false;
-                                            //rigidBody.angularDrag = 0f;
-
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                        charScript.rb.angularVelocity *= -1;
+                        charScript.rb.angularDrag = 1000000000;
+                        maxAngularVelZ = 0;
                     }
+                    //if (maxAngularVelZ >= hingeMotorActiveThreshold)
+                    //{
+                    //    if (angle2 < 10f)
+                    //    {
 
-                    if (Input.GetButtonDown("Horizontal"))
-                    {
-                        if (Input.GetAxisRaw("Horizontal") != oldAxis)
-                        {
-                            swinger.transform.position = new Vector3(swinger.transform.parent.position.x, swinger.transform.parent.position.y + 4.5f, swinger.transform.position.z);
-                            oldAxis = Input.GetAxisRaw("Horizontal");
-                        }
+                    //        float angleDiff = angle4 - angle3;
 
-                    }
+                    //        if (angleDiff > 0)
+                    //        {
+                    //            if (angleDiff >= 12f)
+                    //            {
+                    //                if (Input.GetButton("Horizontal"))
+                    //                {
+                    //                    if (!hingeMotorActiveForSpin)
+                    //                    {
+                    //                        //var motor = hinge.motor;
+                    //                        //motor.targetVelocity = spinSign * 700f;
+
+                    //                        //hinge.motor = motor;
+                    //                        //hingeMotorActiveForSpin = true;
+                    //                        //hinge.useMotor = true;
+                    //                        //rigidBody.useGravity = false;
+                    //                        //rigidBody.angularDrag = 0f;
+
+                    //                    }
+                    //                }
+                    //            }
+                    //        }
+                    //    }
+                    //}
+
+                    //if (Input.GetButtonDown("Horizontal"))
+                    //{
+                    //    if (Input.GetAxisRaw("Horizontal") != oldAxis)
+                    //    {
+                    //        swinger.transform.position = new Vector3(swinger.transform.parent.position.x, swinger.transform.parent.position.y + 4.5f, swinger.transform.position.z);
+                    //        oldAxis = Input.GetAxisRaw("Horizontal");
+                    //    }
+
+                    //}
 
                     CheckForDoublePress();
 
@@ -241,7 +309,7 @@ public class SwingAttachCollider : MonoBehaviour
                                 rigidBody.angularVelocity = Vector3.zero;
                                 rigidBody.isKinematic = true;
                                 
-                                if (lastPlayerInput == eInput.RIGHT)
+                                if (lastPlayerInputBeforeAttach == eInput.RIGHT)
                                 {
                                     hinge.transform.localRotation = new Quaternion(hinge.transform.localRotation.x, hinge.transform.localRotation.y, 180, hinge.transform.localRotation.w);
                                     charScript.RotateTowardsMovementDir(-hinge.transform.right, true);
@@ -269,7 +337,7 @@ public class SwingAttachCollider : MonoBehaviour
                                 rigidBody.angularVelocity = Vector3.zero;
                                 rigidBody.isKinematic = true;
 
-                                if (lastPlayerInput == eInput.LEFT)
+                                if (lastPlayerInputBeforeAttach == eInput.LEFT)
                                 {
                                     hinge.transform.localRotation = new Quaternion(hinge.transform.localRotation.x, hinge.transform.localRotation.y, 180, hinge.transform.localRotation.w);
                                     charScript.RotateTowardsMovementDir(hinge.transform.right, true);
@@ -410,7 +478,7 @@ public class SwingAttachCollider : MonoBehaviour
         }
         else
         {
-            lastPlayerInput = GetInputAsEnum();
+            lastPlayerInputBeforeAttach = GetLPIBeforeAttach();
 
         }
         UpdateCameraPositionSmooth();
@@ -468,7 +536,7 @@ public class SwingAttachCollider : MonoBehaviour
 
         }
 
-        if (lastPlayerInput == eInput.LEFT)
+        if (lastPlayerInputBeforeAttach == eInput.LEFT)
         {
             if (rotatedRight)
             {
@@ -488,7 +556,7 @@ public class SwingAttachCollider : MonoBehaviour
                 }
             }
         }
-        else if (lastPlayerInput == eInput.RIGHT)
+        else if (lastPlayerInputBeforeAttach == eInput.RIGHT)
         {
             if (rotatedRight)
             {
@@ -559,36 +627,36 @@ public class SwingAttachCollider : MonoBehaviour
         //rigidBody.AddTorque(-hinge.transform.up * 5f * Mathf.Sin(Time.time * swingForceMultiplier), ForceMode.VelocityChange);
 
 
-        if (Mathf.Abs(angle4 - angle3) > 4f)
+        if (!ignoreInput)
         {
             if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") != 0)
             {
 
-                    if (lastPlayerInput == eInput.LEFT)
+                    if (lastPlayerInputBeforeAttach == eInput.LEFT)
                     {
                         if (rotatedRight)
                         {
-                            rigidBody.AddTorque(-hinge.transform.up * Time.deltaTime * swingForceMultiplier *  Input.GetAxis("Horizontal"), ForceMode.VelocityChange);
+                            rigidBody.AddTorque(-hinge.transform.up * Time.deltaTime * swingForceMultiplier *  Input.GetAxis("Horizontal"), ForceMode.Force);
 
                         }
 
                         else if (rotatedLeft)
                         {
-                            rigidBody.AddTorque(hinge.transform.up * Time.deltaTime * swingForceMultiplier * Input.GetAxis("Horizontal"), ForceMode.VelocityChange);
+                            rigidBody.AddTorque(hinge.transform.up * Time.deltaTime * swingForceMultiplier * Input.GetAxis("Horizontal"), ForceMode.Force);
 
                         }
                     }
-                    else if (lastPlayerInput == eInput.RIGHT)
+                    else if (lastPlayerInputBeforeAttach == eInput.RIGHT)
                     {
                         if (rotatedRight)
                         {
-                            rigidBody.AddTorque(hinge.transform.up * Time.deltaTime * swingForceMultiplier *  Input.GetAxis("Horizontal"), ForceMode.VelocityChange);
+                            rigidBody.AddTorque(hinge.transform.up * Time.deltaTime * swingForceMultiplier *  Input.GetAxis("Horizontal"), ForceMode.Force);
 
                         }
 
                         else if (rotatedLeft)
                         {
-                            rigidBody.AddTorque(-hinge.transform.up * Time.deltaTime * swingForceMultiplier *  Input.GetAxis("Horizontal"), ForceMode.VelocityChange);
+                            rigidBody.AddTorque(-hinge.transform.up * Time.deltaTime * swingForceMultiplier *  Input.GetAxis("Horizontal"), ForceMode.Force);
 
                         }
                     }
@@ -648,45 +716,46 @@ public class SwingAttachCollider : MonoBehaviour
 
     private void CheckForDoublePress()
     {
-        if(angularVelZ < 2f)
-        {
-            if (Input.GetButtonDown("Horizontal") && waitDoubleTap)
-            {
-                if (Time.time - doubleTapTime < 0.35f)
-                {
-                    if (doubleTappedButton == Input.GetAxisRaw("Horizontal"))
-                    {
-                        doubleTapped = true;
-                        rigidBody.angularVelocity = Vector3.zero;
-                        doubleTapTime = 0f;
-                    }
-                }
-                waitDoubleTap = false;
-            }
+        //if(angularVelZ < 1f)
+        //{
+        //    if (Input.GetButtonDown("Horizontal") && waitDoubleTap)
+        //    {
+        //        if (Time.time - doubleTapTime < 0.35f)
+        //        {
+        //            if (doubleTappedButton == Input.GetAxisRaw("Horizontal"))
+        //            {
+        //                doubleTapped = true;
+        //                rigidBody.angularVelocity = Vector3.zero;
+        //                doubleTapTime = 0f;
+        //            }
+        //        }
+        //        waitDoubleTap = false;
+        //    }
 
-            if (Input.GetButtonDown("Horizontal") && !waitDoubleTap)
-            {
-                doubleTappedButton = Input.GetAxisRaw("Horizontal");
-                waitDoubleTap = true;
-                doubleTapTime = Time.time;
-            }
-        }
-    }
-
-    public void FixedUpdate()
-    {
-        if(hinge != null)
-        {
-            angle1 = DegAgleBetweenVectors3(hinge.transform.forward, -charScript.gameObject.transform.up);
-        }
+        //    if (Input.GetButtonDown("Horizontal") && !waitDoubleTap)
+        //    {
+        //        doubleTappedButton = Input.GetAxisRaw("Horizontal");
+        //        waitDoubleTap = true;
+        //        doubleTapTime = Time.time;
+        //    }
+        //}
+        
 
         if (rigidBody.angularVelocity.z > 12f)
         {
-            rigidBody.angularVelocity =new Vector3( rigidBody.angularVelocity.x, rigidBody.angularVelocity.y ,10f);
+            rigidBody.angularVelocity = new Vector3(rigidBody.angularVelocity.x, rigidBody.angularVelocity.y, 10f);
         }
     }
 
+    public void Update()
+    {
+        lastPlayerInput = GetLPI();
+    }
+    public bool ignoreInput = false;
+
     public eInput lastPlayerInput = eInput.NONE;
+    public eInput lastPlayerInput2 = eInput.NONE;
+    public eInput lastPlayerInputBeforeAttach = eInput.NONE;
 
     public enum eInput
     {
@@ -695,17 +764,42 @@ public class SwingAttachCollider : MonoBehaviour
         LEFT = 2
     }
 
-    eInput GetInputAsEnum()
+
+    eInput GetLPI()
     {
-            if (Input.GetButton("PS4_DPAD_RIGHT"))
-            {
-                return eInput.RIGHT;
-            }
-            else if (Input.GetButton("PS4_DPAD_LEFT"))
-            {
-                return eInput.LEFT;
-            }
-            return lastPlayerInput;
+        if (Input.GetButton("PS4_DPAD_RIGHT"))
+        {
+            return eInput.RIGHT;
+
+        }
+        else if (Input.GetButton("PS4_DPAD_LEFT"))
+        {
+            return eInput.LEFT;
+        }
+        return lastPlayerInput;
+    }
+
+    eInput GetLPIBeforeAttach()
+    {
+        if (Input.GetButton("PS4_DPAD_RIGHT"))
+        {
+            //if (lastPlayerInput != eInput.RIGHT)
+            //{
+            //    ignoreInput = false;
+            //}
+            return eInput.RIGHT;
+
+        }
+        else if (Input.GetButton("PS4_DPAD_LEFT"))
+        {
+            //if (lastPlayerInput != eInput.LEFT)
+            //{
+            //    ignoreInput = false;
+            //}
+            return eInput.LEFT;
+        }
+
+        return lastPlayerInputBeforeAttach;
     }
 
     public float angle1 = 0f;
@@ -756,9 +850,13 @@ public class SwingAttachCollider : MonoBehaviour
 
         charScript.enabled = true;
         charScript.stateController.isGrounded = false;
-
+        
 
         IEnumerator test = charScript._Jump(appliedForce, 0f);
+
+        charScript.animator.SetInteger("Jumping", 2);
+        charScript.animator.SetTrigger("JumpTrigger");
+
         //if (appliedForce != Vector3.zero)
         //{
         //    rigidBody.AddForce(appliedForce * 25f, ForceMode.Impulse);
@@ -768,7 +866,7 @@ public class SwingAttachCollider : MonoBehaviour
         attached = false;
         //Physics.IgnoreCollision(charScript.GetComponent<CapsuleCollider>(), swingObjColl.GetComponent<SphereCollider>(), true);
 
-        StartCoroutine(test);
+        //StartCoroutine(test);
 
         hinge = null;
         angle1 = 0;
@@ -778,7 +876,7 @@ public class SwingAttachCollider : MonoBehaviour
 
         //Time.timeScale = 0f;
 
-        charScript.stateController.isJumping = true;
+       charScript.stateController.isFalling = true;
 
 
     }
@@ -873,12 +971,12 @@ public class SwingAttachCollider : MonoBehaviour
                         charScript.GetComponent<Rigidbody>().AddTorque(charScript.transform.forward * 100f, ForceMode.Impulse);
 
                         hinge.gameObject.SetActive(true);
-                        if( lastPlayerInput == eInput.LEFT)
+                        if( lastPlayerInputBeforeAttach == eInput.LEFT)
                         {
                             rotatedLeft = true;
                             rotatedRight = false;
                         }
-                        else if (lastPlayerInput == eInput.RIGHT)
+                        else if (lastPlayerInputBeforeAttach == eInput.RIGHT)
                         {
                             rotatedRight = true;
                             rotatedLeft = false;
