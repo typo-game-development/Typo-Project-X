@@ -4,7 +4,7 @@
 */
 
 using UnityEngine;
-using CustomAssets.Utilities;
+using Tomba.Utilities;
 using Tomba;
 
 [System.Serializable]
@@ -13,7 +13,7 @@ public class EventDataManager
 
     [ArrayElementTitle("name")]
     public TombaEvent[] events;
-
+    private object CustomAssets;
 
     public void Initialize(TombaEvent[] eventList)
     {
@@ -24,7 +24,7 @@ public class EventDataManager
         //eventList = FromJson<Event>(eventListFile.text);
         this.events = eventList;
 
-        string str = CustomAssets.Utilities.Serializer.SerializeToXML<EventDataManager, EventDataManager>(this, false, System.Text.Encoding.ASCII, typeof(Event));
+        string str = Serializer.SerializeToXML<EventDataManager, EventDataManager>(this, false, System.Text.Encoding.ASCII, typeof(Event));
 
         Debug.Log(str);
     }

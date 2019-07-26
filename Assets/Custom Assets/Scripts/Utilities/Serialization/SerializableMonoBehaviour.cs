@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using CustomAssets.Utilities;
+using Tomba.Utilities;
 
 public abstract class SerializableMonoBehaviour : MonoBehaviour
 {

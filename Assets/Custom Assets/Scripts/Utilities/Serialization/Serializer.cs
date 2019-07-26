@@ -10,7 +10,7 @@ using System.Runtime.Serialization;
 using System.Xml;
 using UnityEngine;
 
-namespace CustomAssets.Utilities
+namespace Tomba.Utilities
 {
     /// <summary>
     /// Class used to serialize every class instance.

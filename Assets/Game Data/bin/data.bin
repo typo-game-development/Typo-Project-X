@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<GameManager xmlns:i="http://www.w3.org/2001/XMLSchema-instance"
+  z:Id="1" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" xmlns="http://schemas.datacontract.org/2004/07/Tomba">
+  <hideFlags xmlns="http://schemas.datacontract.org/2004/07/UnityEngine">None</hideFlags>
+  <name
+    z:Id="2" xmlns="http://schemas.datacontract.org/2004/07/UnityEngine">Game Controller</name>
+  <tag
+    z:Id="3" xmlns="http://schemas.datacontract.org/2004/07/UnityEngine">Untagged</tag>
+  <enabled xmlns="http://schemas.datacontract.org/2004/07/UnityEngine">true</enabled>
+  <runInEditMode xmlns="http://schemas.datacontract.org/2004/07/UnityEngine">true</runInEditMode>
+  <useGUILayout xmlns="http://schemas.datacontract.org/2004/07/UnityEngine">true</useGUILayout>
+  <currentSaveState
+    z:Id="4">
+    <CreationDate>2019-07-25T20:22:39.1383199+02:00</CreationDate>
+    <thumbnail
+      i:nil="true" />
+  </currentSaveState>
+</GameManager>

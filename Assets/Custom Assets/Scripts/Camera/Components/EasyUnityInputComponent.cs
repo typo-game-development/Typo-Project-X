@@ -128,7 +128,7 @@ namespace AdvancedUtilities.Cameras.Components
             }
 
             InputValues input = GetEasyUnityInput();
-
+                
             EnforceRotationRestrictions(input);
             Enforce0NotNull(input);
 

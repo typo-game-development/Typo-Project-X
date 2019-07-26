@@ -24,6 +24,7 @@ public class ScreenshotHandler : MonoBehaviour
     void LateUpdate()
     {
         takeHiResShot |= Input.GetKeyDown(KeyCode.F11);
+
         if (takeHiResShot)
         {
             RenderTexture rt = new RenderTexture(resWidth, resHeight, 24);
