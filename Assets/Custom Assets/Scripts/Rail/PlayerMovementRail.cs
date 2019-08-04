@@ -423,8 +423,7 @@ float DistanceLineSegmentPoint( Vector3 a, Vector3 b, Vector3 p )
                             {
                                 if(!charScript.stateController.onRailFork)
                                 {
-                                    charScript.rb.velocity = Vector3.zero;
-                                    //charScript.transform.position = new Vector3(point.transform.position.x, charScript.transform.position.y, point.transform.position.z);
+                                    charScript.rb.velocity = new Vector3(charScript.rb.velocity.x, 0, charScript.rb.velocity.z);
                                     charScript.stateController.mustChooseFork = true;
                                 }
                                 charScript.stateController.onRailFork = true;
@@ -437,6 +436,11 @@ float DistanceLineSegmentPoint( Vector3 a, Vector3 b, Vector3 p )
                             point.activeForRotation = false;
                             charScript.stateController.onRailFork = false;
 
+                        }
+                        else if(point.forkSettings.forkedNode && charScript.stateController.mustChooseFork)
+                        {
+                            
+                            charScript.transform.position = new Vector3(point.transform.position.x, charScript.transform.position.y, point.transform.position.z);
                         }
                     }
                 }
