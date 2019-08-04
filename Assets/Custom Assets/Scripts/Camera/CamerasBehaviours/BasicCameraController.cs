@@ -410,12 +410,19 @@ namespace AdvancedUtilities.Cameras
                 nextFrameTargetPosition.y = referenceTargetPosition.y;
             }
 
+            if(splineFollow.targetSpline != null)
+            {
+                //Calculate closestPoint for outer bounds check
+                closestPoint = splineFollow.targetSpline.GetComponent<BoxCollider>().ClosestPoint(nextFrameTargetPosition);
 
-            //Calculate closestPoint for outer bounds check
-            closestPoint = splineFollow.targetSpline.GetComponent<BoxCollider>().ClosestPoint(nextFrameTargetPosition);
+                //Re-calculate frame position with final lerp values
+                nextFrameTargetPosition = Vector3.Lerp(nextFrameTargetPosition, new Vector3(referenceTargetPosition.x, nextFrameTargetPosition.y, referenceTargetPosition.z), 5f * Time.deltaTime);
 
-            //Re-calculate frame position with final lerp values
-            nextFrameTargetPosition = Vector3.Lerp(nextFrameTargetPosition, new Vector3(referenceTargetPosition.x, nextFrameTargetPosition.y, referenceTargetPosition.z), 5f * Time.deltaTime);
+            }
+            else
+            {
+                closestPoint = nextFrameTargetPosition; 
+            }
 
             //Check if camera is still inside of bounds
             if ((closestPoint == nextFrameTargetPosition))
