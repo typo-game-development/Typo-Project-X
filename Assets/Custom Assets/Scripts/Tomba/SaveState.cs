@@ -31,7 +31,6 @@ namespace Tomba
 
         [ShowOnly] public string SaveDate = System.DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 
-
     }
 }
 

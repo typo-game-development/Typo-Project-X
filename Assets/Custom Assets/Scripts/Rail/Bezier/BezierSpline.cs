@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using UnityEditor;
 
 public class BezierSpline : MonoBehaviour {
 
@@ -122,8 +123,56 @@ public class BezierSpline : MonoBehaviour {
 		}
 		points[enforcedIndex] = middle + enforcedTangent;
 	}
+#if UNITY_EDITOR
+    public virtual void OnDrawGizmos()
+    {
+        if (!Selection.Contains(this.gameObject))
+        {
+            Vector3 p0 = ShowPoint(0);
 
-	public int CurveCount {
+            for (int i = 1; i < this.ControlPointCount; i += 3)
+            {
+                Vector3 p1 = ShowPoint(i);
+                Vector3 p2 = ShowPoint(i + 1);
+                Vector3 p3 = ShowPoint(i + 2);
+
+                //Handles.color = Color.gray;
+                //Handles.DrawLine(p0, p1);
+                //Handles.DrawLine(p2, p3);
+                Gizmos.color =Color.magenta;
+                Gizmos.DrawWireSphere(p0, 0.1f);
+                Gizmos.DrawWireSphere(p3, 0.1f);
+
+                Handles.DrawBezier(p0, p3, p1, p2, Color.cyan, null, 2f);
+                p0 = p3;
+            }
+        }
+    }
+#endif
+    public Vector3 ShowPoint(int index)
+    {
+        Vector3 point = this.transform.TransformPoint( this.GetControlPoint(index));
+        //float size = HandleUtility.GetHandleSize(point);
+        //if (index == 0)
+        //{
+        //    size *= 2f;
+        //}
+
+        //if (selectedIndex == index)
+        //{
+        //    EditorGUI.BeginChangeCheck();
+        //    point = Handles.DoPositionHandle(point, handleRotation);
+        //    if (EditorGUI.EndChangeCheck())
+        //    {
+        //        Undo.RecordObject(spline, "Move Point");
+        //        EditorUtility.SetDirty(spline);
+        //        spline.SetControlPoint(index, handleTransform.InverseTransformPoint(point));
+        //    }
+        //}
+        return point;
+    }
+
+    public int CurveCount {
 		get {
 			return (points.Length - 1) / 3;
 		}

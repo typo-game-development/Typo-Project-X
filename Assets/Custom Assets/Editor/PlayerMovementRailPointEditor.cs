@@ -11,12 +11,15 @@ public class PlayerMovementRailPointEditor : Editor
     {
         railPointToJoinSer = serializedObject.FindProperty("railPointToJoin");
         joinPointAreaSer = serializedObject.FindProperty("joinPointArea");
+
     }
+
 
     public override void OnInspectorGUI()
     {
         PlayerMovementRailPoint t = (PlayerMovementRailPoint)target;
         DrawDefaultInspector();
+
 
         if (t.enableRailJoin)
         {
@@ -27,5 +30,9 @@ public class PlayerMovementRailPointEditor : Editor
             serializedObject.ApplyModifiedProperties();
 
         }
+
+
+
+
     }
 }

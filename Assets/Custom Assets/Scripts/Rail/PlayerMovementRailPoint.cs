@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -22,7 +23,9 @@ public class PlayerMovementRailPoint : MonoBehaviour
 
     [HideInInspector]
     public bool activeForRotation = false;
-    private PlayerMovementRail m_rail = null;
+
+    [HideInInspector]
+    public PlayerMovementRail masterRail = null;
 
     public bool enableRailJoin = false;
 
@@ -31,16 +34,150 @@ public class PlayerMovementRailPoint : MonoBehaviour
 
     [HideInInspector]
     public Vector3 joinPointArea = Vector3.one;
+
+    
+    public float startCameraVerticalRotation;
+    public bool isRotatedDown = false;
+    public bool isRotatedUp = false;
+
+
+    [Header("Forking")]
+    public Forking forkSettings = new Forking();
+
+    public class TwoLineReorderableListElement : UnityEngine.PropertyAttribute { }
+
+    void OnValidate()
+    {
+        forkSettings.forkTop = forkSettings.m_forkTop;
+        forkSettings.forkBottom = forkSettings.m_forkBottom;
+        forkSettings.forkLeft = forkSettings.m_forkLeft;
+        forkSettings.forkRight = forkSettings.m_forkRight;
+
+    }
+
+    [System.Serializable]
+    public class Forking
+    {
+        [SerializeField] public PlayerMovementRail m_forkTop;
+        [SerializeField] public PlayerMovementRail m_forkBottom;
+        [SerializeField] public PlayerMovementRail m_forkLeft;
+        [SerializeField] public PlayerMovementRail m_forkRight;
+
+        public PlayerMovementRail forkTop
+        {
+            get
+            {
+                return m_forkTop;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    m_forkTop.generatedForkDirection = PlayerMovementRail.ForkDirection.Top;
+
+                }
+                m_forkTop = value;
+            }
+        }
+        public PlayerMovementRail forkBottom
+        {
+            get
+            {
+                return m_forkBottom;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    m_forkBottom.generatedForkDirection = PlayerMovementRail.ForkDirection.Bottom;
+
+                }
+                m_forkBottom = value;
+            }
+        }
+        public PlayerMovementRail forkLeft
+        {
+            get
+            {
+                return m_forkLeft;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    m_forkLeft.generatedForkDirection = PlayerMovementRail.ForkDirection.Left;
+
+                }
+                m_forkLeft = value;
+            }
+        }
+        public PlayerMovementRail forkRight
+        {
+            get
+            {
+                return m_forkRight;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    m_forkRight.generatedForkDirection = PlayerMovementRail.ForkDirection.Right;
+
+                }
+                m_forkRight = value;
+            }
+        }
+
+        public bool forkedNode;
+        
+        public GameObject parentNode;
+
+    }
+
+    public PlayerMovementRail[] GetAvailableForks()
+    {
+        List<PlayerMovementRail> forks = new List<PlayerMovementRail>();
+        if (forkSettings.forkTop != null)
+        {
+            forks.Add(forkSettings.forkTop);
+        }
+
+        if (forkSettings.forkBottom != null)
+        {
+            forks.Add(forkSettings.forkBottom);
+        }
+        if (forkSettings.forkLeft != null)
+        {
+            forks.Add(forkSettings.forkLeft);
+        }
+
+        if (forkSettings.forkRight != null)
+        {
+            forks.Add(forkSettings.forkRight);
+        }
+
+        return forks.ToArray();
+    }
+
+    private void Awake()
+    {
+     if (forkSettings == null)
+        {
+                 forkSettings = new Forking();
+
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        m_rail = this.gameObject.GetComponentInParent<PlayerMovementRail>();
+        masterRail = this.gameObject.GetComponentInParent<PlayerMovementRail>();
         //if (camScript != null)
         //{
         //    startCameraVerticalRotation = camScript.Rotation.VerticalRotation;
 
         //}
-        if (stopPoint && !m_rail.loop)
+        if (stopPoint && !masterRail.loop)
         {
             if (stopCollider == null)
             {
@@ -133,9 +270,7 @@ public class PlayerMovementRailPoint : MonoBehaviour
         }
     }
 
-    public float startCameraVerticalRotation;
-    public bool isRotatedDown = false;
-    public bool isRotatedUp = false;
+
 
     //public IEnumerator AutoRotateByVertical(float degrees, float time)
     //{
@@ -151,7 +286,7 @@ public class PlayerMovementRailPoint : MonoBehaviour
 
     public void GenerateStopCollider()
     {
-        if(stopCollider == null)
+        if(stopCollider == null && !this.forkSettings.forkedNode)
         {
             GameObject colliderObj = new GameObject();
             colliderObj.name = "StopCollider";

@@ -144,6 +144,8 @@ public class TombiCharacterController : SerializableMonoBehaviour
         [ShowOnly] public bool canJump;
         [ShowOnly] public bool onBridge = false;
         [ShowOnly] public bool onPumpRock = false;
+        [ShowOnly] public bool onRailFork = false;
+        [ShowOnly] public bool mustChooseFork = false;
     }
 
     [System.Serializable]
@@ -324,6 +326,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
     public PumpRock lastHittedPump;
     private Vector3 groundNormal = Vector3.zero;
     private Vector3 groundHit = Vector3.zero;
+    public PlayerMovementRailPoint currentForkedPoint = null;
 
     private const float fallingVelocity = -0.1f;
     private const float checkRaycastGroundedOffset = 0.75f;
@@ -437,6 +440,16 @@ public class TombiCharacterController : SerializableMonoBehaviour
         //Make sure that the script has been initialized properly.
         if (hasInitialized)
         {
+            if (stateController.onBridge)
+            {
+                rb.mass = physicsSettings.onBridgeMass;
+            }
+            else
+            {
+                rb.mass = physicsSettings.onGroundMass;
+            }
+            
+
             if (movementSettings.lockZMovement)
             {
                 CheckForGrabbableObjects();
@@ -457,20 +470,18 @@ public class TombiCharacterController : SerializableMonoBehaviour
                 }
             }
 
-            if (stateController.onBridge)
+
+
+            if(!stateController.onRailFork)
             {
-                rb.mass = physicsSettings.onBridgeMass;
-            }
-            else
-            {
-                rb.mass = physicsSettings.onGroundMass;
+                Jumping();
+                HandleIdle();
+                HandlePumpRockPress();
+
             }
 
-            Jumping();
-            HandleIdle();
-            HandlePumpRockPress();
-
-            if (!movementSettings.moveOnly) //Check if Tomba can perform actions
+            
+            if (!movementSettings.moveOnly && !stateController.onRailFork) //Check if Tomba can perform actions
             {
                 if (stateController.isJumping || stateController.isFalling || !stateController.isGrounded)
                 {
@@ -604,11 +615,15 @@ public class TombiCharacterController : SerializableMonoBehaviour
             }
             else
             {
-                if (!climbController.hasWallSnapped && !climbController.isLedgeSnapping && !climbController.hasLedgeSnapped)
+                if (!climbController.isLedgeSnapping && !climbController.hasLedgeSnapped)
                 {
-                    HandlePlayerGravity();
+                    if(!climbController.hasWallSnapped)
+                    {
+                        HandlePlayerGravity();
 
+                    }
                     CheckForGrounded(0.5f);
+
                 }
             }
 
@@ -1144,7 +1159,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
         if (!Physics.Raycast(transform.position + (transform.up * climbController.rayDistanceFromPlayerPosition), transform.forward, climbController.hasWallSnappedResetThresholdDistance, climbController.climbableSurfaces))
         {
             climbController.hasWallSnapped = false;
-            if (rb.isKinematic && !climbController.isLedgeSnapping && !climbController.isLedgeClimbing && !climbController.hasLedgeSnapped && !objGrabController.isThrowing)
+            if (rb.isKinematic && !climbController.isLedgeSnapping && !climbController.isLedgeClimbing && !climbController.hasLedgeSnapped && !objGrabController.isThrowing && stateController.onRailFork)
             {
                 rb.isKinematic = false;
             }
@@ -1211,7 +1226,6 @@ public class TombiCharacterController : SerializableMonoBehaviour
             Vector3 AC = rb.position - railFirstPoint;
             Vector3 AX = Vector3.Project(AC, AB);
             Vector3 X = AX + railFirstPoint;
-
             //Instantly set Tomba position to new calculated one
             transform.position = new Vector3(X.x, transform.position.y, X.z);
         }
@@ -1256,11 +1270,6 @@ public class TombiCharacterController : SerializableMonoBehaviour
                     animator.SetTrigger("LedgeClimbTrg");
                 }
 
-            }
-
-            if (Input.GetButton("PS4_DPAD_DOWN") && climbController.canWallSnap)
-            {
-                this.transform.Translate(-this.transform.up * Time.deltaTime * climbController.climbFallSpeed);
             }
         }
         else
@@ -1409,6 +1418,68 @@ public class TombiCharacterController : SerializableMonoBehaviour
         return foundSurface;
     }
 
+    void HandleRailForks()
+    {
+        if (stateController.onRailFork && stateController.mustChooseFork)
+        {
+            if (stateController.mustChooseFork)
+            {
+                if (stateController.isGrounded && !stateController.isFalling && !stateController.isJumping && currentForkedPoint != null)
+                {
+                    PlayerMovementRail.ForkDirection forkDirection = PlayerMovementRail.ForkDirection.Unknown;
+
+                    /* Check if Tomba is in animal dash state */
+                    if (Input.GetKey(KeyCode.LeftControl))
+                    {
+                        if (Input.GetButton("PS4_DPAD_UP"))
+                        {
+                            forkDirection = PlayerMovementRail.ForkDirection.Top;
+                        }
+                        else if (Input.GetButton("PS4_DPAD_DOWN"))
+                        {
+                            forkDirection = PlayerMovementRail.ForkDirection.Bottom;
+                        }
+                        else if (Input.GetButton("PS4_DPAD_LEFT"))
+                        {
+                            forkDirection = PlayerMovementRail.ForkDirection.Left;
+                        }
+                        else if (Input.GetButton("PS4_DPAD_RIGHT"))
+                        {
+                            forkDirection = PlayerMovementRail.ForkDirection.Right;
+                        }
+                    }
+                    else
+                    {
+                        inputHorizontal = 0;
+
+                        if (Input.GetButtonDown("PS4_DPAD_UP"))
+                        {
+                            forkDirection = PlayerMovementRail.ForkDirection.Top;
+                        }
+                        else if (Input.GetButtonDown("PS4_DPAD_DOWN"))
+                        {
+                            forkDirection = PlayerMovementRail.ForkDirection.Bottom;
+                        }
+                        else if (Input.GetButtonDown("PS4_DPAD_LEFT"))
+                        {
+                            forkDirection = PlayerMovementRail.ForkDirection.Left;
+                        }
+                        else if (Input.GetButtonDown("PS4_DPAD_RIGHT"))
+                        {
+                            forkDirection = PlayerMovementRail.ForkDirection.Right;
+                        }
+                    }
+
+                    if (forkDirection != PlayerMovementRail.ForkDirection.Unknown)
+                    {
+                        stateController.mustChooseFork = false;
+                        FindObjectOfType<PlayerMovementRail>().ChangeFork(currentForkedPoint, forkDirection);
+                    }
+                }
+            }
+        }
+    }
+
     #region UpdateMovement
 
     void CameraRelativeMovement()
@@ -1521,6 +1592,10 @@ public class TombiCharacterController : SerializableMonoBehaviour
             }
             inputHorizontal = Input.GetAxis("Horizontal");
         }
+
+        //Handle all the railing fork
+        HandleRailForks();
+
         //converts control input vectors into camera facing vectors
         Transform cameraTransform = sceneCamera.transform;
 
@@ -2056,7 +2131,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
                     animator.SetBool("isFallingAfterGrab", false);
                     //HandlePumpRockPress();
 
-                    if (!objGrabController.isThrowing)
+                    if (!objGrabController.isThrowing && !stateController.onRailFork)
                     {
                         rb.isKinematic = false;
                     }

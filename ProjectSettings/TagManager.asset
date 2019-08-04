@@ -16,6 +16,7 @@ TagManager:
   - ISO_DoorTrigger
   - Enemy
   - Chest
+  - Camera_Spline
   layers:
   - Default
   - TransparentFX

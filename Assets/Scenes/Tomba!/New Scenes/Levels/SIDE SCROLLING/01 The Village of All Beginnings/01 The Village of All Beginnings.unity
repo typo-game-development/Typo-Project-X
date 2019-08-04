@@ -1155,6 +1155,80 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 0cbb751e392fd2f45b8c2d561a562040, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13cafa4578eaaa246bb1dfa91d4e267d, type: 3}
+--- !u!1 &151022401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 151022402}
+  - component: {fileID: 151022403}
+  m_Layer: 0
+  m_Name: Rail Controller (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &151022402
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151022401}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -83.96, y: -6.637928, z: -11.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 615570371}
+  - {fileID: 995714928}
+  - {fileID: 2028999714}
+  m_Father: {fileID: 1173752676}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &151022403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151022401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4ba89678464b3b4dac24999d691f226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  otherRails:
+  - {fileID: 694741757}
+  points:
+  - {fileID: 615570369}
+  - {fileID: 995714926}
+  - {fileID: 2028999713}
+  camScript: {fileID: 0}
+  camObj: {fileID: 0}
+  target: {fileID: 0}
+  loop: 0
+  connections: []
+  railSwitchColliderSize: {x: 1.5, y: 0.5, z: 0.5}
+  currentCamAngle: 0
+  distance: 0
+  playerVectorPosition: {x: 0, y: 0, z: 0}
+  moveTargetOnPoint: 1
+  pointToMoveTarget: {fileID: 615570369}
+  editorSelected: 0
+  editorCollapsed: 0
+  editorConnectionsCollapsed: 0
+  isEditing: 0
+  railGizmoColor: {r: 0, g: 1, b: 0, a: 1}
+  generatedForkDirection: 1
+  isRotatingCamera: 0
+  lastPlayerInput: 0
+  canUpdateCameraRotation: 1
+  mustUpdateCamera: 0
+  cameraUpdatePoint: {fileID: 995714927}
 --- !u!1001 &151571578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39977,12 +40051,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 202730040}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -38.2, y: -1.01, z: -18.95}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.706993, y: -0.2305383, z: -9.463085}
+  m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 0.5}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_Father: {fileID: 1318065670}
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &204120523
 PrefabInstance:
@@ -40464,7 +40538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &289593475
 Transform:
   m_ObjectHideFlags: 0
@@ -40854,19 +40928,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevPoint: {fileID: 944320244}
   nextPoint: {fileID: 1609597332}
-  angleBetweenPrevAndNext: 0.06852804
+  angleBetweenPrevAndNext: 0.6932335
   rotationLerpTime: 0
   stopCollider: {fileID: 0}
   switchRailCollider: {fileID: 0}
   stopPoint: 0
   stopWhileRotating: 0
   activeForRotation: 0
+  masterRail: {fileID: 694741757}
   enableRailJoin: 0
   railPointToJoin: {fileID: 0}
   joinPointArea: {x: 1, y: 1, z: 1}
   startCameraVerticalRotation: 0
   isRotatedDown: 0
   isRotatedUp: 0
+  forkSettings:
+    m_forkTop: {fileID: 0}
+    m_forkBottom: {fileID: 151022403}
+    m_forkLeft: {fileID: 0}
+    m_forkRight: {fileID: 0}
+    forkedNode: 1
+    parentNode: {fileID: 0}
 --- !u!4 &330653257
 Transform:
   m_ObjectHideFlags: 0
@@ -40874,8 +40956,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330653255}
-  m_LocalRotation: {x: -0, y: -0.001359552, z: -0, w: 0.99999905}
-  m_LocalPosition: {x: -0.6657767, y: 0, z: 0.94000256}
+  m_LocalRotation: {x: -0, y: -0.0012567043, z: -0, w: 0.9999993}
+  m_LocalPosition: {x: -0.6200004, y: 0, z: 1.4700012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 694741758}
@@ -41696,7 +41778,7 @@ Transform:
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &473715119
 MonoBehaviour:
@@ -42795,6 +42877,72 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 593592523}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &615570369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 615570371}
+  - component: {fileID: 615570370}
+  m_Layer: 0
+  m_Name: RailPoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &615570370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615570369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186ce63159d1d8448ad5fc7f86aca7a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prevPoint: {fileID: 0}
+  nextPoint: {fileID: 995714926}
+  angleBetweenPrevAndNext: 14.677131
+  rotationLerpTime: 0
+  stopCollider: {fileID: 0}
+  switchRailCollider: {fileID: 0}
+  stopPoint: 0
+  stopWhileRotating: 0
+  activeForRotation: 0
+  masterRail: {fileID: 151022403}
+  enableRailJoin: 0
+  railPointToJoin: {fileID: 0}
+  joinPointArea: {x: 1, y: 1, z: 1}
+  startCameraVerticalRotation: 0
+  isRotatedDown: 0
+  isRotatedUp: 0
+  forkSettings:
+    m_forkTop: {fileID: 0}
+    m_forkBottom: {fileID: 0}
+    m_forkLeft: {fileID: 0}
+    m_forkRight: {fileID: 0}
+    forkedNode: 1
+    parentNode: {fileID: 330653255}
+--- !u!4 &615570371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615570369}
+  m_LocalRotation: {x: -0, y: 0.2765905, z: -0, w: 0.96098787}
+  m_LocalPosition: {x: -11.320002, y: 0, z: 1.4705725}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 151022402}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &620128221
 GameObject:
   m_ObjectHideFlags: 0
@@ -43599,12 +43747,13 @@ MonoBehaviour:
   distance: 0
   playerVectorPosition: {x: 0, y: 0, z: 0}
   moveTargetOnPoint: 1
-  pointToMoveTarget: {fileID: 330653255}
+  pointToMoveTarget: {fileID: 944320244}
   editorSelected: 0
   editorCollapsed: 0
   editorConnectionsCollapsed: 0
   isEditing: 0
   railGizmoColor: {r: 0, g: 1, b: 0, a: 1}
+  generatedForkDirection: -1
   isRotatingCamera: 0
   lastPlayerInput: 0
   canUpdateCameraRotation: 1
@@ -43618,7 +43767,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694741756}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -83.95943, y: -6.637928, z: -1}
+  m_LocalPosition: {x: -83.95943, y: -6.637928, z: -0.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 944320246}
@@ -44759,6 +44908,50 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 0cbb751e392fd2f45b8c2d561a562040, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13cafa4578eaaa246bb1dfa91d4e267d, type: 3}
+--- !u!1 &919093148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 919093149}
+  - component: {fileID: 919093150}
+  m_Layer: 0
+  m_Name: StopCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &919093149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919093148}
+  m_LocalRotation: {x: -0, y: 0.000000026077027, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0000015261911, y: 0, z: -0.000030479401}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 2028999714}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &919093150
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919093148}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 16, y: 16, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &919209389 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: 13cafa4578eaaa246bb1dfa91d4e267d,
@@ -45014,12 +45207,20 @@ MonoBehaviour:
   stopPoint: 1
   stopWhileRotating: 0
   activeForRotation: 0
+  masterRail: {fileID: 694741757}
   enableRailJoin: 0
   railPointToJoin: {fileID: 0}
   joinPointArea: {x: 1, y: 1, z: 1}
   startCameraVerticalRotation: 0
   isRotatedDown: 0
   isRotatedUp: 0
+  forkSettings:
+    m_forkTop: {fileID: 0}
+    m_forkBottom: {fileID: 0}
+    m_forkLeft: {fileID: 0}
+    m_forkRight: {fileID: 0}
+    forkedNode: 0
+    parentNode: {fileID: 0}
 --- !u!4 &944320246
 Transform:
   m_ObjectHideFlags: 0
@@ -45167,8 +45368,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980549459}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000000041490196, y: 0, z: -0.000015258731}
+  m_LocalRotation: {x: -0, y: 0.000000030035142, z: -0, w: 1}
+  m_LocalPosition: {x: -0.00000007670127, y: 0, z: -0.00003051749}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
   m_Children: []
   m_Father: {fileID: 1609597334}
@@ -45324,6 +45525,72 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 1.0930824}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &995714926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 995714928}
+  - component: {fileID: 995714927}
+  m_Layer: 0
+  m_Name: RailPoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &995714927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995714926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186ce63159d1d8448ad5fc7f86aca7a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prevPoint: {fileID: 615570369}
+  nextPoint: {fileID: 2028999713}
+  angleBetweenPrevAndNext: 28.830868
+  rotationLerpTime: 0
+  stopCollider: {fileID: 0}
+  switchRailCollider: {fileID: 0}
+  stopPoint: 0
+  stopWhileRotating: 0
+  activeForRotation: 0
+  masterRail: {fileID: 151022403}
+  enableRailJoin: 0
+  railPointToJoin: {fileID: 0}
+  joinPointArea: {x: 1, y: 1, z: 1}
+  startCameraVerticalRotation: 0
+  isRotatedDown: 0
+  isRotatedUp: 0
+  forkSettings:
+    m_forkTop: {fileID: 0}
+    m_forkBottom: {fileID: 0}
+    m_forkLeft: {fileID: 0}
+    m_forkRight: {fileID: 0}
+    forkedNode: 0
+    parentNode: {fileID: 0}
+--- !u!4 &995714928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995714926}
+  m_LocalRotation: {x: -0, y: 0.02501294, z: -0, w: 0.9996872}
+  m_LocalPosition: {x: -5.2700047, y: 0, z: 11.110001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 151022402}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1001856505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46174,7 +46441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Size: {x: 38.6, y: 0, z: 1}
-  Radius: 15
+  Radius: 20
   m_setting: {fileID: 11400000, guid: 1f09ee5a0ab572b4b973e7f7bfc15cb8, type: 2}
 --- !u!4 &1111132791
 Transform:
@@ -46301,6 +46568,7 @@ Transform:
   - {fileID: 166794147}
   - {fileID: 694741758}
   - {fileID: 29534324}
+  - {fileID: 151022402}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46982,6 +47250,7 @@ Transform:
   - {fileID: 905521884}
   - {fileID: 2569680411426528453}
   - {fileID: 904770612}
+  - {fileID: 202730043}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47822,6 +48091,10 @@ PrefabInstance:
     - target: {fileID: 157538, guid: 988cabc8aaf20854d99fcf08c77bf7ef, type: 3}
       propertyPath: m_Name
       value: sky_sphere (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 157538, guid: 988cabc8aaf20854d99fcf08c77bf7ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 414908, guid: 988cabc8aaf20854d99fcf08c77bf7ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -48676,6 +48949,165 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1581314995}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1595102425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1595102427}
+  - component: {fileID: 1595102426}
+  - component: {fileID: 1595102428}
+  m_Layer: 0
+  m_Name: Camera Spline
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1595102426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595102425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8954959383ddea9449056ffba003dcc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points:
+  - {x: 2.5365734, y: 0, z: 0.3577814}
+  - {x: 3.5365734, y: 0, z: 0.3577814}
+  - {x: 3.0671062, y: 1.1199112, z: -0.33301228}
+  - {x: 4, y: 1.1199112, z: -0.6931615}
+  - {x: 5, y: 1.1199112, z: -1.0792174}
+  - {x: 6.0288324, y: 1.0957284, z: -1.3706379}
+  - {x: 7, y: 1.0957284, z: -1.6090398}
+  - {x: 8, y: 1.0957284, z: -1.8545195}
+  - {x: 9, y: 0, z: -2.063704}
+  - {x: 10, y: 0, z: -2.063704}
+  - {x: 11, y: 0, z: -2.063704}
+  - {x: 12, y: 0, z: -2.2121463}
+  - {x: 13, y: 0, z: -2.2121463}
+  - {x: 14, y: 0, z: -2.2121463}
+  - {x: 15, y: 1.3595114, z: -3.2306848}
+  - {x: 16, y: 1.3595114, z: -3.2306848}
+  - {x: 17, y: 1.3595114, z: -3.2306848}
+  - {x: 18, y: 0, z: 0}
+  - {x: 19, y: 0, z: 0}
+  - {x: 20, y: 0, z: 0}
+  - {x: 19.862635, y: 3.2674937, z: 0.006198883}
+  - {x: 20.862635, y: 3.2674937, z: 0.006198883}
+  - {x: 21.862635, y: 3.2674937, z: 0.006198883}
+  - {x: 23.626087, y: -1.1841373, z: -0.52003527}
+  - {x: 24.626087, y: -1.1841373, z: -0.52003527}
+  - {x: 25.626087, y: -1.1841373, z: -0.52003527}
+  - {x: 27, y: 0, z: -0.5923314}
+  - {x: 28, y: 0, z: -0.5923314}
+  - {x: 29, y: 0, z: -0.5923314}
+  - {x: 30, y: 0, z: -0.57757616}
+  - {x: 31, y: 0, z: -0.57757616}
+  - {x: 32, y: 0, z: -0.57757616}
+  - {x: 32.739574, y: 1.1332569, z: -1.0557313}
+  - {x: 33.739574, y: 1.1332569, z: -1.0557313}
+  - {x: 34.739574, y: 1.1332569, z: -1.0557313}
+  - {x: 35.8727, y: 3.5136528, z: 0}
+  - {x: 36.221313, y: 4.4509196, z: 0}
+  - {x: 36.5929, y: 5.449948, z: 0}
+  - {x: 38.43853, y: 5.768106, z: -0.8332802}
+  - {x: 39.41022, y: 5.768106, z: -1.0695405}
+  - {x: 43.167923, y: 5.768106, z: -1.9832006}
+  - {x: 42, y: 2.8721943, z: -1.3486753}
+  - {x: 43, y: 2.8721943, z: -1.3486753}
+  - {x: 44, y: 2.8721943, z: -1.3486753}
+  - {x: 45, y: 2.985649, z: -1.4637132}
+  - {x: 46, y: 2.985649, z: -1.4637132}
+  - {x: 47, y: 2.985649, z: -1.4637132}
+  - {x: 48, y: 3.9549122, z: -1.4850335}
+  - {x: 49, y: 3.9549122, z: -1.4850335}
+  - {x: 50, y: 3.9549122, z: -1.4850335}
+  - {x: 51, y: 0, z: -1.6313748}
+  - {x: 52, y: 0, z: -1.6313748}
+  - {x: 53, y: 0, z: -1.6313748}
+  - {x: 54, y: 0, z: -1.666966}
+  - {x: 55, y: 0, z: -1.666966}
+  - {x: 56, y: 0, z: -1.666966}
+  - {x: 57, y: 0, z: 0}
+  - {x: 58, y: 0, z: 0}
+  - {x: 59, y: 0, z: 0}
+  - {x: 60, y: 0, z: 0}
+  - {x: 61, y: 0, z: 0}
+  - {x: 62, y: 0, z: 0}
+  - {x: 63, y: 0, z: 0}
+  - {x: 64, y: 0, z: 0}
+  - {x: 65, y: 0, z: 0}
+  - {x: 66, y: 0, z: 0}
+  - {x: 67, y: 0, z: 0}
+  - {x: 68, y: 0, z: 0}
+  - {x: 69, y: 0, z: 0}
+  - {x: 70, y: 0, z: 0}
+  - {x: 71, y: 0, z: 0}
+  - {x: 72, y: 0, z: 0}
+  - {x: 73, y: 0, z: 0}
+  - {x: 74, y: 0, z: 0}
+  - {x: 75, y: 0, z: 0}
+  - {x: 76, y: 0, z: 0}
+  - {x: 77, y: 0, z: 0}
+  - {x: 78, y: 0, z: 0}
+  - {x: 79, y: 0, z: 0}
+  - {x: 80, y: 0, z: 0}
+  - {x: 81, y: 0, z: 0}
+  - {x: 82, y: 0, z: 0}
+  - {x: 83, y: 0, z: 0}
+  - {x: 84, y: 0, z: 0}
+  - {x: 85, y: 0, z: 0}
+  - {x: 86, y: 0, z: 0}
+  - {x: 87, y: 0, z: 0}
+  - {x: 88, y: 0, z: 0}
+  - {x: 89, y: 0, z: 0}
+  - {x: 90, y: 0, z: 0}
+  - {x: 91, y: 0, z: 0}
+  - {x: 92, y: 0, z: 0}
+  - {x: 93, y: 0, z: 0}
+  - {x: 94, y: 0, z: 0}
+  - {x: 95, y: 0, z: 0}
+  - {x: 96, y: 0, z: 0}
+  - {x: 97, y: 0, z: 0}
+  modes: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  loop: 0
+  compensationConstant: 0.006
+  manualInputBounds: 1
+--- !u!4 &1595102427
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595102425}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.92, y: 2.9985013, z: -7.514356}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0.06, z: 0}
+--- !u!65 &1595102428
+BoxCollider:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595102425}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 94.463425, y: 6.952244, z: 3.5884666}
+  m_Center: {x: 49.768288, y: 2.291984, z: -1.4364514}
 --- !u!1 &1609597332
 GameObject:
   m_ObjectHideFlags: 0
@@ -48714,12 +49146,20 @@ MonoBehaviour:
   stopPoint: 1
   stopWhileRotating: 0
   activeForRotation: 0
+  masterRail: {fileID: 694741757}
   enableRailJoin: 0
   railPointToJoin: {fileID: 0}
   joinPointArea: {x: 1, y: 1, z: 1}
   startCameraVerticalRotation: 0
   isRotatedDown: 0
   isRotatedUp: 0
+  forkSettings:
+    m_forkTop: {fileID: 0}
+    m_forkBottom: {fileID: 0}
+    m_forkLeft: {fileID: 0}
+    m_forkRight: {fileID: 0}
+    forkedNode: 0
+    parentNode: {fileID: 0}
 --- !u!4 &1609597334
 Transform:
   m_ObjectHideFlags: 0
@@ -48727,8 +49167,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609597332}
-  m_LocalRotation: {x: -0, y: -0.99999905, z: -0, w: -0.001359552}
-  m_LocalPosition: {x: -0.9100038, y: 0, z: 90.75652}
+  m_LocalRotation: {x: -0, y: -0.9999993, z: -0, w: -0.0012566745}
+  m_LocalPosition: {x: -0.9100114, y: 0, z: 116.8463}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 980549461}
@@ -50897,6 +51337,73 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2019226609}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2028999713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2028999714}
+  - component: {fileID: 2028999715}
+  m_Layer: 0
+  m_Name: RailPoint3
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2028999714
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028999713}
+  m_LocalRotation: {x: -0, y: -0.9996872, z: -0, w: 0.02501294}
+  m_LocalPosition: {x: -0.9100114, y: 0, z: 98.18321}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 919093149}
+  m_Father: {fileID: 151022402}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2028999715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028999713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186ce63159d1d8448ad5fc7f86aca7a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prevPoint: {fileID: 995714926}
+  nextPoint: {fileID: 0}
+  angleBetweenPrevAndNext: 14.677131
+  rotationLerpTime: 0
+  stopCollider: {fileID: 919093150}
+  switchRailCollider: {fileID: 0}
+  stopPoint: 1
+  stopWhileRotating: 0
+  activeForRotation: 0
+  masterRail: {fileID: 151022403}
+  enableRailJoin: 0
+  railPointToJoin: {fileID: 0}
+  joinPointArea: {x: 1, y: 1, z: 1}
+  startCameraVerticalRotation: 0
+  isRotatedDown: 0
+  isRotatedUp: 0
+  forkSettings:
+    m_forkTop: {fileID: 0}
+    m_forkBottom: {fileID: 0}
+    m_forkLeft: {fileID: 0}
+    m_forkRight: {fileID: 0}
+    forkedNode: 0
+    parentNode: {fileID: 0}
 --- !u!1001 &2058355629
 PrefabInstance:
   m_ObjectHideFlags: 0
