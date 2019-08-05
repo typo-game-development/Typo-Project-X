@@ -15,11 +15,6 @@ public class TorquePIDController : MonoBehaviour
     private Vector3 headingError;
     private Vector3 headingCorrection;
 
-
-    private float stopTime = 1f;
-    private float distanceX = 0f;
-    private float distanceY = 0f;
-    private float velocity = 1f;
     private Vector2 position = Vector2.zero;
     public Transform target;
 

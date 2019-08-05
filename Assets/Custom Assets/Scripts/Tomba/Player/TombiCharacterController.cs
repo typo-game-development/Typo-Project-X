@@ -316,8 +316,6 @@ public class TombiCharacterController : SerializableMonoBehaviour
 
     private float distanceFromWall;
     private bool startFall;
-    private bool hasLedgeClimbTransitioned = false;
-    private bool oldTriggerHeld = false;
     private Vector3 targetDashDirection;
     private GameObject ledgeSnappedObj;
     private RaycastHit hitLedgeClimb;
@@ -552,7 +550,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
                 }
             }
 
-            if (!stateController.isBlocking && !stateController.isDead && !climbController.isWallSnapping && !climbController.hasWallSnapped && !climbController.hasLedgeSnapped && !climbController.isLedgeSnapping && !climbController.isLedgeClimbing)
+            if (!stateController.isBlocking && !stateController.isDead && !climbController.isWallSnapping && !climbController.hasWallSnapped && !climbController.hasLedgeSnapped && !climbController.isLedgeSnapping && !climbController.isLedgeClimbing && !stateController.mustChooseFork)
             {
                 CameraRelativeMovement();
             }
@@ -2092,7 +2090,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
     {
         float distanceToGround;
         RaycastHit hit;
-        RaycastHit hit2;
+
         Vector3 offset = new Vector3(0, .45f, 0);
         Debug.DrawRay((transform.position + offset), -Vector3.up);
 

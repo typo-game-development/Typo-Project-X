@@ -12,15 +12,17 @@ public class DisableFrustumCulling : MonoBehaviour
     /// Alternatively, you could remove this property and use Camera.main if you always
     /// want to disable frustum culling on the main camera.
     /// </summary>
-    public Camera camera;
+    public Camera cam;
 
     private void Start()
     {
-        camera = Camera.main;
+        cam = Camera.main;
     }
 
     void Update()
     {
+        /*
+
         // boundsTarget is the center of the camera's frustum, in world coordinates:
         Vector3 camPosition = camera.transform.position;
         Vector3 normCamForward = Vector3.Normalize(camera.transform.forward);
@@ -34,5 +36,7 @@ public class DisableFrustumCulling : MonoBehaviour
         // Set the bounds of the mesh to be a 1x1x1 cube (actually doesn't matter what the size is)
         Mesh mesh = GetComponent<MeshFilter>().mesh;
         mesh.bounds = new Bounds(realtiveBoundsTarget, Vector3.one * 2f);
+
+    */
     }
 }

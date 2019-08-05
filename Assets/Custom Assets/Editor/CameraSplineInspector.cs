@@ -10,7 +10,7 @@ using System;
 public class CameraSplineInspector : BezierSplineInspector
 {
     CameraSpline cameraSpline;
-    UnityEditor.IMGUI.Controls.BoxBoundsHandle m_BoxBoundsHandle = new UnityEditor.IMGUI.Controls.BoxBoundsHandle(0);
+    UnityEditor.IMGUI.Controls.BoxBoundsHandle m_BoxBoundsHandle = new UnityEditor.IMGUI.Controls.BoxBoundsHandle();
 
     private void Awake()
     {
@@ -69,7 +69,7 @@ public class CameraSplineInspector : BezierSplineInspector
             field.SetValue(null, value);
         }
     }
-    public void OnSceneGUI()
+    public override void OnSceneGUI()
     {
         base.OnSceneGUI();
 

@@ -682,7 +682,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1415930236}
+        - m_Target: {fileID: 0}
           m_MethodName: PlayOneShot
           m_Mode: 2
           m_Arguments:
@@ -694,7 +694,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1415930236}
+        - m_Target: {fileID: 0}
           m_MethodName: set_enabled
           m_Mode: 6
           m_Arguments:
@@ -2861,6 +2861,7 @@ MonoBehaviour:
   themes:
   - name: 00 Main Menu
     clip: {fileID: 8300000, guid: c550b0de3d19b0b4cb5ea8a2e9e615e6, type: 3}
+    originalClip: {fileID: 0}
     volume: 0.5
     volumeVariance: 0
     pitch: 1
@@ -2870,6 +2871,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: '-'
     clip: {fileID: 0}
+    originalClip: {fileID: 0}
     volume: 0
     volumeVariance: 0
     pitch: 0.1
@@ -2879,6 +2881,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: '-'
     clip: {fileID: 0}
+    originalClip: {fileID: 0}
     volume: 0
     volumeVariance: 0
     pitch: 0.1
@@ -2888,6 +2891,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: 01 The Village Of All Beginnings
     clip: {fileID: 8300000, guid: 7c0b19535d57707468ce1561b8180be2, type: 3}
+    originalClip: {fileID: 0}
     volume: 0.5
     volumeVariance: 0
     pitch: 1
@@ -2897,6 +2901,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: 02 Forest Of Dwarves
     clip: {fileID: 8300000, guid: 7d239d895f7ea5e40a347d5dc178a784, type: 3}
+    originalClip: {fileID: 0}
     volume: 0.5
     volumeVariance: 0
     pitch: 1
@@ -2906,6 +2911,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: 
     clip: {fileID: 0}
+    originalClip: {fileID: 0}
     volume: 0
     volumeVariance: 0
     pitch: 0
@@ -2915,6 +2921,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: BOSS
     clip: {fileID: 8300000, guid: 8ab2dfa9048887240b55d9e483e69aff, type: 3}
+    originalClip: {fileID: 0}
     volume: 0.5
     volumeVariance: 0
     pitch: 1
@@ -2924,6 +2931,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: 
     clip: {fileID: 0}
+    originalClip: {fileID: 0}
     volume: 0
     volumeVariance: 0
     pitch: 0
@@ -2933,6 +2941,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: 
     clip: {fileID: 0}
+    originalClip: {fileID: 0}
     volume: 0
     volumeVariance: 0
     pitch: 0
@@ -2942,6 +2951,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: 
     clip: {fileID: 0}
+    originalClip: {fileID: 0}
     volume: 0
     volumeVariance: 0
     pitch: 0
@@ -2952,6 +2962,7 @@ MonoBehaviour:
   sounds:
   - name: '-'
     clip: {fileID: 8300000, guid: 8ab2dfa9048887240b55d9e483e69aff, type: 3}
+    originalClip: {fileID: 0}
     volume: 0.5
     volumeVariance: 0
     pitch: 1
@@ -2961,6 +2972,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Snap
     clip: {fileID: 8300000, guid: f0cfc09cdd62ba341b43e70eb88b1a28, type: 3}
+    originalClip: {fileID: 0}
     volume: 0.5
     volumeVariance: 0
     pitch: 1
@@ -2970,6 +2982,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Player_Jump
     clip: {fileID: 8300000, guid: 3fcb50055f17e924ba6ab42444f37b34, type: 3}
+    originalClip: {fileID: 0}
     volume: 0.5
     volumeVariance: 0
     pitch: 0.9
@@ -2979,6 +2992,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: GroundHit
     clip: {fileID: 8300000, guid: a03f5bbbd201fb641b93417846fff22a, type: 3}
+    originalClip: {fileID: 0}
     volume: 0.2
     volumeVariance: 0
     pitch: 1
@@ -2988,6 +3002,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: PumpRock_Release
     clip: {fileID: 8300000, guid: 82dcd4ff7259cac499eff1855cfcedd4, type: 3}
+    originalClip: {fileID: 0}
     volume: 0.501
     volumeVariance: 0
     pitch: 1
@@ -2997,6 +3012,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: PumpRock_Press
     clip: {fileID: 8300000, guid: dcf7bcfba15a46f49b8989efab2540a0, type: 3}
+    originalClip: {fileID: 0}
     volume: 0.501
     volumeVariance: 0
     pitch: 1
@@ -3006,6 +3022,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Swing
     clip: {fileID: 8300000, guid: 9f733cb2bd81ecf4880d586722c75c09, type: 3}
+    originalClip: {fileID: 0}
     volume: 0.5
     volumeVariance: 0
     pitch: 1.1
@@ -3015,6 +3032,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Event Occurred
     clip: {fileID: 8300000, guid: c4f3c1740a93c0b4590699dc9dac2420, type: 3}
+    originalClip: {fileID: 0}
     volume: 1
     volumeVariance: 0
     pitch: 0.84
@@ -3024,6 +3042,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Hit_Pump_Rock
     clip: {fileID: 8300000, guid: 6b0d20dd524ad734eb1b7bd4922a26a9, type: 3}
+    originalClip: {fileID: 0}
     volume: 0.2
     volumeVariance: 0
     pitch: 1
@@ -3033,6 +3052,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Hit_Ground
     clip: {fileID: 8300000, guid: 20cd2d75a51820f4897c04db17cfb614, type: 3}
+    originalClip: {fileID: 0}
     volume: 0.2
     volumeVariance: 0
     pitch: 1
@@ -3042,6 +3062,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Throw_Weapon
     clip: {fileID: 8300000, guid: 9f733cb2bd81ecf4880d586722c75c09, type: 3}
+    originalClip: {fileID: 0}
     volume: 0.2
     volumeVariance: 0
     pitch: 0.8
@@ -3051,6 +3072,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Land_Grab
     clip: {fileID: 8300000, guid: f1582d49440d9d34fb0e84ec22790680, type: 3}
+    originalClip: {fileID: 0}
     volume: 0.5
     volumeVariance: 0
     pitch: 1
@@ -3060,6 +3082,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Pig_Grab
     clip: {fileID: 8300000, guid: 25491e3026648984895e7217d3f0e1b6, type: 3}
+    originalClip: {fileID: 0}
     volume: 0.5
     volumeVariance: 0
     pitch: 1
@@ -3069,6 +3092,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Pig_Dead
     clip: {fileID: 8300000, guid: 8d0f79852ab64374eb3d6e1d38aab1bf, type: 3}
+    originalClip: {fileID: 0}
     volume: 0.5
     volumeVariance: 0
     pitch: 1
@@ -3078,6 +3102,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Throw_Object
     clip: {fileID: 8300000, guid: 44d8f379773c48440ba987a3d49f1adc, type: 3}
+    originalClip: {fileID: 0}
     volume: 0.5
     volumeVariance: 0
     pitch: 1
@@ -3087,6 +3112,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Throw_Weapon
     clip: {fileID: 8300000, guid: 9f733cb2bd81ecf4880d586722c75c09, type: 3}
+    originalClip: {fileID: 0}
     volume: 0.2
     volumeVariance: 0
     pitch: 0.8
@@ -3096,6 +3122,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Throw_Weapon
     clip: {fileID: 8300000, guid: 9f733cb2bd81ecf4880d586722c75c09, type: 3}
+    originalClip: {fileID: 0}
     volume: 0.2
     volumeVariance: 0
     pitch: 0.8
@@ -3105,6 +3132,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Throw_Weapon
     clip: {fileID: 8300000, guid: 9f733cb2bd81ecf4880d586722c75c09, type: 3}
+    originalClip: {fileID: 0}
     volume: 0.2
     volumeVariance: 0
     pitch: 0.8
@@ -3114,6 +3142,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Throw_Weapon
     clip: {fileID: 8300000, guid: 9f733cb2bd81ecf4880d586722c75c09, type: 3}
+    originalClip: {fileID: 0}
     volume: 0.2
     volumeVariance: 0
     pitch: 0.8
@@ -3123,6 +3152,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Throw_Weapon
     clip: {fileID: 8300000, guid: 9f733cb2bd81ecf4880d586722c75c09, type: 3}
+    originalClip: {fileID: 0}
     volume: 0.2
     volumeVariance: 0
     pitch: 0.8
@@ -3315,7 +3345,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1415930236}
+        - m_Target: {fileID: 0}
           m_MethodName: PlayOneShot
           m_Mode: 2
           m_Arguments:
@@ -3327,7 +3357,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1415930236}
+        - m_Target: {fileID: 0}
           m_MethodName: set_enabled
           m_Mode: 6
           m_Arguments:
@@ -5499,7 +5529,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1415930236}
+        - m_Target: {fileID: 0}
           m_MethodName: PlayOneShot
           m_Mode: 2
           m_Arguments:
@@ -5890,7 +5920,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1415930236}
+        - m_Target: {fileID: 0}
           m_MethodName: PlayOneShot
           m_Mode: 2
           m_Arguments:
@@ -5941,7 +5971,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1415930235}
-  - component: {fileID: 1415930236}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -5973,103 +6002,6 @@ RectTransform:
   m_AnchoredPosition: {x: -37, y: -38}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!82 &1415930236
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1415930234}
-  m_Enabled: 0
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 2baf53b602bf31540af9b9e1162ed3b0,
-    type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 0.5
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1446209742
 GameObject:
   m_ObjectHideFlags: 0
@@ -6128,7 +6060,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1415930236}
+        - m_Target: {fileID: 0}
           m_MethodName: PlayOneShot
           m_Mode: 2
           m_Arguments:
@@ -7866,7 +7798,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1415930236}
+        - m_Target: {fileID: 0}
           m_MethodName: PlayOneShot
           m_Mode: 2
           m_Arguments:

@@ -6,7 +6,8 @@ public class MovementSpline : BezierSpline
 {
     public TombiCharacterController charScript;
     public PlayerMovementRail rail=null;
-    private int stepsPerCurve = 10;
+
+    
     // Start is called before the first frame update
     void Start()
     {

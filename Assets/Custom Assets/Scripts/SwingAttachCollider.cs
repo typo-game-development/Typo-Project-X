@@ -6,7 +6,6 @@ using UnityEngine;
 public class SwingAttachCollider : MonoBehaviour
 {
     private bool firstAttach = false;
-    float oldAxis = 0;
     private PlayerMovementRail currentActiveRail;
     private Rigidbody rigidBody;
     public GameObject swinger;
@@ -203,7 +202,6 @@ public class SwingAttachCollider : MonoBehaviour
                     //}
                 }
 
-                float spinSign = 1f;
                 Debug.DrawRay(rigidBody.transform.position, rigidBody.velocity, Color.red);
                 signedAngularVelZ = charScript.GetComponent<Rigidbody>().angularVelocity.z;
                 angularVelZ = UnityEngine.Mathf.Abs(charScript.GetComponent<Rigidbody>().angularVelocity.z);
@@ -213,7 +211,6 @@ public class SwingAttachCollider : MonoBehaviour
                 if (lastPlayerInputBeforeAttach == eInput.RIGHT)
                 {
                     angle2 = DegAgleBetweenVectors3(-hinge.transform.right, -charScript.gameObject.transform.up);
-                    spinSign = -1f;
 
                     if (Mathf.Abs(angularVelZ) > 8f)
                     {
@@ -226,7 +223,6 @@ public class SwingAttachCollider : MonoBehaviour
                 else if (lastPlayerInputBeforeAttach == eInput.LEFT)
                 {
                     angle2 = DegAgleBetweenVectors3(hinge.transform.right, -charScript.gameObject.transform.up);
-                    spinSign = 1f;
 
                     if (Mathf.Abs(angularVelZ) > 8f)
                     {
@@ -488,10 +484,8 @@ public class SwingAttachCollider : MonoBehaviour
     public bool mustJump = false;
 
     public float angle2 = 0f;
-    float doubleTapTime = 0f;
     float doubleTappedButton = 1f;
     bool doubleTapped = false;
-    bool waitDoubleTap = false;
     public bool rotatedRight = false;
     public bool rotatedLeft = false;
     bool playSwingSound = false;
@@ -1004,7 +998,6 @@ public class SwingAttachCollider : MonoBehaviour
         }
     }
     private bool mustSetCameraInactive = false;
-    private bool waitingForCameraDeactivation = false;
     IEnumerator DeactivateCameraAutoRailRotation(float time)
     {
         currentActiveRail.canUpdateCameraRotation = false;
@@ -1020,10 +1013,8 @@ public class SwingAttachCollider : MonoBehaviour
 
     IEnumerator DeactivateCamera(float time)
     {
-        waitingForCameraDeactivation = true;
         yield return new WaitForSeconds(time);
         camScript.gameObject.SetActive(false);
-        waitingForCameraDeactivation = false;
     }
 
     private void OnDrawGizmos()

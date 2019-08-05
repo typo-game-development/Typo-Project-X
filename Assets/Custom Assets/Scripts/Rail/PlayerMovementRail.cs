@@ -271,6 +271,7 @@ float DistanceLineSegmentPoint( Vector3 a, Vector3 b, Vector3 p )
     return (pa - ba * (Vector3.Dot(pa, ba) / Vector3.Dot(ba, ba))).magnitude;
 }
 
+    public Vector3 playerPositionWhileChoosing = Vector3.zero;
 
     public void Update()
     {
@@ -318,7 +319,7 @@ float DistanceLineSegmentPoint( Vector3 a, Vector3 b, Vector3 p )
 
                                             availableForksForPoint[c].points[0].transform.position = point.transform.position;
                                             availableForksForPoint[c].points[0].transform.LookAt(availableForksForPoint[c].points[1].transform);
-                                            availableForksForPoint[c].points[0].GetComponent<PlayerMovementRailPoint>().RemoveStopCollider();
+                                            //availableForksForPoint[c].points[0].GetComponent<PlayerMovementRailPoint>().RemoveStopCollider();
                                             availableForksForPoint[c].points[0].GetComponent<PlayerMovementRailPoint>().forkSettings.forkedNode = true;
                                             availableForksForPoint[c].points[0].GetComponent<PlayerMovementRailPoint>().forkSettings.parentNode = point.gameObject;
                                         }
@@ -387,16 +388,16 @@ float DistanceLineSegmentPoint( Vector3 a, Vector3 b, Vector3 p )
                         {
                             point.prevPoint = null;
 
-                            if(!point.forkSettings.forkedNode)
-                            {
-                                point.stopPoint = true;
+                            //if(!point.forkSettings.forkedNode)
+                            //{
+                            //    point.stopPoint = true;
 
-                            }
-                            else
-                            {
-                                point.stopPoint = false;
+                            //}
+                            //else
+                            //{
+                            //    point.stopPoint = false;
 
-                            }
+                            //}
                         }
 
                     }
@@ -408,7 +409,7 @@ float DistanceLineSegmentPoint( Vector3 a, Vector3 b, Vector3 p )
                         vectorToTarget.y = 0;
                         float distanceToTarget = vectorToTarget.magnitude;
 
-                        if (distanceToTarget < 0.2f && !point.activeForRotation)
+                        if (distanceToTarget < 0.2f && !point.activeForRotation && !mustReset)
                         {
                             SetActiveForRotation(point);
 
@@ -423,24 +424,42 @@ float DistanceLineSegmentPoint( Vector3 a, Vector3 b, Vector3 p )
                             {
                                 if(!charScript.stateController.onRailFork)
                                 {
-                                    charScript.rb.velocity = new Vector3(charScript.rb.velocity.x, 0, charScript.rb.velocity.z);
+                                    charScript.rb.velocity = new Vector3(charScript.rb.velocity.x,0, charScript.rb.velocity.z);
+                                    if(!charScript.stateController.mustChooseFork)
+                                    {
+                                        playerPositionWhileChoosing = charScript.transform.position;
+                                    }
                                     charScript.stateController.mustChooseFork = true;
+
+                                    //if (point.forkSettings.parentNode != null)
+                                    //{
+                                    //    ChangeFork(point, ForkDirection.Unknown);
+                                    //}
                                 }
                                 charScript.stateController.onRailFork = true;
                                 charScript.currentForkedPoint = point;
 
                             }                       
                         }
-                        else if (distanceToTarget > 0.2f && !charScript.stateController.mustChooseFork)
+                        else if (distanceToTarget > 0.3f && !charScript.stateController.mustChooseFork)
                         {
                             point.activeForRotation = false;
                             charScript.stateController.onRailFork = false;
 
+                            if(point.forkSettings.forkedNode == true)
+                            {
+                                mustReset = false;
+                            }
                         }
                         else if(point.forkSettings.forkedNode && charScript.stateController.mustChooseFork)
+                        {                            
+                            charScript.transform.position = new Vector3(playerPositionWhileChoosing.x, charScript.transform.position.y, point.transform.position.z);
+                        }
+
+                        if(mustReset && point.activeForRotation)
                         {
-                            
-                            charScript.transform.position = new Vector3(point.transform.position.x, charScript.transform.position.y, point.transform.position.z);
+                            charScript.stateController.onRailFork = false;
+                            charScript.stateController.mustChooseFork = false;
                         }
                     }
                 }
@@ -454,61 +473,88 @@ float DistanceLineSegmentPoint( Vector3 a, Vector3 b, Vector3 p )
         }
     }
 
+    public bool mustReset = false;
+
     public void ChangeFork(PlayerMovementRailPoint point, ForkDirection direction)
     {
         bool disableCurrentRail = false;
 
-        switch (direction)
+        if(point.forkSettings.parentNode == null)
         {
-            case ForkDirection.Unknown:
-                break;
+            switch (direction)
+            {
+                case ForkDirection.Unknown:
+                    break;
 
-            case ForkDirection.Top:
-                if (point.forkSettings.forkTop != null)
-                {
-                    point.forkSettings.forkTop.gameObject.SetActive(true);
-                    point.forkSettings.forkTop.lastPlayerInput = this.lastPlayerInput;
-                    point.forkSettings.forkTop.SetActiveForRotation(point.forkSettings.forkTop.points[0].GetComponent<PlayerMovementRailPoint>());
-                    point.forkSettings.forkTop.RotateTargetAtNode(point.forkSettings.forkTop.points[0].GetComponent<PlayerMovementRailPoint>());
-                    disableCurrentRail = true;
-                }
-                break;
+                case ForkDirection.Top:
+                    if (point.forkSettings.forkTop != null)
+                    {
+                        point.forkSettings.forkTop.gameObject.SetActive(true);
+                        point.forkSettings.forkTop.lastPlayerInput = eInput.LEFT;
+                        point.forkSettings.forkTop.SetActiveForRotation(point.forkSettings.forkTop.points[0].GetComponent<PlayerMovementRailPoint>());
+                        point.forkSettings.forkTop.RotateTargetAtNode(point.forkSettings.forkTop.points[0].GetComponent<PlayerMovementRailPoint>());
+                        point.forkSettings.forkTop.mustReset = true;
+                        disableCurrentRail = true;
 
-            case ForkDirection.Bottom:
-                if (point.forkSettings.forkBottom != null)
-                {
-                    point.forkSettings.forkBottom.gameObject.SetActive(true);
-                    point.forkSettings.forkBottom.lastPlayerInput = eInput.RIGHT;
-                    point.forkSettings.forkBottom.SetActiveForRotation(point.forkSettings.forkBottom.points[0].GetComponent<PlayerMovementRailPoint>());
-                    point.forkSettings.forkBottom.RotateTargetAtNode(point.forkSettings.forkBottom.points[0].GetComponent<PlayerMovementRailPoint>());
-                    disableCurrentRail = true;
-                }
-                break;
-            case ForkDirection.Left:
-                if (point.forkSettings.forkLeft != null)
-                {
-                    point.forkSettings.forkLeft.gameObject.SetActive(true);
-                    disableCurrentRail = true;
-                }
-                break;
+                    }
+                    break;
 
-            case ForkDirection.Right:
-                if(point.forkSettings.forkRight != null)
-                {
-                    point.forkSettings.forkRight.gameObject.SetActive(true);
-                    disableCurrentRail = true;
-                }
-                break;
+                case ForkDirection.Bottom:
+                    if (point.forkSettings.forkBottom != null)
+                    {
+                        point.forkSettings.forkBottom.gameObject.SetActive(true);
+                        point.forkSettings.forkBottom.lastPlayerInput = eInput.RIGHT;
+                        point.forkSettings.forkBottom.SetActiveForRotation(point.forkSettings.forkBottom.points[0].GetComponent<PlayerMovementRailPoint>());
+                        point.forkSettings.forkBottom.RotateTargetAtNode(point.forkSettings.forkBottom.points[0].GetComponent<PlayerMovementRailPoint>());
+                        point.forkSettings.forkBottom.mustReset = true;
+                        disableCurrentRail = true;
+                    }
+                    break;
 
-            default:
-                break;
+                case ForkDirection.Left:
+                    if (point.forkSettings.forkLeft != null)
+                    {
+                        point.forkSettings.forkLeft.gameObject.SetActive(true);
+                        point.forkSettings.forkLeft.lastPlayerInput = GetInputAsEnum();
+                        point.forkSettings.forkLeft.SetActiveForRotation(point.forkSettings.forkLeft.points[0].GetComponent<PlayerMovementRailPoint>());
+                        point.forkSettings.forkLeft.RotateTargetAtNode(point.forkSettings.forkLeft.points[0].GetComponent<PlayerMovementRailPoint>());
+                        point.forkSettings.forkLeft.mustReset = true;
+                        disableCurrentRail = true;
+                    }
+                    break;
+
+                case ForkDirection.Right:
+                    if (point.forkSettings.forkRight != null)
+                    {
+                        point.forkSettings.forkRight.gameObject.SetActive(true);
+                        point.forkSettings.forkRight.lastPlayerInput = GetInputAsEnum();
+                        point.forkSettings.forkRight.SetActiveForRotation(point.forkSettings.forkRight.points[0].GetComponent<PlayerMovementRailPoint>());
+                        point.forkSettings.forkRight.RotateTargetAtNode(point.forkSettings.forkRight.points[0].GetComponent<PlayerMovementRailPoint>());
+                        point.forkSettings.forkRight.mustReset = true;
+                        disableCurrentRail = true;
+                    }
+                    break;
+
+                default:
+                    break;
+
+            }
+        }
+        else
+        {
+            PlayerMovementRail parentRail = point.forkSettings.parentNode.GetComponent<PlayerMovementRailPoint>().masterRail;
+            parentRail.gameObject.SetActive(true);
+            parentRail.lastPlayerInput = GetInputAsEnum();
+            parentRail.SetActiveForRotation(point.forkSettings.parentNode.GetComponent<PlayerMovementRailPoint>());
+            parentRail.RotateTargetAtNode(point.forkSettings.parentNode.GetComponent<PlayerMovementRailPoint>());
+            parentRail.mustReset = true;
+            disableCurrentRail = true;
 
         }
-        //point.forkSettings.forkBottom.StartCoroutine(point.forkSettings.forkBottom.SuperUpdate(point.forkSettings.forkBottom.points[0].GetComponent<PlayerMovementRailPoint>()));
-        if(disableCurrentRail)
+
+        if (disableCurrentRail)
         {
             this.gameObject.SetActive(false);
-
         }
     }
 
@@ -612,11 +658,14 @@ float DistanceLineSegmentPoint( Vector3 a, Vector3 b, Vector3 p )
                         else
                         {
                             Gizmos.color = Color.yellow;
+
                         }
                     }
                     else
                     {
                         Gizmos.color = Color.blue;
+
+
                     }
                     Gizmos.DrawWireCube(p.transform.position, new Vector3(0.3f, 0.3f, 0.3f));
 
@@ -685,11 +734,6 @@ float DistanceLineSegmentPoint( Vector3 a, Vector3 b, Vector3 p )
 
     void RotateTargetAtNode(PlayerMovementRailPoint point)
     {
-        int directionSign = 1;
-
-        float lerpTime;
-        float camAngle;
-        float updatedCamAngle;
         Vector3 vectDirection = Vector3.zero;
         camScript.Rotation.AutoRotation.Enabled = true;
 
@@ -702,76 +746,9 @@ float DistanceLineSegmentPoint( Vector3 a, Vector3 b, Vector3 p )
                 {
                     mustUpdateCamera = true;
                     cameraUpdatePoint = point;
-                    //if (lastPlayerInput == eInput.RIGHT)
-                    //{
-                    //    vectDirection = point.transform.position - point.nextPoint.transform.position;
-                    //    directionSign = 1;
-                    //}
-                    //else if (lastPlayerInput == eInput.LEFT)
-                    //{
-                    //    vectDirection = point.transform.position - point.prevPoint.transform.position;
-                    //    directionSign = -1;
-                    //}
-                    //camAngle = DegAgleBetweenVectors3(vectDirection * directionSign, camObj.transform.forward);
-                    //updatedCamAngle = CalculateUpdatedCameraAngle(camAngle);
-
-                    ////Check if rotation lerp time is set
-                    //if (point.rotationLerpTime > 0)
-                    //{
-                    //    //Use set rotation lerp time
-                    //    lerpTime = point.rotationLerpTime;
-                    //}
-                    //else
-                    //{
-                    //    //Use standard smooth lerp time
-                    //    lerpTime = Time.deltaTime * 20f;
-                    //}
-
-                    //if (point.stopWhileRotating)
-                    //{
-                    //    StartCoroutine(charScript.LockMovement(0, lerpTime + 0.2f));
-                    //    StartCoroutine(LockWhileRotating(0, lerpTime + 0.2f));
-
-                    //    if (directionSign > 0)
-                    //    {
-                    //        UpdatePlayerRail(vectDirection * directionSign, point.transform.position, point.nextPoint.transform.position);
-                    //    }
-                    //    else if (directionSign < 0)
-                    //    {
-                    //        UpdatePlayerRail(vectDirection * directionSign, point.transform.position, point.prevPoint.transform.position);
-                    //    }
-                    //    camScript.Rotation.AutoRotateBy(updatedCamAngle, 0, lerpTime);
-                    //    point.activeForRotation = false;
-                    //    return;
-                    //}
-
-
-                    ////Check if we are moving
-                    //if (vectDirection != Vector3.zero)
-                    //{
-                    //    if (canUpdateCameraRotation)
-                    //    {
-                    //        //Rotate camera as long as we are moving
-                    //        camScript.Rotation.AutoRotateBy(updatedCamAngle, 0, lerpTime);
-                    //    }
-
-                    //    if (directionSign > 0)
-                    //    {
-                    //        UpdatePlayerRail(vectDirection * directionSign, point.transform.position, point.nextPoint.transform.position);
-
-                    //    }
-                    //    else if (directionSign < 0)
-                    //    {
-                    //        UpdatePlayerRail(vectDirection * directionSign, point.transform.position, point.prevPoint.transform.position);
-
-                    //    }
-                    //}
                 }
             }
-            else
-            {
-                Debug.Log("Porcoddio");
-            }
+
             //Deactivate point for rotation
             point.activeForRotation = false;
         }
@@ -784,10 +761,8 @@ float DistanceLineSegmentPoint( Vector3 a, Vector3 b, Vector3 p )
         float lerpTime;
         float camAngle;
         float updatedCamAngle = -1;
-        float invert = -1;
+
         Vector3 vectDirection = Vector3.zero;
-
-
             if (lastPlayerInput == eInput.RIGHT)
             {
                 vectDirection = point.transform.position - point.nextPoint.transform.position;
@@ -805,7 +780,7 @@ float DistanceLineSegmentPoint( Vector3 a, Vector3 b, Vector3 p )
             if (point.rotationLerpTime > 0)
             {
                 //Use set rotation lerp time
-                lerpTime = point.rotationLerpTime;
+                lerpTime = Time.deltaTime * point.rotationLerpTime;
             }
             else
             {
@@ -813,44 +788,50 @@ float DistanceLineSegmentPoint( Vector3 a, Vector3 b, Vector3 p )
                 lerpTime = Time.deltaTime * 20f;
             }
 
-            //if (point.stopWhileRotating)
-            //{
-            //    StartCoroutine(charScript.LockMovement(0, lerpTime + 0.2f));
-            //    StartCoroutine(LockWhileRotating(0, lerpTime + 0.2f));
+        //if (point.stopWhileRotating)
+        //{
+        //    StartCoroutine(charScript.LockMovement(0, lerpTime + 0.2f));
+        //    StartCoroutine(LockWhileRotating(0, lerpTime + 0.2f));
 
-            //    if (directionSign > 0)
-            //    {
-            //        UpdatePlayerRail(vectDirection * directionSign, point.transform.position, point.nextPoint.transform.position);
-            //    }
-            //    else if (directionSign < 0)
-            //    {
-            //        UpdatePlayerRail(vectDirection * directionSign, point.transform.position, point.prevPoint.transform.position);
-            //    }
-            //    camScript.Rotation.AutoRotateBy(updatedCamAngle, 0, lerpTime);
-            //    point.activeForRotation = false;
-            //}
+        //    if (directionSign > 0)
+        //    {
+        //        UpdatePlayerRail(vectDirection * directionSign, point.transform.position, point.nextPoint.transform.position);
+        //    }
+        //    else if (directionSign < 0)
+        //    {
+        //        UpdatePlayerRail(vectDirection * directionSign, point.transform.position, point.prevPoint.transform.position);
+        //    }
+        //    camScript.Rotation.AutoRotateBy(updatedCamAngle, 0, lerpTime);
+        //    point.activeForRotation = false;
+        //}
 
-            //Check if we are moving
-            if (vectDirection != Vector3.zero)
+        //Check if we are moving
+        if (vectDirection != Vector3.zero)
+        {
+            if (canUpdateCameraRotation)
             {
-                if (canUpdateCameraRotation)
-                {
-                    //Rotate camera as long as we are moving
-                    camScript.Rotation.AutoRotateBy(updatedCamAngle, 0, lerpTime);
-                }
+                camScript.Rotation.AutoRotateBy(updatedCamAngle, 0, Time.deltaTime * Mathf.Abs(updatedCamAngle) * lerpTime);
 
-                if (directionSign > 0)
-                {
-                    UpdatePlayerRail(vectDirection * directionSign, point.transform.position, point.nextPoint.transform.position);
+                //Quaternion lookOnLook = Quaternion.LookRotation(target.transform.position - camScript.Camera.transform.position);
+                //lookOnLook.z = camScript.Camera.transform.rotation.z;
+                //lookOnLook.x = camScript.Camera.transform.rotation.x;
+                //lookOnLook.w = camScript.Camera.transform.rotation.w;
+                //camScript.Rotation.SetRotation(Quaternion.Slerp(camScript.Camera.transform.rotation, lookOnLook, lerpTime));
 
-                }
-                else if (directionSign < 0)
-                {
-                    UpdatePlayerRail(vectDirection * directionSign, point.transform.position, point.prevPoint.transform.position);
-
-                }
             }
-        
+
+            if (directionSign > 0)
+            {
+                UpdatePlayerRail(vectDirection * directionSign, point.transform.position, point.nextPoint.transform.position);
+
+            }
+            else if (directionSign < 0)
+            {
+                UpdatePlayerRail(vectDirection * directionSign, point.transform.position, point.prevPoint.transform.position);
+
+            }
+        }
+
 
         if (Mathf.Abs(updatedCamAngle) < 0.5f)
         {

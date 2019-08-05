@@ -9,6 +9,15 @@ public class CameraSpline : BezierSpline
     public float compensationConstant = 0f;
     public bool manualInputBounds;
 
+    public CameraSpline(float compensationConstant, bool manualInputBounds, Bounds cameraBoundings)
+    {
+        this.compensationConstant = compensationConstant;
+        this.manualInputBounds = manualInputBounds;
+        CameraBoundings = cameraBoundings;
+
+        showDirections = false;
+    }
+
     public Bounds CameraBoundings
     {
         get

@@ -737,7 +737,7 @@ namespace AdvancedUtilities.Cameras.Components
         /// Updates the automatic rotation.
         /// This will progress the current automatic rotation.
         /// </summary>
-        public void UpdateAutoRotate()
+        public void UpdateAutoRotate(bool rotateLookingAtTarget, Vector3 target)
         {
             if (!AutoRotation.Enabled || _autoRotateTimeRemaining <= 0)
             {
@@ -765,7 +765,15 @@ namespace AdvancedUtilities.Cameras.Components
             bool setting = AutoRotation.DisableExternalRotationWhileAutoRotating;
             AutoRotation.DisableExternalRotationWhileAutoRotating = false;
             // Perform our rotation while it's disabled.
-            Rotate(horizontalRotationThisUpdate, verticalRotationThisUpdate);
+
+            if(rotateLookingAtTarget)
+            {
+                RotateAroundTarget(horizontalRotationThisUpdate, verticalRotationThisUpdate, target);
+            }
+            else
+            {
+                Rotate(horizontalRotationThisUpdate, verticalRotationThisUpdate);
+            }
             // And set it back to it's original value.
             AutoRotation.DisableExternalRotationWhileAutoRotating = setting;
         }
@@ -951,7 +959,63 @@ namespace AdvancedUtilities.Cameras.Components
 
             TrackVerticalLimitsRotation(degrees);
         }
-        
+
+        /// <summary>
+        /// Rotates the Camera horizontally by the given degrees.
+        /// </summary>
+        /// <param name="degrees">Given degrees.</param>
+        public void RotateHorizontallyAroundTarget(float degrees, Vector3 target)
+        {
+            if (!Enabled || _isExternalDisabled)
+            {
+                return;
+            }
+
+            _smartFollowActivated = _smartFollowRotationRetain;
+
+            if (Limits.EnableHorizontalLimits)
+            {
+                degrees = GetEnforcedHorizontalDegrees(degrees);
+            }
+
+            CameraTransform.RotateAround(target, degrees);
+
+            if (HorizontalDegreesEvent.Enabled)
+            {
+                TrackHorizontalEventRotation(degrees);
+            }
+
+            TrackHorizontalLimitsRotation(degrees);
+        }
+
+        /// <summary>
+        /// Rotates the Camera vertically by the given degrees
+        /// </summary>
+        /// <param name="degrees">Given degrees.</param>
+        public void RotateVerticallyAroundTarget(float degrees, Vector3 target)
+        {
+            if (!Enabled || _isExternalDisabled)
+            {
+                return;
+            }
+
+            _smartFollowActivated = _smartFollowRotationRetain;
+
+            if (Limits.EnableVerticalLimits)
+            {
+                degrees = GetEnforcedVerticalDegrees(degrees);
+            }
+
+            CameraTransform.RotateAround(target, degrees);
+
+            if (VerticalDegreesEvent.Enabled)
+            {
+                TrackVerticalEventRotation(degrees);
+            }
+
+            TrackVerticalLimitsRotation(degrees);
+        }
+
         /// <summary>
         /// Rotates the Camera horizontally and then vertically at once by the given degrees.
         /// </summary>
@@ -961,6 +1025,17 @@ namespace AdvancedUtilities.Cameras.Components
         {
             RotateHorizontally(horizontalDegrees);
             RotateVertically(verticalDegrees);
+        }
+
+        /// <summary>
+        /// Rotates the Camera horizontally and then vertically at once by the given degrees around target.
+        /// </summary>
+        /// <param name="horizontalDegrees">Given degrees for horizontal.</param>
+        /// <param name="verticalDegrees">Given degrees for vertical.</param>
+        public void RotateAroundTarget(float horizontalDegrees, float verticalDegrees, Vector3 target)
+        {
+            RotateHorizontallyAroundTarget(horizontalDegrees, target);
+            RotateVerticallyAroundTarget(verticalDegrees, target);
         }
 
         /// <summary>

@@ -205,15 +205,12 @@ namespace AdvancedUtilities.Cameras
             }
             UpdateCamera();
             CameraTransform.ApplyTo(Camera);
-            //UpdateCamera();
-            //CameraTransform.ApplyTo(Camera);
+
         }
         void FixedUpdate()
         {
             // Apply the virtual transform to the actual transform
-            //iniRot.y = transform.eulerAngles.y; // keep current rotation about Y
-            predictedPosition = predictRigidBodyPosInTime(charScript.rb, Time.fixedDeltaTime);
-
+            predictedPosition = Target.Target.position;
         }
 
         RaycastHit[] hits;
@@ -230,12 +227,7 @@ namespace AdvancedUtilities.Cameras
             InputValues input = Input.ProcessedInput;
             Input.ClearInput();
 
-            //// Handle Rotating
-            //if(!followSpline)
-            //{
-            //}
-
-            Rotation.UpdateAutoRotate();
+            Rotation.UpdateAutoRotate(true, Target.Target.position);
             Rotation.UpdateSmartFollow();
 
             if (input.Horizontal.HasValue)
@@ -280,10 +272,10 @@ namespace AdvancedUtilities.Cameras
 
             if (canUpdateCameraPosition)
             {
+
                 if (smoothCameraPosition && !splineFollow.followSpline & !cameraWindow.enabled)
                 {
                     CameraTransform.Position = Vector3.Lerp(CameraTransform.Position, target - zoomDistance, 0.1f); // No buffer if the buffer would zoom us in past 0.
-
                 }
                 else if (splineFollow.followSpline)
                 {
@@ -341,7 +333,6 @@ namespace AdvancedUtilities.Cameras
                 {
                     CameraTransform.Position = target - zoomDistance;
                 }
-
             }
             float actual = Vector3.Distance(CameraTransform.Position, target); 
 
@@ -464,38 +455,6 @@ namespace AdvancedUtilities.Cameras
             GUI.Box(position, GUIContent.none);
         }
 
-        Vector3 predictRigidBodyPosInTime(Rigidbody sourceRigidbody, float timeInSec)
-        {
-            //Get current Position
-            Rigidbody defaultRb = sourceRigidbody;
-
-            //Simulate where it will be in x seconds
-            while (timeInSec >= Time.fixedDeltaTime)
-            {
-                timeInSec -= Time.fixedDeltaTime;
-                Physics.Simulate(Time.fixedDeltaTime);
-            }
-
-            //Get future position
-            Vector3 futurePos = sourceRigidbody.position;
-
-            sourceRigidbody = defaultRb;
-
-            //Re-enable Physics AutoSimulation
-            Physics.autoSimulation = true;
-
-            return futurePos;
-        }
-
-        private void OnDrawGizmos()
-        {
-            Color oldColor = Gizmos.color;
-            Gizmos.color = Color.cyan;
-            Gizmos.DrawWireSphere(predictedPosition, 0.2f);
-            Gizmos.DrawWireSphere(predictedPosition + (Vector3.up * 1.2f), 0.2f);
-            Gizmos.color = oldColor;
-
-        }
         #region Camera Culling Mask
         public void ShowCullingLayer(string layerName)
         {

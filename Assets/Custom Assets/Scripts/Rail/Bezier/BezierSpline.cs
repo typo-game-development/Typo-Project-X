@@ -13,6 +13,9 @@ public class BezierSpline : MonoBehaviour {
 	[SerializeField]
 	private bool loop;
 
+    [HideInInspector]
+    public bool showDirections = true;
+
 	public bool Loop {
 		get {
 			return loop;

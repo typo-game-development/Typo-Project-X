@@ -1224,6 +1224,8 @@ MonoBehaviour:
   isEditing: 0
   railGizmoColor: {r: 0, g: 1, b: 0, a: 1}
   generatedForkDirection: 1
+  playerPositionWhileChoosing: {x: 0, y: 0, z: 0}
+  mustReset: 0
   isRotatingCamera: 0
   lastPlayerInput: 0
   canUpdateCameraRotation: 1
@@ -40928,8 +40930,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevPoint: {fileID: 944320244}
   nextPoint: {fileID: 1609597332}
-  angleBetweenPrevAndNext: 0.6932335
-  rotationLerpTime: 0
+  angleBetweenPrevAndNext: 0.6918207
+  rotationLerpTime: 100
   stopCollider: {fileID: 0}
   switchRailCollider: {fileID: 0}
   stopPoint: 0
@@ -40956,7 +40958,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330653255}
-  m_LocalRotation: {x: -0, y: -0.0012567043, z: -0, w: 0.9999993}
+  m_LocalRotation: {x: -0, y: -0.0012434423, z: -0, w: 0.9999993}
   m_LocalPosition: {x: -0.6200004, y: 0, z: 1.4700012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -41052,6 +41054,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 338776123}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &355736359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 355736361}
+  - component: {fileID: 355736360}
+  m_Layer: 0
+  m_Name: StopCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &355736360
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355736359}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 16, y: 16, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &355736361
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355736359}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0000031664968, y: 0, z: -0.24999888}
+  m_LocalScale: {x: 1.0000005, y: 1, z: 1.0000005}
+  m_Children: []
+  m_Father: {fileID: 615570371}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &371159118
 GameObject:
   m_ObjectHideFlags: 0
@@ -42909,8 +42955,8 @@ MonoBehaviour:
   prevPoint: {fileID: 0}
   nextPoint: {fileID: 995714926}
   angleBetweenPrevAndNext: 14.677131
-  rotationLerpTime: 0
-  stopCollider: {fileID: 0}
+  rotationLerpTime: 100
+  stopCollider: {fileID: 355736360}
   switchRailCollider: {fileID: 0}
   stopPoint: 0
   stopWhileRotating: 0
@@ -42939,7 +42985,8 @@ Transform:
   m_LocalRotation: {x: -0, y: 0.2765905, z: -0, w: 0.96098787}
   m_LocalPosition: {x: -11.320002, y: 0, z: 1.4705725}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 355736361}
   m_Father: {fileID: 151022402}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -43754,6 +43801,8 @@ MonoBehaviour:
   isEditing: 0
   railGizmoColor: {r: 0, g: 1, b: 0, a: 1}
   generatedForkDirection: -1
+  playerPositionWhileChoosing: {x: 0, y: 0, z: 0}
+  mustReset: 0
   isRotatingCamera: 0
   lastPlayerInput: 0
   canUpdateCameraRotation: 1
@@ -44932,8 +44981,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919093148}
-  m_LocalRotation: {x: -0, y: 0.000000026077027, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0000015261911, y: 0, z: -0.000030479401}
+  m_LocalRotation: {x: -0, y: -0.00000003166496, z: -0, w: 1}
+  m_LocalPosition: {x: 0.000001414679, y: 0, z: -0.25002843}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
   m_Children: []
   m_Father: {fileID: 2028999714}
@@ -45201,7 +45250,7 @@ MonoBehaviour:
   prevPoint: {fileID: 0}
   nextPoint: {fileID: 330653255}
   angleBetweenPrevAndNext: 14.677131
-  rotationLerpTime: 0
+  rotationLerpTime: 100
   stopCollider: {fileID: 1571740589}
   switchRailCollider: {fileID: 0}
   stopPoint: 1
@@ -45368,8 +45417,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980549459}
-  m_LocalRotation: {x: -0, y: 0.000000030035142, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000007670127, y: 0, z: -0.00003051749}
+  m_LocalRotation: {x: -0, y: 0.000000030035146, z: -0, w: 1}
+  m_LocalPosition: {x: 0.000000070547685, y: 0, z: -0.5000322}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
   m_Children: []
   m_Father: {fileID: 1609597334}
@@ -45556,8 +45605,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prevPoint: {fileID: 615570369}
   nextPoint: {fileID: 2028999713}
-  angleBetweenPrevAndNext: 28.830868
-  rotationLerpTime: 0
+  angleBetweenPrevAndNext: 29.256905
+  rotationLerpTime: 100
   stopCollider: {fileID: 0}
   switchRailCollider: {fileID: 0}
   stopPoint: 0
@@ -45584,7 +45633,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 995714926}
-  m_LocalRotation: {x: -0, y: 0.02501294, z: -0, w: 0.9996872}
+  m_LocalRotation: {x: -0, y: 0.024927199, z: -0, w: 0.9996893}
   m_LocalPosition: {x: -5.2700047, y: 0, z: 11.110001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -48854,7 +48903,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571740588}
   m_LocalRotation: {x: -0, y: -9.3132235e-10, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.0000001094304, y: 0, z: -0.49999866}
   m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Children: []
   m_Father: {fileID: 944320246}
@@ -49106,8 +49155,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 94.463425, y: 6.952244, z: 3.5884666}
-  m_Center: {x: 49.768288, y: 2.291984, z: -1.4364514}
+  m_Size: {x: 94.463425, y: 6.952244, z: 12.065006}
+  m_Center: {x: 49.768288, y: 2.291984, z: -5.6747212}
 --- !u!1 &1609597332
 GameObject:
   m_ObjectHideFlags: 0
@@ -49140,7 +49189,7 @@ MonoBehaviour:
   prevPoint: {fileID: 330653255}
   nextPoint: {fileID: 0}
   angleBetweenPrevAndNext: 14.677131
-  rotationLerpTime: 0
+  rotationLerpTime: 100
   stopCollider: {fileID: 980549460}
   switchRailCollider: {fileID: 0}
   stopPoint: 1
@@ -49167,8 +49216,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609597332}
-  m_LocalRotation: {x: -0, y: -0.9999993, z: -0, w: -0.0012566745}
-  m_LocalPosition: {x: -0.9100114, y: 0, z: 116.8463}
+  m_LocalRotation: {x: -0, y: -0.9999993, z: -0, w: -0.0012434423}
+  m_LocalPosition: {x: -0.9100114, y: 0, z: 118.08403}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 980549461}
@@ -51361,8 +51410,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028999713}
-  m_LocalRotation: {x: -0, y: -0.9996872, z: -0, w: 0.02501294}
-  m_LocalPosition: {x: -0.9100114, y: 0, z: 98.18321}
+  m_LocalRotation: {x: -0, y: -0.99968934, z: -0, w: 0.024927258}
+  m_LocalPosition: {x: -0.9100114, y: 0, z: 98.48311}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 919093149}
@@ -51384,7 +51433,7 @@ MonoBehaviour:
   prevPoint: {fileID: 995714926}
   nextPoint: {fileID: 0}
   angleBetweenPrevAndNext: 14.677131
-  rotationLerpTime: 0
+  rotationLerpTime: 100
   stopCollider: {fileID: 919093150}
   switchRailCollider: {fileID: 0}
   stopPoint: 1

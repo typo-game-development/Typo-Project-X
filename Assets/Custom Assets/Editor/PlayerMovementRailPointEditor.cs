@@ -21,6 +21,7 @@ public class PlayerMovementRailPointEditor : Editor
         DrawDefaultInspector();
 
 
+
         if (t.enableRailJoin)
         {
             railPointToJoinSer.objectReferenceValue = EditorGUILayout.ObjectField(new GUIContent("Join Point", "Rail point to join with."), railPointToJoinSer.objectReferenceValue, typeof(GameObject), true);
@@ -31,8 +32,17 @@ public class PlayerMovementRailPointEditor : Editor
 
         }
 
+        if (GUILayout.Button("Generate Stop Collider"))
+        {
+            t.GenerateStopCollider();
 
+        }
 
+        if (GUILayout.Button("Remove Stop Collider"))
+        {
+            t.RemoveStopCollider();
+
+        }
 
     }
 }

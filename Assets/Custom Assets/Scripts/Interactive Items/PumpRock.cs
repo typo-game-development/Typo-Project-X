@@ -16,7 +16,6 @@ public class PumpRock : MonoBehaviour
 
     float scale;
     bool rescale;
-    bool repos;
     Vector3 oldpos;
     float oldScale;
     float newScale;
@@ -25,7 +24,6 @@ public class PumpRock : MonoBehaviour
     [HideInInspector] public bool canCollapse = false;
     bool playedPressSound = false;
     bool playedReleaseSound = false;
-    float time = 0f;
     float pressedScale = 0.2f;
 
     // Start is called before the first frame update
@@ -126,7 +124,6 @@ public class PumpRock : MonoBehaviour
         if(collision.collider.gameObject.tag =="Player")
         {
             rescale = true;
-            repos = true;
             canCollapse = false;
         }
     }

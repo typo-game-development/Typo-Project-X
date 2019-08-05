@@ -7,8 +7,9 @@ public class Sound {
 	public string name;
 
 	public AudioClip clip;
+    public AudioClip originalClip;
 
-	[Range(0f, 1f)]
+    [Range(0f, 1f)]
 	public float volume = .75f;
 	[Range(0f, 1f)]
 	public float volumeVariance = .1f;

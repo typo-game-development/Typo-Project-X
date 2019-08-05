@@ -210,7 +210,7 @@ public class PlayerMovementRailPoint : MonoBehaviour
         if (stopCollider != null)
         {
             stopCollider.transform.rotation = this.transform.rotation;//}
-            stopCollider.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);//new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+            stopCollider.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z) - this.transform.forward * 0.5f;//new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
         }
 
         if (switchRailCollider != null)
@@ -286,7 +286,7 @@ public class PlayerMovementRailPoint : MonoBehaviour
 
     public void GenerateStopCollider()
     {
-        if(stopCollider == null && !this.forkSettings.forkedNode)
+        if(stopCollider == null)
         {
             GameObject colliderObj = new GameObject();
             colliderObj.name = "StopCollider";

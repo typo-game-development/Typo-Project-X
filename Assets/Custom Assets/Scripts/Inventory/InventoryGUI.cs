@@ -11,7 +11,7 @@ public class InventoryGUI : MonoBehaviour {
     public Material blurredOverlayMaterial;
 
     public Texture emptyTex;
-    int iconWidthHeight = 100;
+    //int iconWidthHeight = 100;
     Rect rect = new Rect(0, 0, Screen.width, Screen.height);
 
     public GameObject characterWeapon;
