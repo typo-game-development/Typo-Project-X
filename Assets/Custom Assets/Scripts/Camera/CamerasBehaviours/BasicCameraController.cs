@@ -227,17 +227,17 @@ namespace AdvancedUtilities.Cameras
             InputValues input = Input.ProcessedInput;
             Input.ClearInput();
 
-            Rotation.UpdateAutoRotate(true, Target.Target.position);
+            Rotation.UpdateAutoRotate(true, Target.Target);
             Rotation.UpdateSmartFollow();
 
-            if (input.Horizontal.HasValue)
-            {
-                Rotation.RotateHorizontally(input.Horizontal.Value);
-            }
-            if (input.Vertical.HasValue)
-            {
-                Rotation.RotateVertically(input.Vertical.Value);
-            }
+            //if (input.Horizontal.HasValue)
+            //{
+            //    Rotation.RotateHorizontally(input.Horizontal.Value);
+            //}
+            //if (input.Vertical.HasValue)
+            //{
+            //    Rotation.RotateVertically(input.Vertical.Value);
+            //}
 
             Rotation.CheckRotationDegreesEvents();
 
@@ -387,7 +387,8 @@ namespace AdvancedUtilities.Cameras
 
 
             //Remove lerped Z and put non-lerped value
-            nextFrameTargetPosition.z = referenceTargetPosition.z;
+            nextFrameTargetPosition.z = Mathf.Lerp (nextFrameTargetPosition.z, referenceTargetPosition.z, 5f * Time.deltaTime);
+            nextFrameTargetPosition.x = Mathf.Lerp(nextFrameTargetPosition.x, newTransformPosition.x, 0.005f * Time.deltaTime);
 
             if (splineFollow.followOnXAxis)
             {

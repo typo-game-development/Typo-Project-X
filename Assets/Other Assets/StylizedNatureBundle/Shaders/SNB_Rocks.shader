@@ -155,7 +155,7 @@ Shader "SNB_Nature/SNB_Rocks"
 }
 /*ASEBEGIN
 Version=16100
-7;1109;1906;1004;1216.767;470.1463;1.020845;True;False
+-1919;23;1918;1016;1222.892;476.2714;1.020845;True;True
 Node;AmplifyShaderEditor.CommentaryNode;83;-2017.073,-289.3108;Float;False;578.0612;521.0447;;3;1;3;2;Base Textures;1,1,1,1;0;0
 Node;AmplifyShaderEditor.CommentaryNode;81;-1667.198,-903.9468;Float;False;1106.087;529.3005;;7;18;19;7;38;16;17;8;Color Variation;1,1,1,1;0;0
 Node;AmplifyShaderEditor.RangedFloatNode;3;-2007.297,43.07594;Float;False;Property;_NormalStrength;Normal Strength;3;0;Create;True;0;0;False;0;0.8;0.8;0;0;0;1;FLOAT;0
@@ -204,4 +204,4 @@ WireConnection;0;1;1;0
 WireConnection;0;2;87;0
 WireConnection;0;4;2;4
 ASEEND*/
-//CHKSM=A0746FB5094B0D3476E2BA0ECAF7E93CD208EB67
+//CHKSM=2493C6EEF7F5846B9E2DBA198BE872C8F4DE5590

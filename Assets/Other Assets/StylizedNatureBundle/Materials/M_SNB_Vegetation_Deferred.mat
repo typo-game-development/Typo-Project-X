@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: M_SNB_Vegetation_Deferred
   m_Shader: {fileID: 4800000, guid: f5f70798ae50d5747b4b6335cf18b3c7, type: 3}
   m_ShaderKeywords: _ALPHATEST_ON
@@ -97,7 +98,7 @@ Material:
     - _Metallic: 0
     - _Mode: 1
     - _NormalPower: 1
-    - _NormalStrength: 1
+    - _NormalStrength: 0.2
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _PointLightPunchTrough: 1
@@ -112,7 +113,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SubsurfaceDistortionModifier: 0.5
-    - _TranslucencyForce: 0.4
+    - _TranslucencyForce: 1
     - _TranslucencyLightInfluence: 0
     - _TranslucencyModifier: 0.5
     - _TranslucencyPower: 1

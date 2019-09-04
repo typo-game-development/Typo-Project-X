@@ -92,7 +92,7 @@ namespace AdvancedUtilities.Cameras
 
         public override void UpdateCamera()
         {
-            Rotation.UpdateAutoRotate(false, Vector3.zero);
+            Rotation.UpdateAutoRotate(false, null);
             Rotation.CheckRotationDegreesEvents();
 
             // Apply target offset modifications

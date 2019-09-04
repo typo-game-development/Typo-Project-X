@@ -6,7 +6,7 @@ using UnityEngine;
 public class SwingAttachCollider : MonoBehaviour
 {
     private bool firstAttach = false;
-    private PlayerMovementRail currentActiveRail;
+    private PlayerMovementRailV1 currentActiveRail;
     private Rigidbody rigidBody;
     public GameObject swinger;
     bool updateCameraPosition = false;
@@ -39,7 +39,7 @@ public class SwingAttachCollider : MonoBehaviour
             rigidBody = charScript.GetComponent<Rigidbody>();
         }
         camScript = FindObjectOfType<AdvancedUtilities.Cameras.BasicCameraController>();
-        currentActiveRail = FindObjectOfType<PlayerMovementRail>();
+        currentActiveRail = FindObjectOfType<PlayerMovementRailV1>();
         oldSwingForceMultiplier = swingForceMultiplier;
     }
     public float signedAngularVelZ = 0f;

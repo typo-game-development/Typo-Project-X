@@ -6,10 +6,10 @@ using UnityEngine;
 public class PlayerMovementRailController : MonoBehaviour
 {
     [HideInInspector]
-    public List<PlayerMovementRail> rails = new List<PlayerMovementRail>(5);
+    public List<PlayerMovementRailV1> rails = new List<PlayerMovementRailV1>(5);
 
     [HideInInspector]
-    public PlayerMovementRail currentEditedRail = null;
+    public PlayerMovementRailV1 currentEditedRail = null;
 
     [HideInInspector]
     public bool isEditing = false;
@@ -28,7 +28,7 @@ public class PlayerMovementRailController : MonoBehaviour
 
     public void AddRail()
     {
-        PlayerMovementRail newObj = new GameObject("Rail "+ this.rails.Count).AddComponent<PlayerMovementRail>();
+        PlayerMovementRailV1 newObj = new GameObject("Rail "+ this.rails.Count).AddComponent<PlayerMovementRailV1>();
         newObj.transform.parent = this.gameObject.transform;
         //newObj.gameObject.hideFlags = HideFlags.HideInHierarchy;
 
@@ -36,7 +36,7 @@ public class PlayerMovementRailController : MonoBehaviour
 
     }
 
-    public void RemoveRail(PlayerMovementRail rail)
+    public void RemoveRail(PlayerMovementRailV1 rail)
     {
         this.rails.Remove(rail);
         DestroyImmediate(rail.gameObject);
@@ -44,12 +44,12 @@ public class PlayerMovementRailController : MonoBehaviour
 
     public void RefreshRails()
     {
-        PlayerMovementRail[] tempRails = FindObjectsOfType<PlayerMovementRail>();
+        PlayerMovementRailV1[] tempRails = FindObjectsOfType<PlayerMovementRailV1>();
 
-        rails = new List<PlayerMovementRail>(tempRails);
+        rails = new List<PlayerMovementRailV1>(tempRails);
     }
 
-    public void EditRail(PlayerMovementRail railToEdit)
+    public void EditRail(PlayerMovementRailV1 railToEdit)
     {
         railToEdit.editorSelected = true;
 

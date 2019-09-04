@@ -51,6 +51,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DummyTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -91,12 +95,16 @@ Material:
         m_Texture: {fileID: 8900000, guid: 74763df2f5b722c45b7cd28e600527f3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _ReflectionTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _RefractionmapEdgeB:
         m_Texture: {fileID: 223006684, guid: 557c5daa3682e654fb1b3bcb0f2981ce, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Shadermap:
-        m_Texture: {fileID: 2800000, guid: f3a337f61eb58134f97ca1b4183a2ebf, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8b8c8a10edf94ddc8cc4cc4fcd5696a9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -108,24 +116,26 @@ Material:
     - _CoverageAmount: 0.13
     - _CoverageTiling: 0
     - _Cutoff: 0.5
-    - _Depth: 2.4
-    - _Depthdarkness: 0.725
+    - _Depth: 4.7
+    - _Depthdarkness: 0.858
     - _DetailNormalMapScale: 1
     - _Detailstrength: 1
     - _DstBlend: 0
     - _FlowSpeed: 1
-    - _Fresnelexponent: 4
+    - _Fresnelexponent: 3.61
     - _Globaltiling: 1.56
-    - _Glossiness: 0.195
+    - _Glossiness: 0.673
     - _HighlightPanning: 0
     - _Metallic: 0
     - _Mode: 0
+    - _NormalStrength: 0.226
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RefractionAmount: 0.0108
+    - _ReflectionStrength: 0.194
+    - _RefractionAmount: 0.015
     - _RimDistance: 0
-    - _RimSize: 2.03
-    - _Rimfalloff: 0.26
+    - _RimSize: 2.13
+    - _Rimfalloff: 0.1
     - _Rimtiling: 0.79
     - _Roughness: 0.5
     - _SrcBlend: 1
@@ -133,13 +143,19 @@ Material:
     - _SurfaceHightlighttiling: 0.25
     - _Surfacehightlightsize: 0
     - _TesselationEdgeLengt: 0.15
-    - _Tiling: 1.49
-    - _Transparency: 0.571
+    - _Tessellation: 26.8
+    - _Tiling: 1
+    - _Transparency: 0.13
     - _UVSec: 0
-    - _UseIntersectionHighlight: 1
-    - _Wavesspeed: 0.37
+    - _UnlitAlbedo: 0.3
+    - _UnlitEmission: 0.415
+    - _UseIntersectionHighlight: 0.152
+    - _WaveFoam: 0
+    - _WaveHeight: 0.194
+    - _WaveSize: 0.5
+    - _Wavesspeed: 1.32
     - _Wavesstrength: 0
-    - _Wavetint: 0.051
+    - _Wavetint: -0.6
     - _Worldspacetiling: 1
     - _ZWrite: 1
     - __dirty: 1
@@ -149,5 +165,7 @@ Material:
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     - _GlobalColor: {r: 1, g: 1, b: 1, a: 0}
     - _ObjectColor: {r: 1, g: 1, b: 1, a: 0}
+    - _Obstacle: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
-    - _WaterColor: {r: 0, g: 0.58706474, b: 1, a: 1}
+    - _WaterColor: {r: 0, g: 0.67058825, b: 1, a: 1}
+    - _WaterShallowColor: {r: 0.41911757, g: 0.7596349, b: 1, a: 0}

@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(PlayerMovementRailPoint))]
+[CustomEditor(typeof(PMRailPoint))]
 [CanEditMultipleObjects]
 public class PlayerMovementRailPointEditor : Editor
 {
@@ -17,7 +17,7 @@ public class PlayerMovementRailPointEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        PlayerMovementRailPoint t = (PlayerMovementRailPoint)target;
+        PMRailPoint t = (PMRailPoint)target;
         DrawDefaultInspector();
 
 

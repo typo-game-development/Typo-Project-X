@@ -125,7 +125,7 @@ namespace AdvancedUtilities.Cameras
             Input.ClearInput();
 
             // Handle Rotating
-            Rotation.UpdateAutoRotate(false, Vector3.zero);
+            Rotation.UpdateAutoRotate(false, null);
             Rotation.UpdateSmartFollow();
 
             if (input.Horizontal.HasValue)

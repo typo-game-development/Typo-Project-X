@@ -737,7 +737,7 @@ namespace AdvancedUtilities.Cameras.Components
         /// Updates the automatic rotation.
         /// This will progress the current automatic rotation.
         /// </summary>
-        public void UpdateAutoRotate(bool rotateLookingAtTarget, Vector3 target)
+        public void UpdateAutoRotate(bool rotateLookingAtTarget, Transform target)
         {
             if (!AutoRotation.Enabled || _autoRotateTimeRemaining <= 0)
             {
@@ -823,6 +823,26 @@ namespace AdvancedUtilities.Cameras.Components
             _autoRotateTimeRemaining = time;
             _autoRotateTimeTotal = time;
             _autoRotateTotalHorizontalDegrees = horizontal;
+            _autoRotateTotalVerticalDegrees = vertical;
+        }
+
+        /// <summary>
+        /// Automatically rotates the camera by the given horizontal and vertical value, in the given amount of time.
+        /// </summary>
+        /// <param name="horizontal">Degrees of rotation for the horizontal.</param>
+        /// <param name="vertical">Degrees of rotation for the vertical.</param>
+        /// <param name="time">Total time to complete this rotation.</param>
+        /// <param name="horizontalLerpTransformer">Transformers the progression of the rotation for the horizontal rotation using the lerp transformer.</param>
+        /// <param name="verticalLerpTransformer">Transformers the progression of the rotation for the vertical rotation using the lerp transformer.</param>
+        public void AutoRotateByVertical(float vertical, float time)
+        {
+            //// Already performing an auto rotation.
+            //if (!AutoRotation.AllowOverrides && _autoRotateTimeRemaining > 0)
+            //{
+            //    return;
+            //}
+            _autoRotateTimeRemaining = time;
+            _autoRotateTimeTotal = time;
             _autoRotateTotalVerticalDegrees = vertical;
         }
 
@@ -964,56 +984,29 @@ namespace AdvancedUtilities.Cameras.Components
         /// Rotates the Camera horizontally by the given degrees.
         /// </summary>
         /// <param name="degrees">Given degrees.</param>
-        public void RotateHorizontallyAroundTarget(float degrees, Vector3 target)
+        public void RotateHorizontallyAroundTarget(float degrees, Transform target)
         {
             if (!Enabled || _isExternalDisabled)
             {
                 return;
             }
 
-            _smartFollowActivated = _smartFollowRotationRetain;
-
-            if (Limits.EnableHorizontalLimits)
-            {
-                degrees = GetEnforcedHorizontalDegrees(degrees);
-            }
-
             CameraTransform.RotateAround(target, degrees);
-
-            if (HorizontalDegreesEvent.Enabled)
-            {
-                TrackHorizontalEventRotation(degrees);
-            }
-
-            TrackHorizontalLimitsRotation(degrees);
         }
 
         /// <summary>
         /// Rotates the Camera vertically by the given degrees
         /// </summary>
         /// <param name="degrees">Given degrees.</param>
-        public void RotateVerticallyAroundTarget(float degrees, Vector3 target)
+        public void RotateVerticallyAroundTarget(float degrees, Transform target)
         {
             if (!Enabled || _isExternalDisabled)
             {
                 return;
             }
 
-            _smartFollowActivated = _smartFollowRotationRetain;
+            CameraTransform.RotateAround(target, degrees, CameraTransform.Right);
 
-            if (Limits.EnableVerticalLimits)
-            {
-                degrees = GetEnforcedVerticalDegrees(degrees);
-            }
-
-            CameraTransform.RotateAround(target, degrees);
-
-            if (VerticalDegreesEvent.Enabled)
-            {
-                TrackVerticalEventRotation(degrees);
-            }
-
-            TrackVerticalLimitsRotation(degrees);
         }
 
         /// <summary>
@@ -1032,7 +1025,7 @@ namespace AdvancedUtilities.Cameras.Components
         /// </summary>
         /// <param name="horizontalDegrees">Given degrees for horizontal.</param>
         /// <param name="verticalDegrees">Given degrees for vertical.</param>
-        public void RotateAroundTarget(float horizontalDegrees, float verticalDegrees, Vector3 target)
+        public void RotateAroundTarget(float horizontalDegrees, float verticalDegrees, Transform target)
         {
             RotateHorizontallyAroundTarget(horizontalDegrees, target);
             RotateVerticallyAroundTarget(verticalDegrees, target);

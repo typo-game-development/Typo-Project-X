@@ -325,9 +325,9 @@ namespace AdvancedUtilities
         /// </summary>
         /// <param name="position">Position to rotate around.</param>
         /// <param name="angle">Degrees.</param>
-        public void RotateAround(Vector3 position, float angle)
+        public void RotateAround(Transform transform, float angle)
         {
-            RotateAround(position, angle, Vector3.up);
+            RotateAround(transform, angle, Vector3.up);
         }
 
         /// <summary>
@@ -336,36 +336,20 @@ namespace AdvancedUtilities
         /// <param name="position">Position to rotate around.</param>
         /// <param name="angle">Degrees.</param>
         /// <param name="axis">Axis to rotate on.</param>
-        public void RotateAround(Vector3 position, float angle, Vector3 axis)
+        public void RotateAround(Transform transform, float angle, Vector3 axis)
         {
             Quaternion rotation = Quaternion.AngleAxis(angle, axis);
-            Vector3 direction = Position - position; 
+            Vector3 direction = Position - transform.position; 
 
             direction = rotation * direction;
 
-            Position = position + direction;
-            Rotation *= Quaternion.Euler(axis.normalized * angle);
-        }
+            Position = transform.position + direction;
 
-        /// <summary>
-        /// Rotates around the position of the Transform by the given amount of degrees on the Vector3.Up axis.
-        /// </summary>
-        /// <param name="transform">Transform whose position to rotate around.</param>
-        /// <param name="angle">Degrees.</param>
-        public void RotateAround(Transform transform, float angle)
-        {
-            RotateAround(transform.position, angle, Vector3.up);
-        }
+            Vector3 eulerAngles = axis * angle;
 
-        /// <summary>
-        /// Rotates around the position of the Transform by the given amount of degrees on the given axis.
-        /// </summary>
-        /// <param name="transform">Transform whose position to rotate around.</param>
-        /// <param name="angle">Degrees.</param>
-        /// <param name="axis">Axis to rotate on.</param>
-        public void RotateAround(Transform transform, float angle, Vector3 axis)
-        {
-            RotateAround(transform.position, angle, axis);
+            Rotation *= Quaternion.Euler(eulerAngles);
+            Rotation = Quaternion.Euler(Rotation.eulerAngles.x, Rotation.eulerAngles.y, 0f);
+
         }
 
         /// <summary>
@@ -375,7 +359,7 @@ namespace AdvancedUtilities
         /// <param name="angle">Degrees.</param>
         public void RotateAround(VirtualTransform virtualTransform, float angle)
         {
-            RotateAround(virtualTransform.Position, angle, Vector3.up);
+            RotateAround(virtualTransform, angle, Vector3.up);
         }
 
         /// <summary>
@@ -386,7 +370,7 @@ namespace AdvancedUtilities
         /// <param name="axis">Axis to rotate on.</param>
         public void RotateAround(VirtualTransform virtualTransform, float angle, Vector3 axis)
         {
-            RotateAround(virtualTransform.Position, angle, axis);
+            RotateAround(virtualTransform, angle, axis);
         }
 
         /// <summary>
@@ -396,7 +380,7 @@ namespace AdvancedUtilities
         /// <param name="angle">Degrees.</param>
         public void RotateAround(MonoBehaviour monoBehaviour, float angle)
         {
-            RotateAround(monoBehaviour.transform.position, angle, Vector3.up);
+            RotateAround(monoBehaviour.transform, angle, Vector3.up);
         }
 
         /// <summary>
@@ -407,7 +391,7 @@ namespace AdvancedUtilities
         /// <param name="axis">Axis to rotate on.</param>
         public void RotateAround(MonoBehaviour monoBehaviour, float angle, Vector3 axis)
         {
-            RotateAround(monoBehaviour.transform.position, angle, axis);
+            RotateAround(monoBehaviour.transform, angle, axis);
         }
 
         /// <summary>
@@ -417,7 +401,7 @@ namespace AdvancedUtilities
         /// <param name="angle">Degrees.</param>
         public void RotateAround(GameObject gameObject, float angle)
         {
-            RotateAround(gameObject.transform.position, angle, Vector3.up);
+            RotateAround(gameObject.transform, angle, Vector3.up);
         }
 
         /// <summary>
@@ -428,7 +412,7 @@ namespace AdvancedUtilities
         /// <param name="axis">Axis to rotate on.</param>
         public void RotateAround(GameObject gameObject, float angle, Vector3 axis)
         {
-            RotateAround(gameObject.transform.position, angle, axis);
+            RotateAround(gameObject.transform, angle, axis);
         }
 
         /// <summary>
@@ -439,7 +423,7 @@ namespace AdvancedUtilities
         /// <param name="axis">Axis to rotate on.</param>
         public void RotateAround(Camera camera, float angle, Vector3 axis)
         {
-            RotateAround(camera.transform.position, angle, axis);
+            RotateAround(camera.transform, angle, axis);
         }
 
         #endregion

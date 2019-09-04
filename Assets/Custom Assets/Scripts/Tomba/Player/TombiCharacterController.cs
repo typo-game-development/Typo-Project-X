@@ -1,4 +1,6 @@
 using System.Collections;
+using Unity.Collections;
+using Unity.Jobs;
 using UnityEditor;
 using UnityEngine;
 
@@ -276,7 +278,8 @@ public class TombiCharacterController : SerializableMonoBehaviour
     private float currentIdleTime = 0f;
 
     /* MOVEMENT VARIABLES */
-    private float moveSpeed;
+    [HideInInspector]
+    public float moveSpeed;
     private float x;
     private float z;
     private float dv;
@@ -286,8 +289,8 @@ public class TombiCharacterController : SerializableMonoBehaviour
 
     [HideInInspector] public float lastInputHorizontal;
     [HideInInspector] public Vector3 inputVec;
-    [HideInInspector] public Vector3 railFirstPoint;
-    [HideInInspector] public Vector3 railLastPoint;
+     public Vector3 railFirstPoint;
+     public Vector3 railLastPoint;
     [HideInInspector] public Vector3 playerRail;
     [HideInInspector] public Vector3 climbPosition;
     [HideInInspector] public Vector3 ledgeClimbPosition;
@@ -324,14 +327,14 @@ public class TombiCharacterController : SerializableMonoBehaviour
     public PumpRock lastHittedPump;
     private Vector3 groundNormal = Vector3.zero;
     private Vector3 groundHit = Vector3.zero;
-    public PlayerMovementRailPoint currentForkedPoint = null;
+    public PMRailPoint currentForkedPoint = null;
 
     private const float fallingVelocity = -0.1f;
     private const float checkRaycastGroundedOffset = 0.75f;
     // Used for continuing momentum while in air
     private const float maxVelocity = 5f;
     private const float minVelocity = -5f;
-
+    public GameObject forkArrows;
     private bool hasInitialized = false;
 
     #endregion
@@ -355,7 +358,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
          * Check if audiomanager and camera script were found
          * Animator and RigidBody are required components. 
          */
-        if(audioManager == null)
+        if (audioManager == null)
         {
             Debug.LogWarning("'AudioManager' script was not found by 'TombiCharacterController'.");
             return false;
@@ -405,6 +408,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
 
         return true;
     }
+    Vector3 playerSnappedDirection = Vector3.zero;
 
     void Awake()
     {
@@ -438,6 +442,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
         //Make sure that the script has been initialized properly.
         if (hasInitialized)
         {
+
             if (stateController.onBridge)
             {
                 rb.mass = physicsSettings.onBridgeMass;
@@ -467,9 +472,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
                     weaponController.equippedWeapon.GetComponent<Blackjack>().Throw();
                 }
             }
-
-
-
+           
             if(!stateController.onRailFork)
             {
                 Jumping();
@@ -477,7 +480,6 @@ public class TombiCharacterController : SerializableMonoBehaviour
                 HandlePumpRockPress();
 
             }
-
             
             if (!movementSettings.moveOnly && !stateController.onRailFork) //Check if Tomba can perform actions
             {
@@ -581,15 +583,72 @@ public class TombiCharacterController : SerializableMonoBehaviour
             }
         }
     }
+    float outPointT = 0f;
+    public bool flagtest = false;
+    public BezierSolution.BezierSplineAdvanced spline;
 
+    public PlayerMovementRailV1 testRail;
     void FixedUpdate()
     {
         //Make sure that the script has been initialized properly.
         if (hasInitialized)
         {
+            if(flagtest && spline != null)
+            {
+                int accuracy = 25;
+                float step = spline.AccuracyToStepSize(accuracy);
+                Vector3[] thisPoint = new Vector3[accuracy];
+
+                float minDistance = Mathf.Infinity;
+
+                for (float i = 0f; i < 1f; i += step)
+                {
+                    int i2 = (int)(step * accuracy);
+                    testRail.AddPoint(spline.GetPoint(i));
+                }
+                flagtest = false;
+
+            }
+
+            //if (spline != null)
+            //{
+            //    if(flagtest)
+            //    {
+            //        Vector3 playerSnappedPosition = Vector3.zero;
+            //        playerSnappedPosition = spline.FindNearestPointTo(this.transform.position, out outPointT, 100);
+            //        //playerSnappedPosition = spline.FindNearestPointToRange(this.transform.position, out outPointT, outPointT - spline.AccuracyToStepSize(100), outPointT + spline.AccuracyToStepSize(100), 100);
+
+            //        playerSnappedDirection = spline.GetTangent(outPointT).normalized * 0.8f;
+
+
+
+            //        if (playerSnappedPosition != Vector3.zero)
+            //        {
+            //            //Calculate projection between rail points
+            //            //Vector3 AB = playerSnappedDirection - (playerSnappedDirection * -1);
+            //            //Vector3 AC = rb.position - (playerSnappedDirection * -1);
+            //            //Vector3 AX = Vector3.Project(AC, AB);
+            //            //Vector3 X = AX + (playerSnappedDirection * -1);
+            //            ////Instantly set Tomba position to new calculated one
+            //            //transform.position = new Vector3(X.x, transform.position.y, X.z);
+            //            transform.position = new Vector3(transform.position.x, transform.position.y, playerSnappedPosition.z);
+            //        }
+
+            //        if (playerSnappedDirection != Vector3.zero)
+            //        {
+            //            RotateTowardsMovementDir(spline.GetTangent(outPointT).normalized * 0.8f * lastInputHorizontal, false);
+            //        }
+            //    }
+
+            //}
+            //else
+            //{
+            //    spline = FindObjectOfType<BezierSolution.BezierSplineAdvanced>();
+            //}
+
             if (stateController.isJumping && !stateController.isFalling && Input.GetButton("PS4_X"))
             {
-                rb.AddForce(new Vector3(0f, 50f * Time.deltaTime, 0f), ForceMode.Impulse);
+                rb.AddForce(new Vector3(0f, 55f * Time.deltaTime, 0f), ForceMode.Impulse);
 
             }
             SlopeSlide();
@@ -770,7 +829,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
             if (hittone.transform.tag == "PumpRock" && !stateController.isJumping)
             {
                 lastHittedPump = hittone.transform.GetComponent<PumpRock>();
-                Debug.Log(hittone.distance);
+
                 if (hittone.distance < 1.2f)
                 {
                     hittone.transform.GetComponent<PumpRock>().canCollapse = true;
@@ -1217,15 +1276,27 @@ public class TombiCharacterController : SerializableMonoBehaviour
     /// </summary>
     public void SnapZPosition()
     {
-        if (railFirstPoint != null && railLastPoint != null && movementSettings.lockZMovement)
+        bool useSpline = false;
+
+        if (!useSpline)
         {
-            //Calculate projection between rail points
-            Vector3 AB = railLastPoint - railFirstPoint;
-            Vector3 AC = rb.position - railFirstPoint;
-            Vector3 AX = Vector3.Project(AC, AB);
-            Vector3 X = AX + railFirstPoint;
-            //Instantly set Tomba position to new calculated one
-            transform.position = new Vector3(X.x, transform.position.y, X.z);
+            if (railFirstPoint != null && railLastPoint != null && movementSettings.lockZMovement)
+            {
+                //Calculate projection between rail points
+                Vector3 AB = railLastPoint - railFirstPoint;
+                Vector3 AC = rb.position - railFirstPoint;
+                Vector3 AX = Vector3.Project(AC, AB);
+                Vector3 X = AX + railFirstPoint;
+                //Instantly set Tomba position to new calculated one
+                transform.position = new Vector3(X.x, transform.position.y, X.z);
+            }
+        }
+        else
+        {
+
+            float outPointT = 0;
+
+
         }
     }
 
@@ -1424,55 +1495,55 @@ public class TombiCharacterController : SerializableMonoBehaviour
             {
                 if (stateController.isGrounded && !stateController.isFalling && !stateController.isJumping && currentForkedPoint != null)
                 {
-                    PlayerMovementRail.ForkDirection forkDirection = PlayerMovementRail.ForkDirection.Unknown;
+                    PlayerMovementRailV1.ForkDirection forkDirection = PlayerMovementRailV1.ForkDirection.Unknown;
 
-                    /* Check if Tomba is in animal dash state */
-                    if (Input.GetKey(KeyCode.LeftControl))
-                    {
-                        if (Input.GetButton("PS4_DPAD_UP"))
-                        {
-                            forkDirection = PlayerMovementRail.ForkDirection.Top;
-                        }
-                        else if (Input.GetButton("PS4_DPAD_DOWN"))
-                        {
-                            forkDirection = PlayerMovementRail.ForkDirection.Bottom;
-                        }
-                        else if (Input.GetButton("PS4_DPAD_LEFT"))
-                        {
-                            forkDirection = PlayerMovementRail.ForkDirection.Left;
-                        }
-                        else if (Input.GetButton("PS4_DPAD_RIGHT"))
-                        {
-                            forkDirection = PlayerMovementRail.ForkDirection.Right;
-                        }
-                    }
-                    else
-                    {
-                        inputHorizontal = 0;
+                    ///* Check if Tomba is in animal dash state */
+                    //if (true)
+                    //{
+                    //    if (Input.GetButton("PS4_DPAD_UP"))
+                    //    {
+                    //        forkDirection = PlayerMovementRailV1.ForkDirection.Top;
+                    //    }
+                    //    else if (Input.GetButton("PS4_DPAD_DOWN"))
+                    //    {
+                    //        forkDirection = PlayerMovementRailV1.ForkDirection.Bottom;
+                    //    }
+                    //    else if (Input.GetButton("PS4_DPAD_LEFT"))
+                    //    {
+                    //        forkDirection = PlayerMovementRailV1.ForkDirection.Left;
+                    //    }
+                    //    else if (Input.GetButton("PS4_DPAD_RIGHT"))
+                    //    {
+                    //        forkDirection = PlayerMovementRailV1.ForkDirection.Right;
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    inputHorizontal = 0;
 
-                        if (Input.GetButtonDown("PS4_DPAD_UP"))
-                        {
-                            forkDirection = PlayerMovementRail.ForkDirection.Top;
-                        }
-                        else if (Input.GetButtonDown("PS4_DPAD_DOWN"))
-                        {
-                            forkDirection = PlayerMovementRail.ForkDirection.Bottom;
-                        }
-                        else if (Input.GetButtonDown("PS4_DPAD_LEFT"))
-                        {
-                            forkDirection = PlayerMovementRail.ForkDirection.Left;
-                        }
-                        else if (Input.GetButtonDown("PS4_DPAD_RIGHT"))
-                        {
-                            forkDirection = PlayerMovementRail.ForkDirection.Right;
-                        }
-                    }
+                    //    if (Input.GetButtonDown("PS4_DPAD_UP"))
+                    //    {
+                    //        forkDirection = PlayerMovementRailV1.ForkDirection.Top;
+                    //    }
+                    //    else if (Input.GetButtonDown("PS4_DPAD_DOWN"))
+                    //    {
+                    //        forkDirection = PlayerMovementRailV1.ForkDirection.Bottom;
+                    //    }
+                    //    else if (Input.GetButtonDown("PS4_DPAD_LEFT"))
+                    //    {
+                    //        forkDirection = PlayerMovementRailV1.ForkDirection.Left;
+                    //    }
+                    //    else if (Input.GetButtonDown("PS4_DPAD_RIGHT"))
+                    //    {
+                    //        forkDirection = PlayerMovementRailV1.ForkDirection.Right;
+                    //    }
+                    //}
 
-                    if (forkDirection != PlayerMovementRail.ForkDirection.Unknown)
-                    {
-                        stateController.mustChooseFork = false;
-                        FindObjectOfType<PlayerMovementRail>().ChangeFork(currentForkedPoint, forkDirection);
-                    }
+                    //if (forkDirection != PlayerMovementRailV1.ForkDirection.Unknown)
+                    //{
+                    //    stateController.mustChooseFork = false;
+                    //    FindObjectOfType<PlayerMovementRailV1>().ChangeFork(currentForkedPoint, forkDirection);
+                    //}
                 }
             }
         }
@@ -1556,7 +1627,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
                 {
                     inputHorizontal = lastInputHorizontal * -1;
 
-                    RotateTowardsMovementDir(lastInputVec * -1, true);
+                    //RotateTowardsMovementDir(lastInputVec * -1, true);
                     startedSliding = false;
                 }
             }
@@ -1614,7 +1685,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
         {
             right = new Vector3(forward.z, 0, -forward.x);
         }
-
+        Debug.DrawRay(this.transform.position, playerSnappedDirection);
         //directional inputs
         dv = inputDashVertical;
         dh = inputDashHorizontal;
@@ -1637,7 +1708,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
             RotateTowardsMovementDir(lastInputVec, false);
         }
 
-        if(!movementSettings.lockZMovement)
+        if (!movementSettings.lockZMovement)
         {
             inputVec = completeInputVector;
         }
@@ -1661,7 +1732,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
             lastCompleteInputVector = completeInputVector;
         }
     }
-
+    
     //Rotate character towards direction
     public void RotateTowardsMovementDir(Vector3 dirVector, bool instantRotation)
     {
@@ -1742,14 +1813,14 @@ public class TombiCharacterController : SerializableMonoBehaviour
 
         if (!stateController.isStrafing && !onSwitchCollider)
         {
-            if (inputVec != Vector3.zero)
-            {
-                RotateTowardsMovementDir(inputVec, true);
-            }
-            else
-            {
-                RotateTowardsMovementDir(lastInputVec, false);
-            }
+            //if (inputVec != Vector3.zero)
+            //{
+            //    RotateTowardsMovementDir(inputVec, true);
+            //}
+            //else
+            //{
+            //    RotateTowardsMovementDir(lastInputVec, false);
+            //}
         }
         //Commentato perchè troppo restrittivo con movimentazioni 2.5D e 3D
         //if (movementController.lockZMovement)
@@ -2373,6 +2444,8 @@ public class TombiCharacterController : SerializableMonoBehaviour
         Gizmos.DrawWireSphere(hitLedgeClimb.point, 0.2f);
 
         Vector3 pos = this.transform.position;
+
+        //Gizmos.DrawWireSphere(result, .1f);
 
 
         Debug.DrawLine(pos + physicsSettings.maxGroundedHeight, pos + physicsSettings.maxGroundedDistanceDown, Color.yellow);

@@ -77,12 +77,12 @@ Material:
     - _SrcBlend: 5
     - _UVSec: 0
     - _ZWrite: 0
-    - _dessaturate: 0.27
+    - _dessaturate: 1
     - _exp: 3.56
     - _exponengradient: 0.5
     - _finalpower: 0.3
-    - _opacity: 1.71
-    - _speed: -0.15
+    - _opacity: 3.97
+    - _speed: 0.03
     - _speed1: 1
     - _sunexp: 0.1
     - _sunpower: 2.48

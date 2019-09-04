@@ -137,10 +137,10 @@ Material:
     - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _Color0: {r: 0.79033947, g: 1, b: 0.033018887, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FlowerInsideColor01: {r: 1, g: 0.7789562, b: 0.12735847, a: 0}
-    - _FlowerInsideColor02: {r: 1, g: 0.9507267, b: 0.6084906, a: 0}
-    - _FlowerMainColor01: {r: 1, g: 0.9637498, b: 0.759434, a: 0}
-    - _FlowerMainColor02: {r: 1, g: 0.70334506, b: 0.15566036, a: 0}
+    - _FlowerInsideColor01: {r: 1, g: 0.90642184, b: 0.6273585, a: 0}
+    - _FlowerInsideColor02: {r: 1, g: 0.87551886, b: 0.042452812, a: 0}
+    - _FlowerMainColor01: {r: 0.7122642, g: 0.72836125, b: 1, a: 0}
+    - _FlowerMainColor02: {r: 0.99985784, g: 1, b: 0.9764151, a: 0}
     - _GrassColor: {r: 0.55825025, g: 0.5794906, b: 0.6132076, a: 0}
     - _GrassColorVariation: {r: 0.40634057, g: 0.7075472, b: 0.24363652, a: 0}
     - _HeightColor: {r: 0.71675867, g: 0.8584906, b: 0.8512223, a: 0}

@@ -5,18 +5,15 @@ using UnityEngine;
 /// <summary>
 /// Custom editor class for PlayerMovementRail.
 /// </summary>
-[CustomEditor(typeof(PlayerMovementRail))]
+[CustomEditor(typeof(PlayerMovementRailV1))]
 public class PlayerMovementRailEditor : Editor
 {
-
-
-
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
 
 
-        PlayerMovementRail t = (PlayerMovementRail)target;
+        PlayerMovementRailV1 t = (PlayerMovementRailV1)target;
         test = t;
 
         if (GUILayout.Button("Add Point"))
@@ -154,7 +151,7 @@ public class PlayerMovementRailEditor : Editor
     //}
 
     public static Vector3 size;
-    public static PlayerMovementRail test;
+    public static PlayerMovementRailV1 test;
 
     private static void DrawCircleBrush(Color _color, float _size)
     {

@@ -122,7 +122,7 @@ public class PlayerMovementRailControllerEditor : Editor
         string[] railPointOptions = new string[0];
         int i = 0;
 
-        foreach(PlayerMovementRail rail in targetScript.rails)
+        foreach(PlayerMovementRailV1 rail in targetScript.rails)
         {
             if(rail.points != null && rail.points.Length > 0)
             {
@@ -190,7 +190,7 @@ public class PlayerMovementRailControllerEditor : Editor
         {
             if(list.GetArrayElementAtIndex(i).objectReferenceValue != null)
             {
-                PlayerMovementRail rail = (PlayerMovementRail)list.GetArrayElementAtIndex(i).objectReferenceValue;
+                PlayerMovementRailV1 rail = (PlayerMovementRailV1)list.GetArrayElementAtIndex(i).objectReferenceValue;
 
                 if (targetScript.isEditing == true)
                 {
@@ -280,7 +280,7 @@ public class PlayerMovementRailControllerEditor : Editor
 
     static void DrawFields(SerializedProperty rail)
     {
-        PlayerMovementRail r = (PlayerMovementRail)rail.objectReferenceValue;
+        PlayerMovementRailV1 r = (PlayerMovementRailV1)rail.objectReferenceValue;
 
         EditorGUILayout.Vector3Field("Switch collider size:", r.railSwitchColliderSize);
 
@@ -321,7 +321,7 @@ public class PlayerMovementRailControllerEditor : Editor
                         string[] railPointOptions = new string[0];
                         int i2 = 0;
 
-                        foreach (PlayerMovementRail rail1 in targetScript.rails)
+                        foreach (PlayerMovementRailV1 rail1 in targetScript.rails)
                         {
                             if (rail1.points != null && rail1.points.Length > 0)
                             {
@@ -368,7 +368,7 @@ public class PlayerMovementRailControllerEditor : Editor
 
     private static void ShowButtons(SerializedProperty list, GUIStyle toggled, GUIStyle untoggled, int index)
     {
-        PlayerMovementRail rail = (PlayerMovementRail)list.GetArrayElementAtIndex(index).objectReferenceValue;
+        PlayerMovementRailV1 rail = (PlayerMovementRailV1)list.GetArrayElementAtIndex(index).objectReferenceValue;
 
         if(list.GetArrayElementAtIndex(index).objectReferenceValue != null)
         {
@@ -381,7 +381,7 @@ public class PlayerMovementRailControllerEditor : Editor
                 {
                     for (int i = 0; i < list.arraySize; i++)
                     {
-                        PlayerMovementRail temprail = (PlayerMovementRail)list.GetArrayElementAtIndex(i).objectReferenceValue;
+                        PlayerMovementRailV1 temprail = (PlayerMovementRailV1)list.GetArrayElementAtIndex(i).objectReferenceValue;
                         temprail.editorSelected = false;
                     }
                     rail.editorSelected = true;

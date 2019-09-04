@@ -18,6 +18,7 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Tree_03_f_LOD0
+    2186277476908879412: ImportLogs
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -82,7 +83,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 3
+    tangentImportMode: 0
     normalCalculationMode: 4
   importAnimation: 0
   copyAvatar: 0

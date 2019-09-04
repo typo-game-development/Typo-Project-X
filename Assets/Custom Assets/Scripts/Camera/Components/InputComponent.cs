@@ -177,7 +177,14 @@ namespace AdvancedUtilities.Cameras.Components
             get
             {
                 // Smooth after processing, since we want the sensitivity modified values, and smoothing may do nothing.
-                return _smoothing.TrySmooth(ProcessInput(Input));
+                if(_smoothing != null)
+                {
+                    return _smoothing.TrySmooth(ProcessInput(Input));
+                }
+                else
+                {
+                    return null;
+                }
             }
         }
 
@@ -207,13 +214,20 @@ namespace AdvancedUtilities.Cameras.Components
         /// <returns></returns>
         public InputValues ProcessInput(InputValues input)
         {
-            InputValues result = input.Copy();
+            if(input != null)
+            {
+                InputValues result = input.Copy();
 
-            result.NullOutValues(!EnableHorziontal, !EnableVertical, !EnableZoomIn, !EnableZoomOut);
-            result.MultiplyBy(Sensitivity.Horizontal, Sensitivity.Vertical, Sensitivity.ZoomIn, Sensitivity.ZoomOut);
-            result.InvertValues(Invert.Horizontal, Invert.Vertical, Invert.ZoomIn, Invert.ZoomOut);
+                result.NullOutValues(!EnableHorziontal, !EnableVertical, !EnableZoomIn, !EnableZoomOut);
+                result.MultiplyBy(Sensitivity.Horizontal, Sensitivity.Vertical, Sensitivity.ZoomIn, Sensitivity.ZoomOut);
+                result.InvertValues(Invert.Horizontal, Invert.Vertical, Invert.ZoomIn, Invert.ZoomOut);
+                return result;
 
-            return result;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         #region Manipulation

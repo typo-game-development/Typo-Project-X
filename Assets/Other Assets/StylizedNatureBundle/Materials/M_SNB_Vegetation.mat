@@ -4,13 +4,12 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_Name: M_SNB_Vegetation
-  m_Shader: {fileID: 4800000, guid: e27c26c0ecebef247ba69245490f2562, type: 3}
+  m_Shader: {fileID: 4800000, guid: 041ed92166f5aa9449994e31aba70f1e, type: 3}
   m_ShaderKeywords: _ALPHATEST_ON
-  m_LightmapFlags: 4
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -80,38 +79,26 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AmbientOcclusion: 0.544
-    - _BendingInfluence: 0
-    - _BendingTint: -0.05
     - _BumpScale: 1
-    - _ColorVariation: 0.05
     - _Cutoff: 0.75
     - _DetailNormalMapScale: 1
-    - _DirectionalShadows: 0.3
+    - _DirectionalShadows: 0.324
     - _DirectionalTranslucency: 0.143
     - _DstBlend: 0
     - _EmissionPower: 0
     - _EmissionStrength: 0
-    - _FlatLighting: 0
-    - _Float0: 0
+    - _Float0: 1.5
     - _Float1: 1.26
-    - _GlobalWindMotion: 1
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
-    - _HeightmapInfluence: 0
-    - _LeafFlutter: 0.114
-    - _MaxHeight: 0
-    - _MaxWindStrength: 0.126967
+    - _LOD_FADE_CROSSFADE: 0
     - _Metallic: 0
-    - _MinHeight: -0.5
     - _Mode: 1
     - _NormalPower: 1
     - _NormalStrength: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _PigmentMapHeight: 0
-    - _PigmentMapInfluence: 0.155
     - _PointLightPunchTrough: 1
     - _PointLightTranslucency: 3
     - _SSSColorPower: 3.7
@@ -119,32 +106,26 @@ Material:
     - _SSSPower: 1
     - _SSSScale: 1
     - _ShadowStrength: 0.2
-    - _Shininess: 0.1
+    - _Shininess: 0.8
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
+    - _Specularity: 1
     - _SrcBlend: 1
     - _SubsurfaceDistortionModifier: 0.5
-    - _Tessellation: 4
     - _TranslucencyForce: 0.4
     - _TranslucencyLightInfluence: 0
     - _TranslucencyModifier: 0.5
     - _TranslucencyPower: 1
     - _TranslucencyScale: 1
-    - _TransmissionAmount: 2.696819
-    - _TransmissionSize: 1
     - _TrunkWindAmplitude: 0.03
     - _TrunkWindPower: 0.6
     - _UVSec: 0
-    - _VS_TOUCHBEND: 0
-    - _WindAmplitudeMultiplier: 10
     - _WindFoliageAmplitude: 0.05
     - _WindFoliageSpeed: 0.3
     - _WindLeafAmplitude: 0.035
     - _WindLeafSpeed: 0.17
     - _WindSpeed: 0.17
     - _WindStrength: 0.035
-    - _WindSwinging: 0
-    - _WindTint: 0.1
     - _WindTrunkAmplitude: 0.06
     - _WindTrunkPower: 0.6
     - _WindTrunkSpeed: 0.3
@@ -153,10 +134,9 @@ Material:
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _Color0: {r: 0.62495226, g: 0.6603774, b: 0.49528304, a: 0}
-    - _ColorBottom: {r: 0.23199996, g: 0.5, b: 0, a: 1}
-    - _ColorTop: {r: 0.30010638, g: 0.6838235, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SSSColor: {r: 1, g: 0.9439245, b: 0.5801887, a: 0}
     - _SSSTint: {r: 1, g: 0.99379236, b: 0.38207522, a: 0}
+    - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularColor: {r: 0.3921569, g: 0.3921569, b: 0.3921569, a: 1}
-    - _TranslucencyTint: {r: 1, g: 0.96403116, b: 0.18396148, a: 0}
+    - _TranslucencyTint: {r: 1, g: 0.96403116, b: 0.18395993, a: 0}

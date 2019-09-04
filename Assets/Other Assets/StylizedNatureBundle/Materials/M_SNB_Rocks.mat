@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: M_SNB_Rocks
   m_Shader: {fileID: 4800000, guid: 2596cc0ca2072a44b85861fcbd7c0c88, type: 3}
   m_ShaderKeywords: _NORMALMAP
@@ -105,7 +106,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
-    - _GrassAmount: 0
+    - _GrassAmount: 2.78
     - _GrassLevel: 1
     - _HeightBrightness: 0
     - _HeightGradient: 0
