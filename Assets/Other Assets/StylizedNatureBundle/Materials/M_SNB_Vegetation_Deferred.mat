@@ -11,7 +11,7 @@ Material:
   m_Shader: {fileID: 4800000, guid: f5f70798ae50d5747b4b6335cf18b3c7, type: 3}
   m_ShaderKeywords: _ALPHATEST_ON
   m_LightmapFlags: 0
-  m_EnableInstancingVariants: 1
+  m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -83,7 +83,7 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.75
     - _DetailNormalMapScale: 1
-    - _DirectionalShadows: 0.2
+    - _DirectionalShadows: 1
     - _DirectionalTranslucency: 0.143
     - _DstBlend: 0
     - _EmissionPower: 0
@@ -121,8 +121,8 @@ Material:
     - _TrunkWindAmplitude: 0.03
     - _TrunkWindPower: 0.6
     - _UVSec: 0
-    - _WindFoliageAmplitude: 0.05
-    - _WindFoliageSpeed: 0.3
+    - _WindFoliageAmplitude: 0.06
+    - _WindFoliageSpeed: 0.099
     - _WindLeafAmplitude: 0.035
     - _WindLeafSpeed: 0.17
     - _WindSpeed: 0.17

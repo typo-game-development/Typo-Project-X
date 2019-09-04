@@ -165,7 +165,7 @@ Material:
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     - _GlobalColor: {r: 1, g: 1, b: 1, a: 0}
     - _ObjectColor: {r: 1, g: 1, b: 1, a: 0}
-    - _Obstacle: {r: 0, g: 0, b: 0, a: 1}
+    - _Obstacle: {r: 0, g: 0, b: 0, a: 0}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _WaterColor: {r: 0, g: 0.67058825, b: 1, a: 1}
     - _WaterShallowColor: {r: 0.41911757, g: 0.7596349, b: 1, a: 0}

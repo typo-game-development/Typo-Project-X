@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: M_SNB_Trees
   m_Shader: {fileID: 4800000, guid: 4e9aa94b7854f7f4d8bf69448ee6b3be, type: 3}
   m_ShaderKeywords: _LOD_FADE_CROSSFADE_ON _NORMALMAP
@@ -37,13 +38,13 @@ Material:
     m_Floats:
     - _Cutoff: 0
     - _EmissionStrength: 0
-    - _HeightBrightness: 0
-    - _HeightGradient: 1.5
-    - _HeightStartGradient: 1.25
+    - _HeightBrightness: 3.39
+    - _HeightGradient: 1.74
+    - _HeightStartGradient: 1.97
     - _NormalStrength: 1
-    - _TrunkBrightness: 0.5
+    - _TrunkBrightness: 0
     - _WindTrunkAmplitude: 0.06
     - _WindTrunkSpeed: 0.3
     - __dirty: 0
     m_Colors:
-    - _TrunkColorVariation: {r: 0.30188665, g: 0.30188665, b: 0.30188665, a: 0}
+    - _TrunkColorVariation: {r: 0.3207547, g: 0.22152358, b: 0.14676042, a: 0}

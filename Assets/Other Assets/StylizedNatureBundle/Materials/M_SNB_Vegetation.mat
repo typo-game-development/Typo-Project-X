@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: M_SNB_Vegetation
   m_Shader: {fileID: 4800000, guid: 041ed92166f5aa9449994e31aba70f1e, type: 3}
   m_ShaderKeywords: _ALPHATEST_ON
@@ -100,7 +101,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _PointLightPunchTrough: 1
-    - _PointLightTranslucency: 3
+    - _PointLightTranslucency: 0
     - _SSSColorPower: 3.7
     - _SSSForce: 0.4
     - _SSSPower: 1
@@ -112,7 +113,7 @@ Material:
     - _Specularity: 1
     - _SrcBlend: 1
     - _SubsurfaceDistortionModifier: 0.5
-    - _TranslucencyForce: 0.4
+    - _TranslucencyForce: 9.28
     - _TranslucencyLightInfluence: 0
     - _TranslucencyModifier: 0.5
     - _TranslucencyPower: 1
@@ -120,8 +121,8 @@ Material:
     - _TrunkWindAmplitude: 0.03
     - _TrunkWindPower: 0.6
     - _UVSec: 0
-    - _WindFoliageAmplitude: 0.05
-    - _WindFoliageSpeed: 0.3
+    - _WindFoliageAmplitude: 0.018
+    - _WindFoliageSpeed: 0.099
     - _WindLeafAmplitude: 0.035
     - _WindLeafSpeed: 0.17
     - _WindSpeed: 0.17
