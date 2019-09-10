@@ -1,4 +1,4 @@
-﻿namespace AdvancedUtilities.LerpTransformers
+﻿namespace Typo.Utilities.LerpTransformers
 {
     /// <summary>
     /// Produces a smoothing effect at the beginning and end of lerping.

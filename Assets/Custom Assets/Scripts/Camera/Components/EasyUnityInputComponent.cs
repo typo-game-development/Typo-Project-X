@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AdvancedUtilities.Cameras.Components
+namespace Typo.Utilities.Cameras.Components
 {
     /// <summary>
     /// A component to automatically grab input in a simple way for Camera Controllers to use without the need to create InputValues objects and pass them manually.
@@ -110,7 +110,7 @@ namespace AdvancedUtilities.Cameras.Components
 
         #endregion
 
-        public override void Initialize(AdvancedUtilities.Cameras.CameraController cameraController)
+        public override void Initialize(Typo.Utilities.Cameras.CameraController cameraController)
         {
             base.Initialize(cameraController);
 

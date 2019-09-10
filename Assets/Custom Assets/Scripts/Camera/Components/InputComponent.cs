@@ -1,8 +1,8 @@
 ﻿using System;
-using AdvancedUtilities.LerpTransformers;
+using Typo.Utilities.LerpTransformers;
 using UnityEngine;
 
-namespace AdvancedUtilities.Cameras.Components
+namespace Typo.Utilities.Cameras.Components
 {
     /// <summary>
     /// A component that can take and process input values that can then be passed to other components.
@@ -199,7 +199,7 @@ namespace AdvancedUtilities.Cameras.Components
 
         #endregion
 
-        public override void Initialize(AdvancedUtilities.Cameras.CameraController cameraController)
+        public override void Initialize(Typo.Utilities.Cameras.CameraController cameraController)
         {
             base.Initialize(cameraController);
 

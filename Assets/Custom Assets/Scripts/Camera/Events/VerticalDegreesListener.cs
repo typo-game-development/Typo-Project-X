@@ -1,4 +1,4 @@
-﻿namespace AdvancedUtilities.Cameras.Components.Events
+﻿namespace Typo.Utilities.Cameras.Components.Events
 {
     /// <summary>
     /// An interface that allows a class to listen to the vertical rotation event fired from a RotationComponent.

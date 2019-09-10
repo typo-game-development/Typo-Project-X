@@ -194,7 +194,7 @@ public class SceneController : MonoBehaviour
 
 
 
-        AdvancedUtilities.Cameras.BasicCameraController camScript = FindObjectOfType<AdvancedUtilities.Cameras.BasicCameraController>();
+        Typo.Utilities.Cameras.BasicCameraController camScript = FindObjectOfType<Typo.Utilities.Cameras.BasicCameraController>();
 
         LevelInfo lInfo = FindObjectOfType<LevelInfo>();
 

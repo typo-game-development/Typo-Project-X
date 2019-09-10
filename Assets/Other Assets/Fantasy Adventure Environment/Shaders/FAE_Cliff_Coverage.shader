@@ -15,8 +15,8 @@ Shader "FAE/Cliff coverage"
 		[NoScaleOffset]_CoverageAlbedo("Coverage Albedo", 2D) = "white" {}
 		[NoScaleOffset]_CoverageNormals("Coverage Normals", 2D) = "bump" {}
 		_Roughness("Roughness", Range( 0 , 1)) = 0.5
-		_CoverageAmount("CoverageAmount", Range( 0 , 2)) = 0.13
-		_CoverageTiling("CoverageTiling", Range( 0 , 5)) = 0
+		_CoverageAmount("CoverageAmount", Range( 0 , 3)) = 0.13
+		_CoverageTiling("CoverageTiling", Range( 0 , 10)) = 0
 		_CoverageMap("CoverageMap", 2D) = "white" {}
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
 		[HideInInspector] __dirty( "", Int ) = 1

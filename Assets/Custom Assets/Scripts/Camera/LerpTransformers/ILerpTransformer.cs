@@ -1,4 +1,4 @@
-﻿namespace AdvancedUtilities.LerpTransformers
+﻿namespace Typo.Utilities.LerpTransformers
 {
     /// <summary>
     /// An interface that describes a way to modify the delta t passed to lerp functions.

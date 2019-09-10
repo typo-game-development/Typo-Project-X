@@ -16,7 +16,7 @@ public class PMRail : SerializableMonoBehaviour
     [HideInInspector]
     public List<PMRail> otherRails;
     public GameObject[] points;
-    public AdvancedUtilities.Cameras.BasicCameraController camScript;
+    public Typo.Utilities.Cameras.BasicCameraController camScript;
     public GameObject camObj;
     public GameObject target;
     public GameObject forkArrows;
@@ -108,7 +108,7 @@ public class PMRail : SerializableMonoBehaviour
 
         if (camScript == null)
         {
-            camScript = FindObjectOfType<AdvancedUtilities.Cameras.BasicCameraController>();
+            camScript = FindObjectOfType<Typo.Utilities.Cameras.BasicCameraController>();
         }
 
         if (target != null)
@@ -486,7 +486,7 @@ public class PMRail : SerializableMonoBehaviour
 
     public void ChangeFork(PMRailPoint point, ForkDirection direction)
     {
-        bool disableCurrentRail = false;
+        //bool disableCurrentRail = false;
 
         //if(point.forkSettings.parentNode == null)
         //{/*

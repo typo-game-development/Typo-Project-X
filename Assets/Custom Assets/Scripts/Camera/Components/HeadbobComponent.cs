@@ -1,8 +1,8 @@
 ﻿using System;
-using AdvancedUtilities.LerpTransformers;
+using Typo.Utilities.LerpTransformers;
 using UnityEngine;
 
-namespace AdvancedUtilities.Cameras.Components
+namespace Typo.Utilities.Cameras.Components
 {
     /// <summary>
     /// A component that allows the camera to perform a headbob like motion.
@@ -101,7 +101,7 @@ namespace AdvancedUtilities.Cameras.Components
         
         #endregion
 
-        public override void Initialize(AdvancedUtilities.Cameras.CameraController cameraController)
+        public override void Initialize(Typo.Utilities.Cameras.CameraController cameraController)
         {
             base.Initialize(cameraController);
 

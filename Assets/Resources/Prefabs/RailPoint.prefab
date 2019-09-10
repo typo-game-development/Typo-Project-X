@@ -43,11 +43,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186ce63159d1d8448ad5fc7f86aca7a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointSettings:
+    warmUpRadius: 0.5
+    checkForYPosition: 0
+    rotationAngleOffset: 0
+    rotationLerpTime: 0
+    verticalRotationLerpTime: 0
+    verticalRotationAngle: 0
+    stopWhileRotating: 0
+    updateCameraRotation: 1
+  forkSettings:
+    upForkChooseInputName: Up
+    downForkChooseInputName: Down
+    leftForkChooseInputName: Left
+    rightForkChooseInputName: Right
+    m_forkTop: {fileID: 0}
+    m_forkBottom: {fileID: 0}
+    m_forkLeft: {fileID: 0}
+    m_forkRight: {fileID: 0}
+    forkedNode: 0
+    parentPoint: {fileID: 0}
+  stateController:
+    IsWarmingUp: 0
+    IsActive: 0
+    MustResetActive: 0
+    m_IsActiveForRotation: 0
+  debugSettings:
+    warmUpRadiusColor: {r: 0, g: 1, b: 1, a: 1}
+    warmUpRadiusColorIfForked: {r: 0, g: 1, b: 0, a: 1}
+    activationRadiusColor: {r: 255, g: 215, b: 0, a: 1}
+    activationRadiusColorIfForked: {r: 0, g: 0, b: 1, a: 1}
   prevPoint: {fileID: 0}
   nextPoint: {fileID: 0}
   angleBetweenPrevAndNext: 14.677131
-  rotationLerpTime: 0
   stopCollider: {fileID: 0}
+  switchRailCollider: {fileID: 0}
   stopPoint: 0
-  stopWhileRotating: 0
   activeForRotation: 0
+  rail: {fileID: 0}
+  enableRailJoin: 0
+  railPointToJoin: {fileID: 0}
+  joinPointArea: {x: 1, y: 1, z: 1}
+  startCameraVerticalRotation: 0
+  isRotatedDown: 0
+  isRotatedUp: 0
+  playerForkInput: 0

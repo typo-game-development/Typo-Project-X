@@ -115,12 +115,6 @@ public class Inventory : MonoBehaviour {
         return ActionResult.Fail;
     }
 
-    public ActionResult AddItem(JunkCollectibleItem objectToAdd)
-    {
-        currentJunks += objectToAdd.junkValue;
-        return ActionResult.Success;
-    }
-
     public ActionResult RemoveItem(BaseCollectibleItem.Type itemToRemove, int quantity)
     {
         foreach (InventorySlot slot in slotList)

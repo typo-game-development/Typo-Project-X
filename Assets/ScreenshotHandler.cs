@@ -16,11 +16,6 @@ public class ScreenshotHandler : MonoBehaviour
                              System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"));
     }
 
-    public void TakeHiResShot()
-    {
-        takeHiResShot = true;
-    }
-
     void LateUpdate()
     {
         takeHiResShot |= Input.GetKeyDown(KeyCode.F11);

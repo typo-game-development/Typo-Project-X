@@ -84,11 +84,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AmbientOcclusion: 0.037
-    - _BendingInfluence: 0
+    - _AmbientOcclusion: 0.166
+    - _BendingInfluence: 0.034
     - _BendingTint: -0.05
     - _BumpScale: 1
-    - _ColorVariation: 0.2
+    - _ColorVariation: 0.144
     - _Cutoff: 0.75
     - _DetailNormalMapScale: 1
     - _DirectionalShadows: 0
@@ -116,7 +116,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _PigmentMapHeight: 1
-    - _PigmentMapInfluence: 0.158
+    - _PigmentMapInfluence: 0.75
     - _PointLightPunchTrough: 1
     - _PointLightTranslucency: 3
     - _SSSColorPower: 3.7
@@ -158,7 +158,7 @@ Material:
     - _Color0: {r: 0.79033947, g: 1, b: 0.033018887, a: 0}
     - _Color1: {r: 0.5264154, g: 0.7264151, b: 0.21586856, a: 0}
     - _ColorBottom: {r: 0.2549251, g: 0.51470584, b: 0, a: 1}
-    - _ColorTop: {r: 0.5427986, g: 0.745283, b: 0, a: 1}
+    - _ColorTop: {r: 0.3158577, g: 0.6102941, b: 0.02692473, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlowerColor01: {r: 1, g: 0.9637498, b: 0.759434, a: 0}
     - _FlowerColor02: {r: 1, g: 0.70334506, b: 0.15566033, a: 0}

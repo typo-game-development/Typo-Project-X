@@ -17,6 +17,7 @@ TagManager:
   - Enemy
   - Chest
   - Camera_Spline
+  - Grass
   layers:
   - Default
   - TransparentFX

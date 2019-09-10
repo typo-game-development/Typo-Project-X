@@ -121,15 +121,15 @@ Material:
     - _TrunkWindAmplitude: 0.03
     - _TrunkWindPower: 0.6
     - _UVSec: 0
-    - _WindFoliageAmplitude: 0.06
+    - _WindFoliageAmplitude: 0.025
     - _WindFoliageSpeed: 0.099
     - _WindLeafAmplitude: 0.035
     - _WindLeafSpeed: 0.17
     - _WindSpeed: 0.17
     - _WindStrength: 0.035
-    - _WindTrunkAmplitude: 0.06
+    - _WindTrunkAmplitude: 0.08
     - _WindTrunkPower: 0.6
-    - _WindTrunkSpeed: 0.3
+    - _WindTrunkSpeed: 0.104
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:

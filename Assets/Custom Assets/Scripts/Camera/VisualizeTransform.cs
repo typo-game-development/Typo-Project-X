@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace AdvancedUtilities
+namespace Typo.Utilities
 {
     /// <summary>
     /// Used to visualize Transform's vectors for rotation purposes.

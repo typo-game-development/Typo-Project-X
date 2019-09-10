@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AdvancedUtilities.Cameras.Components
+namespace Typo.Utilities.Cameras.Components
 {
     /// <summary>
     /// This component describes the location in World Space where a target currently is.
     /// </summary>
     [Serializable]
-    public class TargetComponent : CameraComponent
+    public class TargetComponent : Typo.Utilities.Cameras.Components.CameraComponent
     {
         #region Public Editor Properties
 
@@ -100,7 +100,7 @@ namespace AdvancedUtilities.Cameras.Components
 
         #endregion
 
-        public override void Initialize(AdvancedUtilities.Cameras.CameraController cameraController)
+        public override void Initialize(Typo.Utilities.Cameras.CameraController cameraController)
         {
             base.Initialize(cameraController);
 

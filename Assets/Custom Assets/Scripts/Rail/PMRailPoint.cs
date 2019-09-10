@@ -422,7 +422,7 @@ public class PMRailPoint : MonoBehaviour
             playerForkInput = PMRail.eInput.RIGHT;
         }
     }
-
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         if(this.forkSettings != null && this.forkSettings.parentPoint == null && this.forkSettings.forkedNode)
@@ -477,7 +477,7 @@ public class PMRailPoint : MonoBehaviour
                             transform.rotation, 5, Handles.ArrowHandleCap, 1);
         }
     }
-
+#endif
     public delegate void PMRailPointEventHandler(PMRailPoint point);
 
     public event PMRailPointEventHandler OnPointActiveEnter;

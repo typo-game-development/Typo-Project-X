@@ -1,9 +1,9 @@
 ﻿using System;
-using AdvancedUtilities.Cameras.Components.Enums;
+using Typo.Utilities.Cameras.Components.Enums;
 using UnityEngine;
 using Random = System.Random;
 
-namespace AdvancedUtilities.Cameras.Components
+namespace Typo.Utilities.Cameras.Components
 {
     /// <summary>
     /// A component that allows the camera to shake vertically, horizontally, or both at the same time.
@@ -91,7 +91,7 @@ namespace AdvancedUtilities.Cameras.Components
 
         #endregion
 
-        public override void Initialize(AdvancedUtilities.Cameras.CameraController cameraController)
+        public override void Initialize(Typo.Utilities.Cameras.CameraController cameraController)
         {
             base.Initialize(cameraController);
 

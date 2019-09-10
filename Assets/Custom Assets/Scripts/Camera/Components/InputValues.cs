@@ -1,7 +1,7 @@
 ﻿
 using UnityEngine;
 
-namespace AdvancedUtilities.Cameras.Components
+namespace Typo.Utilities.Cameras.Components
 {
     /// <summary>
     /// A class that contains a set of values to be input into the InputComponent

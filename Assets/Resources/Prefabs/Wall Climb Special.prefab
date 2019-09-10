@@ -1,0 +1,257 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2461921880401379058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2461921880401379069}
+  - component: {fileID: 2461921880401379068}
+  m_Layer: 10
+  m_Name: Cube (4)
+  m_TagString: Wall
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2461921880401379069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2461921880401379058}
+  m_LocalRotation: {x: 0.011623158, y: -0.028510291, z: 0.13227916, w: 0.9907343}
+  m_LocalPosition: {x: 0.84695435, y: -0.03944969, z: -2.7973795}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2461921881958085897}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 1.7520001, y: -3.0630002, z: 15.163001}
+--- !u!65 &2461921880401379068
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2461921880401379058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7076796, y: 0.7205498, z: 2.6011136}
+  m_Center: {x: 0.14616019, y: 0.21006368, z: 0.44073713}
+--- !u!1 &2461921881334110832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2461921881334110835}
+  - component: {fileID: 2461921881334110834}
+  m_Layer: 10
+  m_Name: Cube (2)
+  m_TagString: Wall
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2461921881334110835
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2461921881334110832}
+  m_LocalRotation: {x: -0.014416867, y: -0.031701546, z: 0.14198552, w: 0.9892559}
+  m_LocalPosition: {x: 1.003, y: -0.56, z: -2.7894027}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2461921881958085897}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -1.1190001, y: -3.8320003, z: 16.373001}
+--- !u!65 &2461921881334110834
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2461921881334110832}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.70767957, y: 0.4894929, z: 2.6011136}
+  m_Center: {x: 0.14616032, y: 0.19239175, z: 0.4407371}
+--- !u!1 &2461921881621857661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2461921881621857660}
+  - component: {fileID: 2461921881621857663}
+  m_Layer: 10
+  m_Name: Cube (8)
+  m_TagString: Wall
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2461921881621857660
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2461921881621857661}
+  m_LocalRotation: {x: 0.012184266, y: -0.028271062, z: 0.11268887, w: 0.99315333}
+  m_LocalPosition: {x: 0.39, y: 2.728, z: -2.752}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2461921881958085897}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 1.7520001, y: -3.0630002, z: 12.9}
+--- !u!65 &2461921881621857663
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2461921881621857661}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7076796, y: 0.6399626, z: 2.6011136}
+  m_Center: {x: 0.14616117, y: 0.16976401, z: 0.44073713}
+--- !u!1 &2461921881955766209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2461921881955766208}
+  - component: {fileID: 2461921881955766211}
+  m_Layer: 10
+  m_Name: Cube (7)
+  m_TagString: Wall
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2461921881955766208
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2461921881955766209}
+  m_LocalRotation: {x: 0.004558312, y: -0.030445546, z: 0.36264706, w: 0.931418}
+  m_LocalPosition: {x: 0.69, y: 2.28, z: -2.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2461921881958085897}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 1.7520001, y: -3.0630002, z: 42.5}
+--- !u!65 &2461921881955766211
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2461921881955766209}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6541526, y: 0.2923216, z: 2.6011136}
+  m_Center: {x: 0.17292699, y: 0.34358904, z: 0.4407367}
+--- !u!1 &2461921881958085902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2461921881958085897}
+  m_Layer: 0
+  m_Name: Wall Climb Special
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2461921881958085897
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2461921881958085902}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 22.283005, y: 2.0927951, z: 1.9319154}
+  m_LocalScale: {x: 0.46666667, y: 0.53333336, z: 0.8}
+  m_Children:
+  - {fileID: 2461921881334110835}
+  - {fileID: 2461921880401379069}
+  - {fileID: 2461921882118746537}
+  - {fileID: 2461921881955766208}
+  - {fileID: 2461921881621857660}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2461921882118746542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2461921882118746537}
+  - component: {fileID: 2461921882118746536}
+  m_Layer: 10
+  m_Name: Cube (6)
+  m_TagString: Wall
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2461921882118746537
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2461921882118746542}
+  m_LocalRotation: {x: 0.015283004, y: -0.026723381, z: 0.00040860724, w: 0.99952596}
+  m_LocalPosition: {x: 0.692955, y: 0.5845504, z: -2.7973795}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2461921881958085897}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 1.7520001, y: -3.0630002, z: 0}
+--- !u!65 &2461921882118746536
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2461921882118746542}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7076796, y: 1.8944216, z: 2.6011136}
+  m_Center: {x: 0.14616019, y: 0.7969941, z: 0.44073713}

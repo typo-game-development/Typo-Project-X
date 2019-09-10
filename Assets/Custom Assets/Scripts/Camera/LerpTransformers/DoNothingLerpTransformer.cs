@@ -1,4 +1,4 @@
-﻿namespace AdvancedUtilities.LerpTransformers
+﻿namespace Typo.Utilities.LerpTransformers
 {
     /// <summary>
     /// Does nothing to the passed value and simply passes it back.

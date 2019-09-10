@@ -1,15 +1,15 @@
 ﻿using System;
-using AdvancedUtilities.Cameras.Components;
+using Typo.Utilities.Cameras.Components;
 using UnityEngine;
 
-namespace AdvancedUtilities.Cameras
+namespace Typo.Utilities.Cameras
 {
     /// <summary>
     /// A camera controller that can hold a position and look at a target.
     /// When using this, don't make the camera a child of the target.
     /// </summary>
     [Serializable]
-    public class HoldPositionCameraController : AdvancedUtilities.Cameras.CameraController
+    public class HoldPositionCameraController : Typo.Utilities.Cameras.CameraController
     {
         /// <summary>
         /// This is the position that the Holding Camera will be located when looking at the target.

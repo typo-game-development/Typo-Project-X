@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using AdvancedUtilities.Cameras.Components;
+using Typo.Utilities.Cameras.Components;
 using UnityEngine;
 
-namespace AdvancedUtilities.Cameras
+namespace Typo.Utilities.Cameras
 {
     /// <summary>
     /// The base class for creating CameraControllers.
@@ -21,7 +21,7 @@ namespace AdvancedUtilities.Cameras
         /// <summary>
         /// If you override the Awake method, be sure to call the base.Awake() in the new awake method.
         /// </summary>
-        protected void Awake()
+        protected virtual void Awake()
         {
             IsInitialized = false;
 
@@ -147,7 +147,7 @@ namespace AdvancedUtilities.Cameras
         /// This does not replace this controller's components with the given controller's components.
         /// </summary>
         /// <param name="otherController">The controller whose component's you want to override this controller's components.</param>
-        public void CopyPublicFields(AdvancedUtilities.Cameras.CameraController otherController)
+        public void CopyPublicFields(Typo.Utilities.Cameras.CameraController otherController)
         {
             foreach (var component in _components.Values)
             {

@@ -4,6 +4,7 @@ using Unity.Jobs;
 using UnityEditor;
 using UnityEngine;
 
+
 [RequireComponent(typeof(CapsuleCollider))]
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Animator))]
@@ -322,7 +323,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
     private Vector3 targetDashDirection;
     private GameObject ledgeSnappedObj;
     private RaycastHit hitLedgeClimb;
-    private AdvancedUtilities.Cameras.BasicCameraController camScript;
+    private Typo.Utilities.Cameras.BasicCameraController camScript;
     private Vector3 ledgeclimbhitNormal = Vector3.zero;
     public PumpRock lastHittedPump;
     private Vector3 groundNormal = Vector3.zero;
@@ -352,7 +353,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         // Get the camera controller component
-        camScript = FindObjectOfType<AdvancedUtilities.Cameras.BasicCameraController>();
+        camScript = FindObjectOfType<Typo.Utilities.Cameras.BasicCameraController>();
 
         /* 
          * Check if audiomanager and camera script were found
@@ -583,8 +584,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
             }
         }
     }
-    float outPointT = 0f;
-    public bool flagtest = false;
+
     public BezierSolution.BezierSplineAdvanced spline;
 
     public PlayerMovementRailV1 testRail;
@@ -593,23 +593,6 @@ public class TombiCharacterController : SerializableMonoBehaviour
         //Make sure that the script has been initialized properly.
         if (hasInitialized)
         {
-            if(flagtest && spline != null)
-            {
-                int accuracy = 25;
-                float step = spline.AccuracyToStepSize(accuracy);
-                Vector3[] thisPoint = new Vector3[accuracy];
-
-                float minDistance = Mathf.Infinity;
-
-                for (float i = 0f; i < 1f; i += step)
-                {
-                    int i2 = (int)(step * accuracy);
-                    testRail.AddPoint(spline.GetPoint(i));
-                }
-                flagtest = false;
-
-            }
-
             //if (spline != null)
             //{
             //    if(flagtest)
@@ -1276,28 +1259,19 @@ public class TombiCharacterController : SerializableMonoBehaviour
     /// </summary>
     public void SnapZPosition()
     {
-        bool useSpline = false;
 
-        if (!useSpline)
+        if (railFirstPoint != null && railLastPoint != null && movementSettings.lockZMovement)
         {
-            if (railFirstPoint != null && railLastPoint != null && movementSettings.lockZMovement)
-            {
-                //Calculate projection between rail points
-                Vector3 AB = railLastPoint - railFirstPoint;
-                Vector3 AC = rb.position - railFirstPoint;
-                Vector3 AX = Vector3.Project(AC, AB);
-                Vector3 X = AX + railFirstPoint;
-                //Instantly set Tomba position to new calculated one
-                transform.position = new Vector3(X.x, transform.position.y, X.z);
-            }
+            //Calculate projection between rail points
+            Vector3 AB = railLastPoint - railFirstPoint;
+            Vector3 AC = rb.position - railFirstPoint;
+            Vector3 AX = Vector3.Project(AC, AB);
+            Vector3 X = AX + railFirstPoint;
+
+            //Instantly set Tomba position to new calculated one
+            transform.position = new Vector3(X.x, transform.position.y, X.z);
         }
-        else
-        {
 
-            float outPointT = 0;
-
-
-        }
     }
 
     #endregion
@@ -1495,7 +1469,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
             {
                 if (stateController.isGrounded && !stateController.isFalling && !stateController.isJumping && currentForkedPoint != null)
                 {
-                    PlayerMovementRailV1.ForkDirection forkDirection = PlayerMovementRailV1.ForkDirection.Unknown;
+                    //PlayerMovementRailV1.ForkDirection forkDirection = PlayerMovementRailV1.ForkDirection.Unknown;
 
                     ///* Check if Tomba is in animal dash state */
                     //if (true)
@@ -1586,7 +1560,7 @@ public class TombiCharacterController : SerializableMonoBehaviour
         }
         else
         {
-            camScript.Rotation.SetIsoRotation(AdvancedUtilities.Cameras.Components.RotationComponent.eIsoRotation.DOWN, false);
+            camScript.Rotation.SetIsoRotation(Typo.Utilities.Cameras.Components.RotationComponent.eIsoRotation.DOWN, false);
             StartCoroutine(camScript.Rotation.SetIsoRotationDownFlag(false, Time.deltaTime * 20f));
         }
 

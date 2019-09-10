@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AdvancedUtilities.LerpTransformers
+namespace Typo.Utilities.LerpTransformers
 {
     /// <summary>
     /// Allows a function to be used against lerp t delta.

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace AdvancedUtilities
+namespace Typo.Utilities.Cameras
 {
     /// <summary>
     /// See more Advanced Utilities @

@@ -27,7 +27,7 @@ public class SwingAttachCollider : MonoBehaviour
 
     SphereCollider coll;
 
-    AdvancedUtilities.Cameras.BasicCameraController camScript;
+    Typo.Utilities.Cameras.BasicCameraController camScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +38,7 @@ public class SwingAttachCollider : MonoBehaviour
         {
             rigidBody = charScript.GetComponent<Rigidbody>();
         }
-        camScript = FindObjectOfType<AdvancedUtilities.Cameras.BasicCameraController>();
+        camScript = FindObjectOfType<Typo.Utilities.Cameras.BasicCameraController>();
         currentActiveRail = FindObjectOfType<PlayerMovementRailV1>();
         oldSwingForceMultiplier = swingForceMultiplier;
     }

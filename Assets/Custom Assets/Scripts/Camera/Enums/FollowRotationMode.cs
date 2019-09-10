@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace AdvancedUtilities.Cameras.Components
+namespace Typo.Utilities.Cameras.Components
 {
     /// <summary>
     /// The mode that the follow target component uses.

@@ -83,9 +83,9 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _FlowSpeed: 1
-    - _Fresnelexponent: 0.02
+    - _Fresnelexponent: 1
     - _GlossMapScale: 1
-    - _Glossiness: 0.777
+    - _Glossiness: 1
     - _GlossyReflections: 1
     - _HighlightPanning: 1
     - _Metallic: 0
@@ -109,7 +109,7 @@ Material:
     - _Tiling: 0.112
     - _Transparency: 0.84
     - _UVSec: 0
-    - _UnlitAlbedo: 0
+    - _UnlitAlbedo: 0.91
     - _UnlitEmission: 1
     - _UseIntersectionHighlight: 0
     - _WaveFoam: 4.01
@@ -123,8 +123,8 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FresnelColor: {r: 0, g: 0, b: 0, a: 0.5529412}
+    - _FresnelColor: {r: 0, g: 0.2464759, b: 1, a: 1}
     - _Obstacle: {r: 0, g: 0, b: 0, a: 0}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
-    - _WaterColor: {r: 0, g: 0.5332718, b: 1, a: 1}
-    - _WaterShallowColor: {r: 0, g: 0.84599954, b: 0.84599996, a: 1}
+    - _WaterColor: {r: 0, g: 0.12228584, b: 1, a: 1}
+    - _WaterShallowColor: {r: 0, g: 0.86242104, b: 1, a: 1}

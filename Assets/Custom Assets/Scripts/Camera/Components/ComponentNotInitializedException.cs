@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AdvancedUtilities.Cameras.Components
+namespace Typo.Utilities.Cameras.Components
 {
     /// <summary>
     /// An error thrown by CameraComponents when accessing something that requires the CameraComponent to have been initialized first.

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace AdvancedUtilities.Cameras.Components
+namespace Typo.Utilities.Cameras.Components
 {
     /// <summary>
     /// A component that can take control of the cursor's locking and visiblity states based off settings.
@@ -76,7 +76,7 @@ namespace AdvancedUtilities.Cameras.Components
 
         #endregion
 
-        public override void Initialize(AdvancedUtilities.Cameras.CameraController cameraController)
+        public override void Initialize(Typo.Utilities.Cameras.CameraController cameraController)
         {
             base.Initialize(cameraController);
         }

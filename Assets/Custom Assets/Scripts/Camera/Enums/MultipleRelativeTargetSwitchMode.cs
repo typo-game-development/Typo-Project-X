@@ -1,4 +1,4 @@
-﻿namespace AdvancedUtilities.Cameras.Components
+﻿namespace Typo.Utilities.Cameras.Components
 {
     /// <summary>
     /// The different modes that the MultipleRelativeTargetComponent can use.

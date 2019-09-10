@@ -1,17 +1,14 @@
 ﻿using System;
-using AdvancedUtilities.Cameras.Components;
+using Typo.Utilities.Cameras.Components;
 using UnityEngine;
 
-namespace AdvancedUtilities.Cameras
+namespace Typo.Utilities.Cameras
 {
-
-
-
     /// <summary>
     /// A basic camera controller.
     /// </summary>
     [Serializable]
-    public class BasicCameraController : AdvancedUtilities.Cameras.CameraController
+    public class BasicCameraController : CameraController
     {
         /// <summary>
         /// The distance that the camera wants to position itself at from the target.
@@ -86,7 +83,7 @@ namespace AdvancedUtilities.Cameras
         #endregion
 
         [System.Serializable]
-        public class WindowComponent
+        public class WindowComponent : Typo.Utilities.Cameras.Components.CameraComponent
         {
             public bool enabled = false;
             public bool showDebug = false;
@@ -114,9 +111,22 @@ namespace AdvancedUtilities.Cameras
 
 
         [System.Serializable]
-        public class SplineFollowComponent
+        public class SplineFollowComponent : Typo.Utilities.Cameras.Components.CameraComponent
         {
-            public CameraSpline targetSpline = null;
+            private CameraSpline _targetSpline;
+
+            public CameraSpline targetSpline
+            {
+                get
+                {
+                    return  _targetSpline;
+                }
+                set
+                {
+                    _targetSpline = value;
+                }
+            }
+
             public bool enabled = false;
 
             public bool followSpline
@@ -163,6 +173,8 @@ namespace AdvancedUtilities.Cameras
             AddCameraComponent(Target);
             AddCameraComponent(ViewCollision);
             AddCameraComponent(Input);
+            AddCameraComponent(cameraWindow);
+            AddCameraComponent(splineFollow);
             AddCameraComponent(EasyUnityInput);
             AddCameraComponent(Cursor);
             AddCameraComponent(Headbob);
@@ -181,8 +193,10 @@ namespace AdvancedUtilities.Cameras
 
         public WindowComponent cameraWindow = new WindowComponent();
 
-        void Start()
+        protected override void Awake()
         {
+            base.Awake();
+
             iniRot = transform.eulerAngles;
             charScript = FindObjectOfType<TombiCharacterController>();
             collCapsule = charScript.GetComponent<CapsuleCollider>();
@@ -192,29 +206,17 @@ namespace AdvancedUtilities.Cameras
 
             // Then let update handle everything
             UpdateCamera();
+            CameraTransform.ApplyTo(Camera);
+
+            Debug.Log("Test");
         }
         void Update()
         {
-            if (UnityEngine.Input.GetKey(KeyCode.LeftAlt))
-            {
-                Time.timeScale = 0.1f;
-            }
-            else
-            {
-                Time.timeScale = 1f;
-            }
             UpdateCamera();
             CameraTransform.ApplyTo(Camera);
-
-        }
-        void FixedUpdate()
-        {
-            // Apply the virtual transform to the actual transform
-            predictedPosition = Target.Target.position;
         }
 
         RaycastHit[] hits;
-        Vector3 predictedPosition = Vector3.zero;
         BoxCollider camInnerBoundsCollider;
         Vector2 targetScreenPos;
         float deltaX;
@@ -272,7 +274,6 @@ namespace AdvancedUtilities.Cameras
 
             if (canUpdateCameraPosition)
             {
-
                 if (smoothCameraPosition && !splineFollow.followSpline & !cameraWindow.enabled)
                 {
                     CameraTransform.Position = Vector3.Lerp(CameraTransform.Position, target - zoomDistance, 0.1f); // No buffer if the buffer would zoom us in past 0.
@@ -354,12 +355,12 @@ namespace AdvancedUtilities.Cameras
             if (targetScreenPos.x >= (Screen.width / 2) + cameraWindow.Right)
             {
                 deltaX = targetScreenPos.x - ((Screen.width / 2) + cameraWindow.Right);
-                newTransformPosition = new Vector3(predictedPosition.x + deltaX, CameraTransform.Position.y + deltaY, referenceTargetPosition.z);
+                newTransformPosition = new Vector3(Target.Target.position.x + deltaX, CameraTransform.Position.y + deltaY, referenceTargetPosition.z);
             }
             else if (targetScreenPos.x <= (Screen.width / 2) - cameraWindow.Left)
             {
                 deltaX = targetScreenPos.x - ((Screen.width / 2) - cameraWindow.Left);
-                newTransformPosition = new Vector3(predictedPosition.x + deltaX, CameraTransform.Position.y + deltaY, referenceTargetPosition.z);
+                newTransformPosition = new Vector3(Target.Target.position.x + deltaX, CameraTransform.Position.y + deltaY, referenceTargetPosition.z);
             }
             else
             {
@@ -371,12 +372,12 @@ namespace AdvancedUtilities.Cameras
             if (targetScreenPos.y >= (Screen.height / 2) + cameraWindow.Top)
             {
                 deltaY = targetScreenPos.y - ((Screen.height / 2) + cameraWindow.Top);
-                newTransformPosition = new Vector3(predictedPosition.x + deltaX, CameraTransform.Position.y + deltaY, referenceTargetPosition.z);
+                newTransformPosition = new Vector3(Target.Target.position.x + deltaX, CameraTransform.Position.y + deltaY, referenceTargetPosition.z);
             }
             else if (targetScreenPos.y <= (Screen.height / 2) + cameraWindow.Bottom)
             {
                 deltaY = targetScreenPos.y - ((Screen.height / 2) + cameraWindow.Bottom);
-                newTransformPosition = new Vector3(predictedPosition.x + deltaX, CameraTransform.Position.y + deltaY, referenceTargetPosition.z);
+                newTransformPosition = new Vector3(Target.Target.position.x + deltaX, CameraTransform.Position.y + deltaY, referenceTargetPosition.z);
             }
             else
             {
@@ -449,7 +450,6 @@ namespace AdvancedUtilities.Cameras
             GUI.skin.box.normal.background = texture;
             GUI.Box(new Rect(0, 0, Screen.width, Screen.height), GUIContent.none);
 
-            //color.a = 0.5f;
             texture.SetPixel(0, 0, boundsColor);
             texture.Apply();
             GUI.skin.box.normal.background = texture;

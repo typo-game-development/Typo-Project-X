@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using AdvancedUtilities.LerpTransformers;
+using Typo.Utilities.LerpTransformers;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-namespace AdvancedUtilities.Cameras
+namespace Typo.Utilities.Cameras
 {
     /// <summary>
     /// A camera controller that can control multiple other camera controllers and switch/lerp between them.
     /// </summary>
     [Serializable]
-    public class MultiCameraController : AdvancedUtilities.Cameras.CameraController
+    public class MultiCameraController : Typo.Utilities.Cameras.CameraController
     {
         /// <summary>
         /// The Camera Controllers that are controlled by this MultiCamera Controller.
         /// </summary>
         [Tooltip("The Camera Controllers that are controlled by this MultiCamera Controller.")]
-        public List<AdvancedUtilities.Cameras.CameraController> CameraControllers;
+        public List<Typo.Utilities.Cameras.CameraController> CameraControllers;
 
         /// <summary>
         /// The Camera Controller in the list that is being used.
@@ -50,7 +51,7 @@ namespace AdvancedUtilities.Cameras
         /// <summary>
         /// The current camera controller being controlled.
         /// </summary>
-        public AdvancedUtilities.Cameras.CameraController CurrentCameraController
+        public Typo.Utilities.Cameras.CameraController CurrentCameraController
         {
             get
             {
@@ -132,12 +133,13 @@ namespace AdvancedUtilities.Cameras
                 throw new ArgumentOutOfRangeException("The index: " + CurrentIndex + " is not a valid index for a Camera.");
             }
 
-            foreach (var cam in CameraControllers)
+            foreach (CameraController cam in CameraControllers)
             {
                 cam.enabled = false;
             }
+            SwitchCamera(CurrentIndex);
         }
-        
+
         void Update()
         {
             UpdateCamera();
@@ -152,8 +154,7 @@ namespace AdvancedUtilities.Cameras
             {
                 SwitchCamera(CurrentIndex);
             }
-
-            AdvancedUtilities.Cameras.CameraController cam = CameraControllers[_currentCameraIndex];
+            Typo.Utilities.Cameras.CameraController cam = CameraControllers[_currentCameraIndex];
 
             cam.UpdateCamera();
 
@@ -195,7 +196,7 @@ namespace AdvancedUtilities.Cameras
                 throw new ArgumentOutOfRangeException("The index: "+index +" is not a valid index for a Camera.");
             }
 
-            AdvancedUtilities.Cameras.CameraController previousCameraController = CameraControllers[_currentCameraIndex];
+            Typo.Utilities.Cameras.CameraController previousCameraController = CameraControllers[_currentCameraIndex];
 
             // Setup out new index, and the position we left off of
             _switchTransform = new VirtualTransform(CameraTransform);
@@ -209,6 +210,7 @@ namespace AdvancedUtilities.Cameras
             }
 
             // We want the camera to initialize, but we don't want it actually updating. Enabling and disabling will do that.
+            Debug.Log(CameraControllers[_currentCameraIndex].gameObject.name);
             CameraControllers[_currentCameraIndex].enabled = true;
             CameraControllers[_currentCameraIndex].enabled = false;
 

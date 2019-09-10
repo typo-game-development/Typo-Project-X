@@ -1,11 +1,11 @@
 ﻿using System;
-using AdvancedUtilities.Cameras.Components;
+using Typo.Utilities.Cameras.Components;
 using UnityEngine;
 
-namespace AdvancedUtilities.Cameras
+namespace Typo.Utilities.Cameras
 {
     [Serializable]
-    public class FollowCameraControllerOldV1 : AdvancedUtilities.Cameras.CameraController
+    public class FollowCameraControllerOldV1 : Typo.Utilities.Cameras.CameraController
     {
         /// <summary>
         /// The distance that the camera wants to position itself at from the target.

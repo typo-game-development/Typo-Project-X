@@ -1,15 +1,15 @@
 ﻿using System;
-using AdvancedUtilities.Cameras.Components;
+using Typo.Utilities.Cameras.Components;
 using UnityEngine;
 
-namespace AdvancedUtilities.Cameras
+namespace Typo.Utilities.Cameras
 {
     /// <summary>
     /// A camera capable of locking onto a target and looking at through another target making it look like the camera is locked onto 
     /// the target from your character.
     /// </summary>
     [Serializable]
-    public class LockTargetCameraController : AdvancedUtilities.Cameras.CameraController
+    public class LockTargetCameraController : Typo.Utilities.Cameras.CameraController
     {
         #region Public Fields
 

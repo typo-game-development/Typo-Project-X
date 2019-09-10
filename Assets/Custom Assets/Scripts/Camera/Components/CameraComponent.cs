@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
-namespace AdvancedUtilities.Cameras.Components
+namespace Typo.Utilities.Cameras.Components
 {
     /// <summary>
     /// A component that can be attached to a CameraController.
@@ -49,13 +49,13 @@ namespace AdvancedUtilities.Cameras.Components
         /// <summary>
         /// The camera controller that this component is attached to.
         /// </summary>
-        private AdvancedUtilities.Cameras.CameraController _cameraController;
+        private Typo.Utilities.Cameras.CameraController _cameraController;
 
         /// <summary>
         /// Sets up this component for the given Camera Controller that it is attached to.
         /// </summary>
         /// <param name="cameraController">The camera controller that this component is attached to.</param>
-        public virtual void Initialize(AdvancedUtilities.Cameras.CameraController cameraController)
+        public virtual void Initialize(Typo.Utilities.Cameras.CameraController cameraController)
         {
             _cameraController = cameraController;
         }

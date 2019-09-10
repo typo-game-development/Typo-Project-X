@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
-using AdvancedUtilities.Cameras.Components.Events;
-using AdvancedUtilities.LerpTransformers;
+using Typo.Utilities.Cameras.Components.Events;
+using Typo.Utilities.LerpTransformers;
 
-namespace AdvancedUtilities.Cameras.Components
+namespace Typo.Utilities.Cameras.Components
 {
     /// <summary>
     /// A component that can rotate the view of a camera.
@@ -493,7 +493,7 @@ namespace AdvancedUtilities.Cameras.Components
 
         #endregion
 
-        public override void Initialize(AdvancedUtilities.Cameras.CameraController cameraController)
+        public override void Initialize(Typo.Utilities.Cameras.CameraController cameraController)
         {
             base.Initialize(cameraController);
 

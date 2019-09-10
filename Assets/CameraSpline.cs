@@ -41,7 +41,7 @@ public class CameraSpline : BezierSpline
     // Start is called before the first frame update
     void Start()
     {
-        AdvancedUtilities.Cameras.BasicCameraController camScript = FindObjectOfType<AdvancedUtilities.Cameras.BasicCameraController>();
+        Typo.Utilities.Cameras.BasicCameraController camScript = FindObjectOfType<Typo.Utilities.Cameras.BasicCameraController>();
         if (camScript != null)
         {
             camScript.splineFollow.targetSpline = this;

@@ -16,7 +16,7 @@ public class PlayerMovementRailV1 : SerializableMonoBehaviour
     [HideInInspector]
     public List<PlayerMovementRailV1> otherRails;
     public GameObject[] points;
-    public AdvancedUtilities.Cameras.BasicCameraController camScript;
+    public Typo.Utilities.Cameras.BasicCameraController camScript;
     public GameObject camObj;
     public GameObject target;
     public bool loop = false;
@@ -106,7 +106,7 @@ public class PlayerMovementRailV1 : SerializableMonoBehaviour
 
         if (camScript == null)
         {
-            camScript = FindObjectOfType<AdvancedUtilities.Cameras.BasicCameraController>();
+            camScript = FindObjectOfType<Typo.Utilities.Cameras.BasicCameraController>();
         }
 
         if (target != null)

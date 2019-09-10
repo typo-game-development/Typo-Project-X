@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using AdvancedUtilities.LerpTransformers;
+using Typo.Utilities.LerpTransformers;
 using UnityEngine;
 
-namespace AdvancedUtilities.Cameras.Components
+namespace Typo.Utilities.Cameras.Components
 {
     /// <summary>
     /// A complex target system that can choose a target from a list of targets based off the proximity 
@@ -164,7 +164,7 @@ namespace AdvancedUtilities.Cameras.Components
 
         #endregion
 
-        public override void Initialize(AdvancedUtilities.Cameras.CameraController cameraController)
+        public override void Initialize(Typo.Utilities.Cameras.CameraController cameraController)
         {
             base.Initialize(cameraController);
 

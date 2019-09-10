@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System;
-using AdvancedUtilities.LerpTransformers;
+using Typo.Utilities.LerpTransformers;
 
-namespace AdvancedUtilities.Cameras.Components
+namespace Typo.Utilities.Cameras.Components
 {
     /// <summary>
     /// The state of this component is persistant between calls for calculations, 
@@ -131,7 +131,7 @@ namespace AdvancedUtilities.Cameras.Components
 
         #endregion
 
-        public override void Initialize(AdvancedUtilities.Cameras.CameraController cameraController)
+        public override void Initialize(Typo.Utilities.Cameras.CameraController cameraController)
         {
             base.Initialize(cameraController);
 
